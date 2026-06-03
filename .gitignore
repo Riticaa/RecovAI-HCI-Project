@@ -1,13 +1,18 @@
-.venv/
-venv/
 __pycache__/
 *.pyc
-.ipynb_checkpoints/
-.qodo/
+
+venv/
+.venv/
+
 .env
 
-recovai_output/*.pkl
-*.pkl
+recovai.db
 
-*.db
+*.pkl
+recovai_output/*.pkl
+
+.ipynb_checkpoints/
+
 .DS_Store
+.qodo/
+.idea/
