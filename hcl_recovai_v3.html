@@ -785,9 +785,10 @@ table.hcl tbody tr:hover{background:#F7E3D0}
   <button class="util-btn" onclick="openSR()" data-i18n="btn_sr">स्क्रीन रीडर एक्सेस</button>
   <button class="util-btn" style="padding:4px 8px" onclick="applyFont(currentFont - 2)" title="Decrease Font">A-</button>
   <button class="util-btn" style="padding:4px 8px" onclick="applyFont(DEFAULT_FONT)" title="Reset Font">A</button>
-  <button class="util-btn" style="padding:4px 8px" onclick="applyFont(currentFont + 2)" title="Increase Font">A+</button>
-  <button class="util-btn lang-toggle-btn" id="langToggleBtn" onclick="toggleLang()">🌐 English</button>
-  <div class="util-spacer"></div>
+  <div class="lang-switch-box" style="display:inline-flex;border-radius:4px;overflow:hidden;border:1px solid rgba(255,255,255,0.4);margin-left:6px;vertical-align:middle;">
+    <button type="button" class="util-btn lang-btn" id="langBtnEn" onclick="applyLang('en')" style="padding:4px 10px;font-weight:700;font-size:12px;background:rgba(255,255,255,0.25);color:#fff;border:none;cursor:pointer;">English</button>
+    <button type="button" class="util-btn lang-btn" id="langBtnHi" onclick="applyLang('hi')" style="padding:4px 10px;font-weight:500;font-size:12px;background:transparent;color:#fff;border:none;border-left:1px solid rgba(255,255,255,0.3);cursor:pointer;">हिन्दी</button>
+  </div>
   <div role="search" style="display:flex;gap:0">
     <input id="utilSearch" placeholder="खोजें / Search.." data-i18n-ph="ph_search" aria-label="Search site content"/>
     <button class="util-search-btn" onclick="doSearch()" aria-label="Submit search">🔍</button>
@@ -1793,8 +1794,8 @@ table.hcl tbody tr:hover{background:#F7E3D0}
 
   <!-- Bottom Bar with Copyright & Scroll to Top button -->
   <div class="footer-bottom-bar">
-    <div style="font-size:13.5px;font-weight:500;color:var(--hcl-gold);letter-spacing:0.3px;">
-      कॉपीराइट © 2017 हिंदुस्तान कॉपर लिमिटेड। सर्वाधिकार सुरक्षित।
+    <div style="font-size:13.5px;font-weight:500;color:var(--hcl-gold);letter-spacing:0.3px;" data-i18n="ft_bottom_copy">
+      Copyright © 2017 Hindustan Copper Limited. All Rights Reserved.
     </div>
     <button type="button" class="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="पृष्ठ के शीर्ष पर जाएं" aria-label="Scroll to top">
       ↑
@@ -3449,24 +3450,36 @@ const STRINGS = {
     ft_col1_title: 'महत्वपूर्ण लिंक',
     ft_col2_title: 'महत्वपूर्ण लिंक',
     ft_social: 'सामाजिक लिंक',
+    ft_bottom_copy: 'कॉपीराइट © 2017 हिंदुस्तान कॉपर लिमिटेड। सर्वाधिकार सुरक्षित।',
     ql_header: 'त्वरित लिंक',
     ql_manual: 'प्लांट संचालन मैनुअल',
     ql_safety: 'सुरक्षा दिशानिर्देश',
     ql_control: 'कंट्रोल रूम',
-    ql_hcl: 'एचसीएल आधिकारिक पोर्टल'
+    ql_hcl: 'एचसीएल आधिकारिक पोर्टल',
+    ticker_badge: 'लाइव प्लांट स्थिति',
+    ticker_item1: '📍 मलांजखंड कॉपर प्रोजेक्ट (MCP) · फ्लोटेशन सेल 1–8 सक्रिय',
+    ticker_item2: '🎯 बेंचमार्क रिकवरी: 85.0% | वर्तमान AI मॉडल अनुमान: 87.4%',
+    ticker_item3: '🧪 पीएच संतुलन: 10.5 (इष्टतम 10.2–11.2) | एसआईपीएक्स: 35.0 g/t',
+    ticker_item4: '🛡️ संयंत्र स्थिति: सुरक्षित सामान्य (Zero Critical Anomalies)',
+    sb_sec_modules: 'RecovAI मॉड्यूल'
   },
   en: {
     brand_name: 'Hindustan Copper Limited',
     brand_sub: '(A Govt. of India Enterprise)',
-    brand_tag: "Nation's Copper Miner",
-    ticker_label: '🔴 MCP LIVE PLANT TELEMETRY',
-    nav_home: 'Home', nav_predictor: 'Recovery Predictor',
-    nav_optimizer: 'Reagent Optimizer', nav_anomaly: 'Anomaly Alerts',
-    nav_dashboard: 'Shift Dashboard', nav_features: 'Feature Explorer',
-    nav_report: 'Shift Report', nav_chat: 'Ask the Plant',
+    brand_tagline: "Nation's Copper Miner",
+    ticker_badge: 'LIVE PLANT STATUS',
+    ticker_item1: '📍 Malanjkhand Copper Project (MCP) · Flotation Cells 1–8 Active',
+    ticker_item2: '🎯 Benchmark Recovery: 85.0% | Current AI Model Estimate: 87.4%',
+    ticker_item3: '🧪 pH Balance: 10.5 (Optimal 10.2–11.2) | SIPX: 35.0 g/t',
+    ticker_item4: '🛡️ Plant Status: Safe Steady-State (Zero Critical Anomalies)',
+    sb_sec_modules: 'RecovAI Modules',
+    nav_home: 'Home', nav_predictor: 'Recovery Predictor ▾',
+    nav_optimizer: 'Reagent Optimizer ▾', nav_anomaly: 'Anomaly Alerts ▾',
+    nav_dashboard: 'Shift Dashboard ▾', nav_features: 'Feature Explorer ▾',
+    nav_report: 'Shift Report ▾', nav_chat: 'Ask the Plant ▾',
     nav_forecast: 'Trend Forecaster', nav_submit: 'Submit Shift', nav_history: 'History',
     btn_login: 'Operational Login', btn_sr: 'Screen Reader Access',
-    btn_search: 'Search', btn_hindi: '🌐 हिन्दी',
+    ph_search: 'Search site content...',
     lnk_career: 'Career', lnk_exemp: 'Ex-Employee Corner',
     lnk_feedback: 'Feedback', lnk_contact: 'Contact Us',
     sb_home: 'Home', sb_predictor: 'Recovery Predictor',
@@ -3480,9 +3493,9 @@ const STRINGS = {
     btn_send: 'Send', btn_forecast: 'Generate Forecast', btn_submit: 'Submit',
     btn_submit_shift: 'Submit & Predict', btn_reset: 'Reset Form',
     btn_refresh: 'Refresh', btn_load_hist: 'Load History',
-    preset_normal: '⚡ Normal Steady Run',
-    preset_fines: '⚡ High Fines (>80%)',
-    preset_lowgrade: '⚡ Low Grade Ore (<0.8%)',
+    preset_normal: '⚡ Normal Ore',
+    preset_fines: '⚡ High Fines',
+    preset_lowgrade: '⚡ Low Grade',
     preset_peak: '⚡ Peak Recovery (88%+)',
     lbl_sel_model: 'Select Model:',
     sec_feed_conditions: 'Feed & Process Conditions',
@@ -3500,7 +3513,7 @@ const STRINGS = {
     lbl_lime: 'Lime Dosage (kg/t)',
     lbl_depressant: 'Depressant Dosage (g/t)',
     sec_pred_result: 'Prediction Results',
-    res_pred_rec: 'Predicted Copper Recovery',
+    res_pred_rec: 'Estimated Copper Recovery',
     res_ci_lo: '90% Confidence Interval (Lower)',
     res_ci_hi: '90% Confidence Interval (Upper)',
     ft_visitors: 'Visitors',
@@ -3508,6 +3521,7 @@ const STRINGS = {
     ft_col1_title: 'Important Links',
     ft_col2_title: 'Important Links',
     ft_social: 'Social Links',
+    ft_bottom_copy: 'Copyright © 2017 Hindustan Copper Limited. All Rights Reserved.',
     ql_header: 'Quick Links',
     ql_manual: 'Plant Operations Manual',
     ql_safety: 'Safety Guidelines',
@@ -3516,7 +3530,7 @@ const STRINGS = {
   }
 };
 
-let lang = localStorage.getItem('hcl_lang') || 'hi';
+let lang = localStorage.getItem('hcl_lang') || 'en'; // Default is English
 
 function applyLang(l) {
   lang = l;
@@ -3537,9 +3551,20 @@ function applyLang(l) {
     }
   });
 
-  const toggleBtn = document.getElementById('langToggleBtn');
-  if (toggleBtn) {
-    toggleBtn.textContent = l === 'hi' ? '🌐 English' : '🌐 हिन्दी';
+  const btnEn = document.getElementById('langBtnEn');
+  const btnHi = document.getElementById('langBtnHi');
+  if (btnEn && btnHi) {
+    if (l === 'hi') {
+      btnHi.style.background = 'rgba(255,255,255,0.35)';
+      btnHi.style.fontWeight = '700';
+      btnEn.style.background = 'transparent';
+      btnEn.style.fontWeight = '500';
+    } else {
+      btnEn.style.background = 'rgba(255,255,255,0.35)';
+      btnEn.style.fontWeight = '700';
+      btnHi.style.background = 'transparent';
+      btnHi.style.fontWeight = '500';
+    }
   }
 }
 
