@@ -781,30 +781,30 @@ table.hcl tbody tr:hover{background:#F7E3D0}
 <div id="utilBar">
   <a class="home-icon" href="#" onclick="showPage('home')" title="Home / मुख्य पृष्ठ"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="3 9 12 2 21 9"/><rect x="5" y="9" width="14" height="13"/></svg></a>
   <button class="util-btn" id="hamburger" onclick="toggleSidebar()">☰</button>
-  <button class="util-btn" id="loginBtn" onclick="openLoginModal()" data-i18n="btn_login">परिचालन लॉगिन</button>
-  <button class="util-btn" onclick="openSR()" data-i18n="btn_sr">स्क्रीन रीडर एक्सेस</button>
+  <button class="util-btn" id="loginBtn" onclick="openLoginModal()" data-i18n="btn_login">Operational Login</button>
+  <button class="util-btn" onclick="openSR()" data-i18n="btn_sr">Screen Reader Access</button>
   <button class="util-btn" style="padding:4px 8px" onclick="applyFont(currentFont - 2)" title="Decrease Font">A-</button>
   <button class="util-btn" style="padding:4px 8px" onclick="applyFont(DEFAULT_FONT)" title="Reset Font">A</button>
   <div class="lang-switch-box" style="display:inline-flex;border-radius:4px;overflow:hidden;border:1px solid rgba(255,255,255,0.4);margin-left:6px;vertical-align:middle;">
-    <button type="button" class="util-btn lang-btn" id="langBtnEn" onclick="applyLang('en')" style="padding:4px 10px;font-weight:700;font-size:12px;background:rgba(255,255,255,0.25);color:#fff;border:none;cursor:pointer;">English</button>
+    <button type="button" class="util-btn lang-btn" id="langBtnEn" onclick="applyLang('en')" style="padding:4px 10px;font-weight:700;font-size:12px;background:rgba(255,255,255,0.35);color:#fff;border:none;cursor:pointer;">English</button>
     <button type="button" class="util-btn lang-btn" id="langBtnHi" onclick="applyLang('hi')" style="padding:4px 10px;font-weight:500;font-size:12px;background:transparent;color:#fff;border:none;border-left:1px solid rgba(255,255,255,0.3);cursor:pointer;">हिन्दी</button>
   </div>
   <div role="search" style="display:flex;gap:0">
-    <input id="utilSearch" placeholder="खोजें / Search.." data-i18n-ph="ph_search" aria-label="Search site content"/>
+    <input id="utilSearch" placeholder="Search site content..." data-i18n-ph="ph_search" aria-label="Search site content"/>
     <button class="util-search-btn" onclick="doSearch()" aria-label="Submit search">🔍</button>
   </div>
 </div>
 
-<!-- ═══════════════ HEADER ROW 2: LOGO BAR (Uploaded HCL Branding) ═══════════════ -->
+<!-- ═══════════════ HEADER ROW 2: LOGO BAR ═══════════════ -->
 <div id="logoBar">
   <div class="logo-area">
     <div style="width:78px;flex-shrink:0">
       <img src="assets/logo.png" alt="HCL Logo" style="width:78px;height:78px;border:none;object-fit:contain"/>
     </div>
     <div class="logo-text-block">
-      <div class="logo-name" data-i18n="brand_name">हिंदुस्तान कॉपर लिमिटेड</div>
-      <div class="logo-sub" data-i18n="brand_sub">(भारत सरकार का उद्यम)</div>
-      <div class="logo-tagline" data-i18n="brand_tagline">राष्ट्र का ताम्र खनिक</div>
+      <div class="logo-name" data-i18n="brand_name">Hindustan Copper Limited</div>
+      <div class="logo-sub" data-i18n="brand_sub">(A Govt. of India Enterprise)</div>
+      <div class="logo-tagline" data-i18n="brand_tagline">Tamra Bhavan · Nation's Copper Miner</div>
     </div>
   </div>
   <div class="azadi-badge">
@@ -812,39 +812,39 @@ table.hcl tbody tr:hover{background:#F7E3D0}
     <img src="assets/betibachaobetipadhao.png" alt="Beti Bachao Beti Padhao"/>
   </div>
   <div class="header-links">
-    <a href="#" onclick="showPage('career');return false" data-i18n="lnk_career">करियर</a>
-    <a href="#" onclick="showPage('exemployee');return false" data-i18n="lnk_exemp">पूर्व कर्मचारी कॉर्नर</a>
-    <a href="#" onclick="showPage('feedback');return false" data-i18n="lnk_feedback">प्रतिक्रिया</a>
-    <a href="#" onclick="showPage('contact');return false" data-i18n="lnk_contact">हमसे संपर्क करें</a>
+    <a href="#" onclick="showPage('career');return false" data-i18n="lnk_career">Career</a>
+    <a href="#" onclick="showPage('exemployee');return false" data-i18n="lnk_exemp">Ex-Employee Corner</a>
+    <a href="#" onclick="showPage('feedback');return false" data-i18n="lnk_feedback">Feedback</a>
+    <a href="#" onclick="showPage('contact');return false" data-i18n="lnk_contact">Contact Us</a>
   </div>
 </div>
 
 <!-- ═══════════════ HEADER ROW 3: MAIN NAV ═══════════════ -->
 <div id="mainNav">
-  <a class="nav-link active" onclick="showPage('home')" data-i18n="nav_home">होम</a>
-  <a class="nav-link" onclick="showPage('predictor')" data-i18n="nav_predictor">रिकवरी प्रेडिक्टर ▾</a>
-  <a class="nav-link" onclick="showPage('optimizer')" data-i18n="nav_optimizer">रीएजेंट ऑप्टिमाइज़र ▾</a>
-  <a class="nav-link" onclick="showPage('anomaly')" data-i18n="nav_anomaly">असामान्यता अलर्ट ▾</a>
-  <a class="nav-link" onclick="showPage('dashboard')" data-i18n="nav_dashboard">शिफ्ट डैशबोर्ड ▾</a>
-  <a class="nav-link" onclick="showPage('features')" data-i18n="nav_features">फीचर एक्सप्लोरर ▾</a>
-  <a class="nav-link" onclick="showPage('report')" data-i18n="nav_report">शिफ्ट रिपोर्ट ▾</a>
-  <a class="nav-link" onclick="showPage('chat')" data-i18n="nav_chat">प्लांट से पूछें ▾</a>
-  <a class="nav-link" onclick="showPage('forecast')" data-i18n="nav_forecast">ट्रेंड फोरकास्टर</a>
-  <a class="nav-link" onclick="showPage('submit')" data-i18n="nav_submit">शिफ्ट सबमिट करें</a>
-  <a class="nav-link" onclick="showPage('history')" data-i18n="nav_history">इतिहास</a>
+  <a class="nav-link active" onclick="showPage('home')" data-i18n="nav_home">Home</a>
+  <a class="nav-link" onclick="showPage('predictor')" data-i18n="nav_predictor">Recovery Predictor ▾</a>
+  <a class="nav-link" onclick="showPage('optimizer')" data-i18n="nav_optimizer">Reagent Optimizer ▾</a>
+  <a class="nav-link" onclick="showPage('anomaly')" data-i18n="nav_anomaly">Anomaly Alerts ▾</a>
+  <a class="nav-link" onclick="showPage('dashboard')" data-i18n="nav_dashboard">Shift Dashboard ▾</a>
+  <a class="nav-link" onclick="showPage('features')" data-i18n="nav_features">Feature Explorer ▾</a>
+  <a class="nav-link" onclick="showPage('report')" data-i18n="nav_report">Shift Report ▾</a>
+  <a class="nav-link" onclick="showPage('chat')" data-i18n="nav_chat">Ask the Plant ▾</a>
+  <a class="nav-link" onclick="showPage('forecast')" data-i18n="nav_forecast">Trend Forecaster</a>
+  <a class="nav-link" onclick="showPage('submit')" data-i18n="nav_submit">Submit Shift</a>
+  <a class="nav-link" onclick="showPage('history')" data-i18n="nav_history">History</a>
 </div>
 
 <!-- ═══════════════ LIVE PLANT STATUS TICKER ═══════════════ -->
 <div id="plantTicker">
   <div class="ticker-badge">
     <span class="ticker-pulse"></span>
-    <span data-i18n="ticker_badge">लाइव प्लांट स्थिति</span>
+    <span data-i18n="ticker_badge">LIVE PLANT STATUS</span>
   </div>
   <div class="ticker-stream">
-    <span data-i18n="ticker_item1">📍 मलांजखंड कॉपर प्रोजेक्ट (MCP) · फ्लोटेशन सेल 1–8 सक्रिय</span>
-    <span data-i18n="ticker_item2">🎯 बेंचमार्क रिकवरी: 85.0% | वर्तमान AI मॉडल अनुमान: 87.4%</span>
-    <span data-i18n="ticker_item3">🧪 पीएच संतुलन: 10.5 (इष्टतम 10.2–11.2) | एसआईपीएक्स: 35.0 g/t</span>
-    <span data-i18n="ticker_item4">🛡️ संयंत्र स्थिति: सुरक्षित सामान्य (Zero Critical Anomalies)</span>
+    <span data-i18n="ticker_item1">📍 Malanjkhand Copper Project (MCP) · Flotation Cells 1–8 Active</span>
+    <span data-i18n="ticker_item2">🎯 Benchmark Recovery: 85.0% | Current AI Model Estimate: 87.4%</span>
+    <span data-i18n="ticker_item3">🧪 pH Balance: 10.5 (Optimal 10.2–11.2) | SIPX: 35.0 g/t</span>
+    <span data-i18n="ticker_item4">🛡️ Plant Status: Safe Steady-State (Zero Critical Anomalies)</span>
   </div>
 </div>
 
@@ -852,24 +852,24 @@ table.hcl tbody tr:hover{background:#F7E3D0}
 <div id="bodyWrap">
 
   <div id="sidebar">
-    <div class="sb-section-hdr" data-i18n="sb_sec_modules">RecovAI मॉड्यूल</div>
-    <a class="sb-item active" onclick="showPage('home')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="3 9 12 2 21 9"/><rect x="5" y="9" width="14" height="13"/></svg></span><span data-i18n="sb_home">होम</span></a>
-    <a class="sb-item" onclick="showPage('predictor')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></span><span data-i18n="sb_predictor">रिकवरी प्रेडिक्टर</span></a>
-    <a class="sb-item" onclick="showPage('optimizer')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 3h6v9H9z"/><path d="M9 12v9h6v-9"/></svg></span><span data-i18n="sb_optimizer">रीएजेंट ऑप्टिमाइज़र</span></a>
-    <a class="sb-item" onclick="showPage('anomaly')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span><span data-i18n="sb_anomaly">असामान्यता अलर्ट</span></a>
-    <a class="sb-item" onclick="showPage('dashboard')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg></span><span data-i18n="sb_dashboard">शिफ्ट डैशबोर्ड</span></a>
-    <a class="sb-item" onclick="showPage('features')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2v6l-2 4h16l-2-4V2"/><line x1="6" y1="2" x2="18" y2="2"/></svg></span><span data-i18n="sb_features">फीचर एक्सप्लोरर</span></a>
-    <a class="sb-item" onclick="showPage('report')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg></span><span data-i18n="sb_report">शिफ्ट रिपोर्ट</span></a>
-    <a class="sb-item" onclick="showPage('chat')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span data-i18n="sb_chat">प्लांट से पूछें</span></a>
-    <a class="sb-item" onclick="showPage('forecast')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span><span data-i18n="sb_forecast">ट्रेंड फोरकास्टर</span></a>
-    <div class="sb-section-hdr" data-i18n="sb_sec_shift">शिफ्ट प्रविष्टि</div>
-    <a class="sb-item" onclick="showPage('submit')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span><span data-i18n="sb_submit">शिफ्ट डेटा सबमिट करें</span></a>
-    <a class="sb-item" onclick="showPage('history')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="4"/><rect x="3" y="10" width="18" height="4"/><rect x="3" y="17" width="18" height="4"/></svg></span><span data-i18n="sb_history">सबमिशन इतिहास</span></a>
-    <div class="sb-section-hdr" data-i18n="ql_header">महत्वपूर्ण लिंक</div>
-    <a class="sb-item" href="#"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="2" width="14" height="20" rx="2"/><polyline points="9 2 9 6 15 6 15 2"/></svg></span><span data-i18n="ql_manual">संयंत्र संचालन नियमावली</span></a>
-    <a class="sb-item" href="#"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><span data-i18n="ql_safety">सुरक्षा दिशानिर्देश</span></a>
-    <a class="sb-item" href="#"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 13 19.79 19.79 0 0 1 1.08 4.18 2 2 0 0 1 3.05 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span data-i18n="ql_control">कंट्रोल रूम संपर्क</span></a>
-    <a class="sb-item" href="https://www.hindustancopper.com" target="_blank"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="7" width="20" height="15"/><polyline points="2 7 12 2 22 7"/><line x1="12" y1="2" x2="12" y2="22"/></svg></span><span data-i18n="ql_hcl">एचसीएल आधिकारिक पोर्टल</span></a>
+    <div class="sb-section-hdr" data-i18n="sb_sec_modules">RecovAI Modules</div>
+    <a class="sb-item active" onclick="showPage('home')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="3 9 12 2 21 9"/><rect x="5" y="9" width="14" height="13"/></svg></span><span data-i18n="sb_home">Home</span></a>
+    <a class="sb-item" onclick="showPage('predictor')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></span><span data-i18n="sb_predictor">Recovery Predictor</span></a>
+    <a class="sb-item" onclick="showPage('optimizer')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 3h6v9H9z"/><path d="M9 12v9h6v-9"/></svg></span><span data-i18n="sb_optimizer">Reagent Optimizer</span></a>
+    <a class="sb-item" onclick="showPage('anomaly')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span><span data-i18n="sb_anomaly">Anomaly Alerts</span></a>
+    <a class="sb-item" onclick="showPage('dashboard')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg></span><span data-i18n="sb_dashboard">Shift Dashboard</span></a>
+    <a class="sb-item" onclick="showPage('features')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2v6l-2 4h16l-2-4V2"/><line x1="6" y1="2" x2="18" y2="2"/></svg></span><span data-i18n="sb_features">Feature Explorer</span></a>
+    <a class="sb-item" onclick="showPage('report')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg></span><span data-i18n="sb_report">Shift Report</span></a>
+    <a class="sb-item" onclick="showPage('chat')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span data-i18n="sb_chat">Ask the Plant</span></a>
+    <a class="sb-item" onclick="showPage('forecast')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span><span data-i18n="sb_forecast">Trend Forecaster</span></a>
+    <div class="sb-section-hdr" data-i18n="sb_sec_shift">Shift Entry</div>
+    <a class="sb-item" onclick="showPage('submit')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span><span data-i18n="sb_submit">Submit Shift Data</span></a>
+    <a class="sb-item" onclick="showPage('history')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="4"/><rect x="3" y="10" width="18" height="4"/><rect x="3" y="17" width="18" height="4"/></svg></span><span data-i18n="sb_history">Submission History</span></a>
+    <div class="sb-section-hdr" data-i18n="ql_header">Quick Links</div>
+    <a class="sb-item" href="#"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="2" width="14" height="20" rx="2"/><polyline points="9 2 9 6 15 6 15 2"/></svg></span><span data-i18n="ql_manual">Plant Operations Manual</span></a>
+    <a class="sb-item" href="#"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><span data-i18n="ql_safety">Safety Guidelines</span></a>
+    <a class="sb-item" href="#"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 13 19.79 19.79 0 0 1 1.08 4.18 2 2 0 0 1 3.05 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span data-i18n="ql_control">Control Room Contacts</span></a>
+    <a class="sb-item" href="https://www.hindustancopper.com" target="_blank"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="7" width="20" height="15"/><polyline points="2 7 12 2 22 7"/><line x1="12" y1="2" x2="12" y2="22"/></svg></span><span data-i18n="ql_hcl">HCL Official Portal</span></a>
   </div>
 
   <!-- CONTENT AREA -->
@@ -879,41 +879,41 @@ table.hcl tbody tr:hover{background:#F7E3D0}
          PAGE 1: HOME
     ══════════════════════════════════════ -->
     <div class="page-section active" id="page-home">
-      <div class="page-title" data-i18n="p1_title">RecovAI — ताम्र फ्लोटेशन निर्णय समर्थन प्रणाली</div>
-      <p class="intro-para" data-i18n="p1_intro">RecovAI हिंदुस्तान कॉपर लिमिटेड के मलांजखंड कॉपर प्रोजेक्ट (मध्य प्रदेश) के लिए निर्मित एक उन्नत एआई-संचालित निर्णय समर्थन प्रणाली है। यह वास्तविक समय में तांबा रिकवरी दर की भविष्यवाणी, अभिकर्मक खुराक का अनुकूलन, परिचालन असामान्यता की पहचान और स्वचालित शिफ्ट रिपोर्ट प्रदान करता है।</p>
+      <div class="page-title" data-i18n="p1_title">RecovAI — Copper Flotation Decision Support System</div>
+      <p class="intro-para" data-i18n="p1_intro">RecovAI is an advanced AI-powered Decision Support System built for Hindustan Copper Limited, Malanjkhand Copper Project (MCP), Madhya Pradesh. It provides real-time copper recovery forecasting, reagent dosage optimization, operational anomaly detection, and automated shift reporting.</p>
 
       <div class="status-bar" data-i18n="p1_statusbar">
-        सक्रिय मॉडल: 3 &nbsp;|&nbsp; XGBoost &nbsp;|&nbsp; Random Forest &nbsp;|&nbsp; Linear &nbsp;|&nbsp; कुल शिफ्ट डेटा: 2,847 &nbsp;|&nbsp; ऐतिहासिक औसत रिकवरी: 83.6% &nbsp;|&nbsp; बेंचमार्क लक्ष्य: 85.0%
+        Active Models: 3 &nbsp;|&nbsp; XGBoost &nbsp;|&nbsp; Random Forest &nbsp;|&nbsp; Linear &nbsp;|&nbsp; Shift Records: 1,778 &nbsp;|&nbsp; Historic Avg Recovery: 83.6% &nbsp;|&nbsp; Benchmark Target: 85.0%
       </div>
 
-      <div class="sub-hdr" data-i18n="p1_mod_overview">मॉड्यूल विहंगावलोकन (Module Overview)</div>
+      <div class="sub-hdr" data-i18n="p1_mod_overview">Module Overview</div>
       <div class="tbl-wrap">
         <table class="hcl">
-          <thead><tr><th data-i18n="th_module">मॉड्यूल</th><th data-i18n="th_desc">विवरण</th><th data-i18n="th_engine">इंजन</th><th data-i18n="th_type">प्रकार</th><th data-i18n="th_status">स्थिति</th></tr></thead>
+          <thead><tr><th data-i18n="th_module">Module</th><th data-i18n="th_desc">Description</th><th data-i18n="th_engine">Engine</th><th data-i18n="th_type">Type</th><th data-i18n="th_status">Status</th></tr></thead>
           <tbody>
-            <tr><td data-i18n="sb_predictor">रिकवरी प्रेडिक्टर</td><td data-i18n="m_desc1">अगली शिफ्ट के लिए 90% विश्वास अंतराल के साथ कॉपर रिकवरी % की भविष्यवाणी</td><td>XGBoost / RF / Linear</td><td>Core</td><td style="color:var(--hcl-success);font-weight:700">● सक्रिय (Active)</td></tr>
-            <tr><td data-i18n="sb_optimizer">रीएजेंट ऑप्टिमाइज़र</td><td data-i18n="m_desc2">85%+ रिकवरी के लिए न्यूनतम लागत अभिकर्मक खुराक की गणना (इंजन 1)</td><td>engine1_reagent.py</td><td>Core</td><td style="color:var(--hcl-success);font-weight:700">● सक्रिय (Active)</td></tr>
-            <tr><td data-i18n="sb_anomaly">असामान्यता अलर्ट</td><td data-i18n="m_desc3">असामान्य परिचालन स्थितियों की पूर्व चेतावनी (इंजन 2 - आइसोलेशन फ़ॉरेस्ट)</td><td>engine2_anomaly.py</td><td>Core</td><td style="color:var(--hcl-success);font-weight:700">● सक्रिय (Active)</td></tr>
-            <tr><td data-i18n="sb_dashboard">शिफ्ट डैशबोर्ड</td><td data-i18n="m_desc4">ऐतिहासिक बनाम वास्तविक प्रदर्शन विश्लेषण</td><td>Dashboard</td><td>Analysis</td><td style="color:var(--hcl-success);font-weight:700">● सक्रिय (Active)</td></tr>
-            <tr><td data-i18n="sb_features">फीचर एक्सप्लोरर</td><td data-i18n="m_desc5">एसएचएपी (SHAP) व्याख्यात्मकता और आंशिक निर्भरता प्लॉट (इंजन 3)</td><td>engine3_shap.py</td><td>Analysis</td><td style="color:var(--hcl-success);font-weight:700">● सक्रिय (Active)</td></tr>
-            <tr><td data-i18n="sb_report">शिफ्ट रिपोर्ट</td><td data-i18n="m_desc6">ऑपरेटर और प्रबंधक के लिए स्वचालित प्राकृतिक भाषा शिफ्ट रिपोर्ट (इंजन 5)</td><td>engine5_nlp.py</td><td>Analysis</td><td style="color:var(--hcl-success);font-weight:700">● सक्रिय (Active)</td></tr>
-            <tr><td data-i18n="sb_chat">प्लांट से पूछें</td><td data-i18n="m_desc7">शिफ्ट इतिहास और प्रक्रियाओं पर ऑपरेटर प्रश्नोत्तरी चैटबॉट</td><td>engine5_nlp.py</td><td>AI</td><td style="color:var(--hcl-success);font-weight:700">● सक्रिय (Active)</td></tr>
-            <tr><td data-i18n="sb_forecast">ट्रेंड फोरकास्टर</td><td data-i18n="m_desc8">7–30 दिन की आगामी रिकवरी प्रवृत्ति और पीएसआई डेटा ड्रिफ्ट मॉनिटर</td><td>PSI Monitor (Engine 4)</td><td>AI</td><td style="color:var(--hcl-success);font-weight:700">● सक्रिय (Active)</td></tr>
+            <tr><td data-i18n="sb_predictor">Recovery Predictor</td><td data-i18n="m_desc1">Forecast concentrate Cu recovery % with 90% confidence intervals for the next shift</td><td>XGBoost / RF / Linear</td><td>Core</td><td style="color:var(--hcl-success);font-weight:700">● Active</td></tr>
+            <tr><td data-i18n="sb_optimizer">Reagent Optimizer</td><td data-i18n="m_desc2">Calculates least-cost reagent dosages for 85%+ target recovery (Engine 1)</td><td>engine1_reagent.py</td><td>Core</td><td style="color:var(--hcl-success);font-weight:700">● Active</td></tr>
+            <tr><td data-i18n="sb_anomaly">Anomaly Alerts</td><td data-i18n="m_desc3">Early warning on out-of-distribution plant operating conditions (Engine 2 - Isolation Forest)</td><td>engine2_anomaly.py</td><td>Core</td><td style="color:var(--hcl-success);font-weight:700">● Active</td></tr>
+            <tr><td data-i18n="sb_dashboard">Shift Dashboard</td><td data-i18n="m_desc4">Historical vs actual performance analytics across plant shifts</td><td>Dashboard</td><td>Analysis</td><td style="color:var(--hcl-success);font-weight:700">● Active</td></tr>
+            <tr><td data-i18n="sb_features">Feature Explorer</td><td data-i18n="m_desc5">SHAP explainability & Partial Dependence Plots (Engine 3)</td><td>engine3_shap.py</td><td>Analysis</td><td style="color:var(--hcl-success);font-weight:700">● Active</td></tr>
+            <tr><td data-i18n="sb_report">Shift Report</td><td data-i18n="m_desc6">Automated natural language shift report for operators & management (Engine 5)</td><td>engine5_nlp.py</td><td>Analysis</td><td style="color:var(--hcl-success);font-weight:700">● Active</td></tr>
+            <tr><td data-i18n="sb_chat">Ask the Plant</td><td data-i18n="m_desc7">Operator Q&A chatbot grounded in shift history & operational procedures</td><td>engine5_nlp.py</td><td>AI</td><td style="color:var(--hcl-success);font-weight:700">● Active</td></tr>
+            <tr><td data-i18n="sb_forecast">Trend Forecaster</td><td data-i18n="m_desc8">7–30 day forward recovery forecasting & PSI data drift monitoring</td><td>PSI Monitor (Engine 4)</td><td>AI</td><td style="color:var(--hcl-success);font-weight:700">● Active</td></tr>
           </tbody>
         </table>
       </div>
 
-      <div class="sub-hdr" data-i18n="p1_benchmarks">संयंत्र बेंचमार्क (Plant Benchmarks)</div>
+      <div class="sub-hdr" data-i18n="p1_benchmarks">Plant Benchmarks</div>
       <table class="hcl" style="max-width:540px">
-        <thead><tr><th data-i18n="th_param">पैरामीटर</th><th data-i18n="th_val">मानक मान / सीमा</th></tr></thead>
+        <thead><tr><th data-i18n="th_param">Parameter</th><th data-i18n="th_val">Standard Value / Range</th></tr></thead>
         <tbody>
-          <tr><td data-i18n="bm_target">रिकवरी बेंचमार्क लक्ष्य</td><td><strong>85.0%</strong></td></tr>
-          <tr><td data-i18n="bm_conc_grade">कॉन्सेंट्रेट ग्रेड</td><td>28.0% Cu (मानक)</td></tr>
-          <tr><td data-i18n="bm_ph_range">फ्लोटेशन पीएच सीमा</td><td>10.2 – 11.2</td></tr>
-          <tr><td data-i18n="bm_sipx_range">एसआईपीएक्स खुराक सीमा</td><td>10 – 80 g/t</td></tr>
-          <tr><td data-i18n="bm_frother_range">झाग कारक (Frother) सीमा</td><td>5 – 40 g/t</td></tr>
-          <tr><td data-i18n="bm_lime_range">चूना (Lime) खुराक सीमा</td><td>0.5 – 5.0 kg/t</td></tr>
-          <tr><td data-i18n="bm_dep_range">अवसादक (Depressant) सीमा</td><td>5 – 50 g/t</td></tr>
+          <tr><td data-i18n="bm_target">Target Recovery Benchmark</td><td><strong>85.0%</strong></td></tr>
+          <tr><td data-i18n="bm_conc_grade">Target Concentrate Grade</td><td>28.0% Cu (Standard)</td></tr>
+          <tr><td data-i18n="bm_ph_range">Flotation pH Range</td><td>10.2 – 11.2</td></tr>
+          <tr><td data-i18n="bm_sipx_range">SIPX Dosage Range</td><td>10 – 80 g/t</td></tr>
+          <tr><td data-i18n="bm_frother_range">Frother Dosage Range</td><td>5 – 40 g/t</td></tr>
+          <tr><td data-i18n="bm_lime_range">Lime Dosage Range</td><td>0.5 – 5.0 kg/t</td></tr>
+          <tr><td data-i18n="bm_dep_range">Depressant Dosage Range</td><td>5 – 50 g/t</td></tr>
         </tbody>
       </table>
     </div>
@@ -922,86 +922,86 @@ table.hcl tbody tr:hover{background:#F7E3D0}
          PAGE 2: RECOVERY PREDICTOR
     ══════════════════════════════════════ -->
     <div class="page-section" id="page-predictor">
-      <div class="page-title" data-i18n="p2_title">ताम्र रिकवरी प्रेडिक्टर (Recovery Predictor)</div>
-      <p class="intro-para" data-i18n="p2_intro">शिफ्ट के प्रक्रिया मापदंड दर्ज करें। 12 प्रक्रिया चरों के आधार पर मशीन लर्निंग मॉडल तांबा रिकवरी प्रतिशत की सटीक भविष्यवाणी करेगा तथा एसएचएपी विश्लेषण प्रस्तुत करेगा।</p>
+      <div class="page-title" data-i18n="p2_title">Flotation Recovery Predictor</div>
+      <p class="intro-para" data-i18n="p2_intro">Enter operating conditions for the upcoming shift. The machine learning model will forecast copper concentrate recovery % and calculate SHAP feature contributions across 12 process variables.</p>
 
       <!-- Quick Operational Presets Bar -->
       <div class="preset-bar">
-        <span style="font-size:13px;font-weight:700;color:var(--hcl-copper)" data-i18n="lbl_preset">त्वरित परिचालन प्रीसेट:</span>
-        <button type="button" class="preset-btn" onclick="applyPreset('normal')" data-i18n="preset_normal">⚡ सामान्य अयस्क (Normal Ore)</button>
-        <button type="button" class="preset-btn" onclick="applyPreset('fines')" data-i18n="preset_fines">⚡ उच्च फाइन्स (High Fines)</button>
-        <button type="button" class="preset-btn" onclick="applyPreset('lowgrade')" data-i18n="preset_lowgrade">⚡ कम ग्रेड (Low Grade)</button>
-        <button type="button" class="preset-btn" onclick="applyPreset('peak')" data-i18n="preset_peak">⚡ पीक रिकवरी (Peak 88%+)</button>
+        <span style="font-size:13px;font-weight:700;color:var(--hcl-copper)" data-i18n="lbl_preset">Quick Presets:</span>
+        <button type="button" class="preset-btn" onclick="applyPreset('normal')" data-i18n="preset_normal">⚡ Normal Ore</button>
+        <button type="button" class="preset-btn" onclick="applyPreset('fines')" data-i18n="preset_fines">⚡ High Fines (>80%)</button>
+        <button type="button" class="preset-btn" onclick="applyPreset('lowgrade')" data-i18n="preset_lowgrade">⚡ Low Grade (<0.8%)</button>
+        <button type="button" class="preset-btn" onclick="applyPreset('peak')" data-i18n="preset_peak">⚡ Peak Recovery (88%+)</button>
       </div>
 
       <div class="form-group">
-        <label data-i18n="lbl_sel_model">मॉडल चुनें:</label>
+        <label data-i18n="lbl_sel_model">Select Model:</label>
         <select id="pred_model">
-          <option value="xgb">XGBoost (सर्वोत्तम R² 0.97)</option>
+          <option value="xgb">XGBoost (Best R² 0.97)</option>
           <option value="rf">Random Forest (R² 0.91)</option>
-          <option value="linear">Linear Regression (बेसलाइन)</option>
+          <option value="linear">Linear Regression (Baseline)</option>
         </select>
       </div>
 
-      <div class="sub-hdr" data-i18n="sec_feed_conditions">फीड एवं प्रक्रिया शर्तें (Feed &amp; Process Conditions)</div>
+      <div class="sub-hdr" data-i18n="sec_feed_conditions">Feed &amp; Process Conditions</div>
       <div class="form-section">
-        <div class="form-group"><label data-i18n="lbl_head_grade">शीर्ष ग्रेड / Head Grade (%Cu)</label><input type="number" id="p_hg" value="1.5" step="0.05" min="0.1" max="5"/></div>
-        <div class="form-group"><label data-i18n="lbl_feed_rate">पिसाई दर / Feed Rate (MT/h)</label><input type="number" id="p_fr" value="85" step="1" min="20" max="300"/></div>
-        <div class="form-group"><label data-i18n="lbl_flotation_ph">फ्लोटेशन पीएच / Flotation pH</label><input type="number" id="p_ph" value="10.5" step="0.1" min="7" max="13"/></div>
-        <div class="form-group"><label data-i18n="lbl_pulp_density">पल्प घनत्व / Pulp Density (%)</label><input type="number" id="p_pd" value="32" step="0.5" min="10" max="60"/></div>
-        <div class="form-group"><label data-i18n="lbl_air_flow">वायु प्रवाह दर / Air Flow (m³/min)</label><input type="number" id="p_af" value="12" step="0.5" min="2" max="40"/></div>
-        <div class="form-group"><label data-i18n="lbl_particle_size">कण आकार / Particle Size P80 (µm)</label><input type="number" id="p_ps" value="150" step="5" min="50" max="400"/></div>
-        <div class="form-group"><label data-i18n="lbl_water_recovery">जल पुनर्प्राप्ति / Water Recovery (%)</label><input type="number" id="p_wr" value="72" step="0.5" min="30" max="95"/></div>
-        <div class="form-group"><label data-i18n="lbl_rougher_grade">रफ़र कॉन्सेंट्रेट ग्रेड (%Cu)</label><input type="number" id="p_rg" value="18" step="0.5" min="2" max="50"/></div>
+        <div class="form-group"><label data-i18n="lbl_head_grade">Head Grade (%Cu)</label><input type="number" id="p_hg" value="1.5" step="0.05" min="0.1" max="5"/></div>
+        <div class="form-group"><label data-i18n="lbl_feed_rate">Feed Rate (MT/h)</label><input type="number" id="p_fr" value="85" step="1" min="20" max="300"/></div>
+        <div class="form-group"><label data-i18n="lbl_flotation_ph">Flotation pH</label><input type="number" id="p_ph" value="10.5" step="0.1" min="7" max="13"/></div>
+        <div class="form-group"><label data-i18n="lbl_pulp_density">Pulp Density (%)</label><input type="number" id="p_pd" value="32" step="0.5" min="10" max="60"/></div>
+        <div class="form-group"><label data-i18n="lbl_air_flow">Air Flow Rate (m³/min)</label><input type="number" id="p_af" value="12" step="0.5" min="2" max="40"/></div>
+        <div class="form-group"><label data-i18n="lbl_particle_size">Particle Size P80 (µm)</label><input type="number" id="p_ps" value="150" step="5" min="50" max="400"/></div>
+        <div class="form-group"><label data-i18n="lbl_water_recovery">Water Recovery (%)</label><input type="number" id="p_wr" value="72" step="0.5" min="30" max="95"/></div>
+        <div class="form-group"><label data-i18n="lbl_rougher_grade">Rougher Conc Grade (%Cu)</label><input type="number" id="p_rg" value="18" step="0.5" min="2" max="50"/></div>
       </div>
 
-      <div class="sub-hdr" data-i18n="sec_reagents">अभिकर्मक खुराक (Reagent Dosage Inputs)</div>
+      <div class="sub-hdr" data-i18n="sec_reagents">Reagent Dosage Inputs</div>
       <div class="form-section">
         <div class="form-group">
-          <label data-i18n="lbl_sipx">एसआईपीएक्स खुराक / SIPX (g/t)</label>
+          <label data-i18n="lbl_sipx">SIPX Dosage (g/t)</label>
           <input type="number" id="p_sipx" value="35" step="1" min="10" max="80"/>
         </div>
         <div class="form-group">
-          <label data-i18n="lbl_frother">झाग कारक / Frother (g/t)</label>
+          <label data-i18n="lbl_frother">Frother Dosage (g/t)</label>
           <input type="number" id="p_frother" value="15" step="0.5" min="5" max="40"/>
         </div>
         <div class="form-group">
-          <label data-i18n="lbl_lime">चूना खुराक / Lime (kg/t)</label>
+          <label data-i18n="lbl_lime">Lime Dosage (kg/t)</label>
           <input type="number" id="p_lime" value="2" step="0.1" min="0.5" max="5"/>
         </div>
         <div class="form-group">
-          <label data-i18n="lbl_depressant">अवसादक खुराक / Depressant (g/t)</label>
+          <label data-i18n="lbl_depressant">Depressant Dosage (g/t)</label>
           <input type="number" id="p_dep" value="20" step="1" min="5" max="50"/>
         </div>
       </div>
 
       <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
-        <button class="btn-hcl" onclick="runPredictor()" data-i18n="btn_predict">🔮 रिकवरी भविष्यवाणी करें</button>
-        <button type="button" class="btn-speech" onclick="speakCurrentPrediction()" id="btnVoice" title="Listen to prediction in Hindi">🔊 <span data-i18n="btn_listen">हिन्दी में सुनें</span></button>
-        <span id="pred_loading" class="loading-msg" style="display:none;margin-left:12px">⏳ गणना जारी है (POST /predict)...</span>
+        <button class="btn-hcl" onclick="runPredictor()" data-i18n="btn_predict">🔮 Predict Recovery</button>
+        <button type="button" class="btn-speech" onclick="speakCurrentPrediction()" id="btnVoice" title="Listen to prediction">🔊 <span data-i18n="btn_listen">Listen Voice Readout</span></button>
+        <span id="pred_loading" class="loading-msg" style="display:none;margin-left:12px">⏳ Computing prediction (POST /predict)...</span>
         <span id="pred_error" class="error-msg"></span>
       </div>
 
       <div id="pred_result" style="display:none;margin-top:20px">
-        <div class="sub-hdr" data-i18n="sec_pred_result">भविष्यवाणी परिणाम (Prediction Result)</div>
+        <div class="sub-hdr" data-i18n="sec_pred_result">Prediction Results</div>
         <table class="hcl" style="max-width:500px">
           <tbody>
-            <tr><td><strong data-i18n="res_pred_rec">अनुमानित कॉपर रिकवरी</strong></td><td id="r_pred" style="font-weight:800;font-size:17px;color:var(--hcl-copper)"></td></tr>
-            <tr><td data-i18n="res_ci_lo">90% विश्वास अंतराल (न्यूनतम)</td><td id="r_ci_lo"></td></tr>
-            <tr><td data-i18n="res_ci_hi">90% विश्वास अंतराल (अधिकतम)</td><td id="r_ci_hi"></td></tr>
-            <tr><td data-i18n="res_model">प्रयुक्त मॉडल</td><td id="r_model"></td></tr>
-            <tr><td data-i18n="res_anom">असामान्यता स्कोर (इंजन 2)</td><td id="r_anom"></td></tr>
+            <tr><td><strong data-i18n="res_pred_rec">Estimated Copper Recovery</strong></td><td id="r_pred" style="font-weight:800;font-size:17px;color:var(--hcl-copper)"></td></tr>
+            <tr><td data-i18n="res_ci_lo">90% Confidence Interval (Lower)</td><td id="r_ci_lo"></td></tr>
+            <tr><td data-i18n="res_ci_hi">90% Confidence Interval (Upper)</td><td id="r_ci_hi"></td></tr>
+            <tr><td data-i18n="res_model">Model Used</td><td id="r_model"></td></tr>
+            <tr><td data-i18n="res_anom">Anomaly Score (Engine 2)</td><td id="r_anom"></td></tr>
           </tbody>
         </table>
         <div id="r_notice"></div>
 
-        <div class="sub-hdr" data-i18n="sec_metallurgical_kpi">प्राप्त धातुकर्म केपीआई (Metallurgical KPIs)</div>
+        <div class="sub-hdr" data-i18n="sec_metallurgical_kpi">Metallurgical KPIs</div>
         <table class="hcl" style="max-width:500px">
           <tbody>
-            <tr><td data-i18n="kpi_conc_mt">उत्पादित कॉन्सेंट्रेट मात्रा</td><td id="r_conc"> MT</td></tr>
-            <tr><td data-i18n="kpi_cu_mt">प्राप्त तांबा (Cu Recovered)</td><td id="r_cu"> MT</td></tr>
-            <tr><td data-i18n="kpi_delta">लक्ष्य (85%) से अंतर</td><td id="r_delta"></td></tr>
-            <tr><td data-i18n="kpi_grade_assumed">कॉन्सेंट्रेट ग्रेड मानक</td><td>28.0% Cu</td></tr>
+            <tr><td data-i18n="kpi_conc_mt">Concentrate Produced</td><td id="r_conc"> MT</td></tr>
+            <tr><td data-i18n="kpi_cu_mt">Cu Recovered</td><td id="r_cu"> MT</td></tr>
+            <tr><td data-i18n="kpi_delta">Delta vs 85% Target</td><td id="r_delta"></td></tr>
+            <tr><td data-i18n="kpi_grade_assumed">Assumed Concentrate Grade</td><td>28.0% Cu</td></tr>
           </tbody>
         </table>
 
@@ -1723,46 +1723,46 @@ table.hcl tbody tr:hover{background:#F7E3D0}
 <div id="footer">
   <div class="footer-visitor">
     <div style="font-size:14px;font-weight:600;color:var(--hcl-text);margin-bottom:4px;">
-      <span data-i18n="ft_visitors">आगंतुकों</span> : <span id="visitorCount" style="font-weight:700;">21740893</span>
+      <span data-i18n="ft_visitors">Visitors</span> : <span id="visitorCount" style="font-weight:700;">21740893</span>
     </div>
     <div style="font-size:13px;color:var(--hcl-text);opacity:0.9;">
-      <span data-i18n="ft_last_update">अंतिम अद्यतनीकरण</span> : <span id="lastUpdate">29/09/2026 17:12:07</span>
+      <span data-i18n="ft_last_update">Last Update</span> : <span id="lastUpdate">29/09/2026 17:12:07</span>
     </div>
   </div>
   
   <div class="footer-cols">
     <!-- Col 1: Important Links -->
     <div class="footer-col">
-      <div class="fc-title" data-i18n="ft_col1_title">महत्वपूर्ण लिंक</div>
+      <div class="fc-title" data-i18n="ft_col1_title">Important Links</div>
       <ul>
-        <li><a href="https://igotkarmayogi.gov.in/" target="_blank" rel="noopener">आईजीओटी कर्मयोगी</a></li>
-        <li><a href="#" target="_blank">ऑनलाइन विवाद समाधान (ओडीआर) के लिए मामलों का पंजीकरण</a></li>
-        <li><a href="https://legislative.gov.in/" target="_blank" rel="noopener">विधायी विभाग</a></li>
-        <li><a href="https://pgportal.gov.in/" target="_blank" rel="noopener">सार्वजनिक शिकायत</a></li>
-        <li><a href="https://voters.eci.gov.in/" target="_blank" rel="noopener">राष्ट्रीय वोटर्स सर्विस पोर्टल</a></li>
-        <li><a href="https://rtionline.gov.in/" target="_blank" rel="noopener">आर.टी.आई</a></li>
-        <li><a href="#">एचसीएल फोरम</a></li>
-        <li><a href="https://www.india.gov.in/" target="_blank" rel="noopener">भारत का राष्ट्रीय पोर्टल</a></li>
-        <li><a href="https://kabil.org.in/" target="_blank" rel="noopener">काबिल (KABIL)</a></li>
+        <li><a href="https://igotkarmayogi.gov.in/" target="_blank" rel="noopener">iGOT Karmayogi</a></li>
+        <li><a href="#" target="_blank">ODR Dispute Resolution Portal</a></li>
+        <li><a href="https://legislative.gov.in/" target="_blank" rel="noopener">Legislative Department</a></li>
+        <li><a href="https://pgportal.gov.in/" target="_blank" rel="noopener">Public Grievances (CPGRAMS)</a></li>
+        <li><a href="https://voters.eci.gov.in/" target="_blank" rel="noopener">National Voters Service Portal</a></li>
+        <li><a href="https://rtionline.gov.in/" target="_blank" rel="noopener">RTI Online</a></li>
+        <li><a href="#">HCL Forum</a></li>
+        <li><a href="https://www.india.gov.in/" target="_blank" rel="noopener">National Portal of India</a></li>
+        <li><a href="https://kabil.org.in/" target="_blank" rel="noopener">KABIL</a></li>
       </ul>
     </div>
 
     <!-- Col 2: Important Links -->
     <div class="footer-col">
-      <div class="fc-title" data-i18n="ft_col2_title">महत्वपूर्ण लिंक</div>
+      <div class="fc-title" data-i18n="ft_col2_title">Important Links</div>
       <ul>
-        <li><a href="#">गृह पत्रिका</a></li>
-        <li><a href="#">सीएसआर (CSR)</a></li>
-        <li><a href="https://swachhbharatmission.ddws.gov.in/" target="_blank" rel="noopener">स्वच्छ भारत अभियान</a></li>
-        <li><a href="#">वहनीयता (Sustainability)</a></li>
-        <li><a href="#">फोटो गैलरी</a></li>
-        <li><a href="#">साइट मैप</a></li>
+        <li><a href="#">House Journal</a></li>
+        <li><a href="#">Corporate Social Responsibility (CSR)</a></li>
+        <li><a href="https://swachhbharatmission.ddws.gov.in/" target="_blank" rel="noopener">Swachh Bharat Abhiyan</a></li>
+        <li><a href="#">Sustainability</a></li>
+        <li><a href="#">Photo Gallery</a></li>
+        <li><a href="#">Site Map</a></li>
       </ul>
     </div>
 
     <!-- Col 3: Social Links -->
     <div class="footer-col">
-      <div class="fc-title" data-i18n="ft_social">सामाजिक लिंक</div>
+      <div class="fc-title" data-i18n="ft_social">Social Links</div>
       <div class="social-icons-row" style="display:flex;gap:12px;align-items:center;margin-top:14px;flex-wrap:wrap;">
         <!-- Facebook -->
         <a href="https://www.facebook.com" target="_blank" rel="noopener" title="Facebook" style="display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:50%;background:#1877F2;color:#fff;text-decoration:none;">
@@ -3461,7 +3461,40 @@ const STRINGS = {
     ticker_item2: '🎯 बेंचमार्क रिकवरी: 85.0% | वर्तमान AI मॉडल अनुमान: 87.4%',
     ticker_item3: '🧪 पीएच संतुलन: 10.5 (इष्टतम 10.2–11.2) | एसआईपीएक्स: 35.0 g/t',
     ticker_item4: '🛡️ संयंत्र स्थिति: सुरक्षित सामान्य (Zero Critical Anomalies)',
-    sb_sec_modules: 'RecovAI मॉड्यूल'
+    sb_sec_modules: 'RecovAI मॉड्यूल',
+    sb_sec_shift: 'शिफ्ट प्रविष्टि',
+    p1_title: 'RecovAI — ताम्र फ्लोटेशन निर्णय समर्थन प्रणाली',
+    p1_intro: 'RecovAI हिंदुस्तान कॉपर लिमिटेड के मलांजखंड कॉपर प्रोजेक्ट (मध्य प्रदेश) के लिए निर्मित एक उन्नत एआई-संचालित निर्णय समर्थन प्रणाली है। यह वास्तविक समय में तांबा रिकवरी दर की भविष्यवाणी, अभिकर्मक खुराक का अनुकूलन, परिचालन असामान्यता की पहचान और स्वचालित शिफ्ट रिपोर्ट प्रदान करता है।',
+    p1_statusbar: 'सक्रिय मॉडल: 3 | XGBoost | Random Forest | Linear | कुल शिफ्ट डेटा: 2,847 | ऐतिहासिक औसत रिकवरी: 83.6% | बेंचमार्क लक्ष्य: 85.0%',
+    p1_mod_overview: 'मॉड्यूल विहंगावलोकन (Module Overview)',
+    th_module: 'मॉड्यूल', th_desc: 'विवरण', th_engine: 'इंजन', th_type: 'प्रकार', th_status: 'स्थिति',
+    m_desc1: 'अगली शिफ्ट के लिए 90% विश्वास अंतराल के साथ कॉपर रिकवरी % की भविष्यवाणी',
+    m_desc2: '85%+ रिकवरी के लिए न्यूनतम लागत अभिकर्मक खुराक की गणना (इंजन 1)',
+    m_desc3: 'असामान्य परिचालन स्थितियों की पूर्व चेतावनी (इंजन 2 - आइसोलेशन फ़ॉरेस्ट)',
+    m_desc4: 'ऐतिहासिक बनाम वास्तविक प्रदर्शन विश्लेषण',
+    m_desc5: 'एसएचएपी (SHAP) व्याख्यात्मकता और आंशिक निर्भरता प्लॉट (इंजन 3)',
+    m_desc6: 'ऑपरेटर और प्रबंधक के लिए स्वचालित प्राकृतिक भाषा शिफ्ट रिपोर्ट (इंजन 5)',
+    m_desc7: 'शिफ्ट इतिहास और प्रक्रियाओं पर ऑपरेटर प्रश्नोत्तरी चैटबॉट',
+    m_desc8: '7–30 दिन की आगामी रिकवरी प्रवृत्ति और पीएसआई डेटा ड्रिफ्ट मॉनिटर',
+    p1_benchmarks: 'संयंत्र बेंचमार्क (Plant Benchmarks)',
+    th_param: 'पैरामीटर', th_val: 'मानक मान / सीमा',
+    bm_target: 'रिकवरी बेंचमार्क लक्ष्य',
+    bm_conc_grade: 'कॉन्सेंट्रेट ग्रेड',
+    bm_ph_range: 'फ्लोटेशन पीएच सीमा',
+    bm_sipx_range: 'एसआईपीएक्स खुराक सीमा',
+    bm_frother_range: 'झाग कारक (Frother) सीमा',
+    bm_lime_range: 'चूना (Lime) खुराक सीमा',
+    bm_dep_range: 'अवसादक (Depressant) सीमा',
+    p2_title: 'ताम्र रिकवरी प्रेडिक्टर (Flotation Recovery Predictor)',
+    p2_intro: 'शिफ्ट के प्रक्रिया मापदंड दर्ज करें। 12 प्रक्रिया चरों के आधार पर मशीन लर्निंग मॉडल तांबा रिकवरी प्रतिशत की सटीक भविष्यवाणी करेगा तथा एसएचएपी विश्लेषण प्रस्तुत करेगा।',
+    lbl_preset: 'त्वरित परिचालन प्रीसेट:',
+    res_model: 'प्रयुक्त मॉडल',
+    res_anom: 'असामान्यता स्कोर (इंजन 2)',
+    sec_metallurgical_kpi: 'प्राप्त धातुकर्म केपीआई (Metallurgical KPIs)',
+    kpi_conc_mt: 'उत्पादित कॉन्सेंट्रेट मात्रा',
+    kpi_cu_mt: 'प्राप्त तांबा (Cu Recovered)',
+    kpi_delta: 'लक्ष्य (85%) से अंतर',
+    kpi_grade_assumed: 'कॉन्सेंट्रेट ग्रेड मानक'
   },
   en: {
     brand_name: 'Hindustan Copper Limited',
@@ -3473,6 +3506,7 @@ const STRINGS = {
     ticker_item3: '🧪 pH Balance: 10.5 (Optimal 10.2–11.2) | SIPX: 35.0 g/t',
     ticker_item4: '🛡️ Plant Status: Safe Steady-State (Zero Critical Anomalies)',
     sb_sec_modules: 'RecovAI Modules',
+    sb_sec_shift: 'Shift Entry',
     nav_home: 'Home', nav_predictor: 'Recovery Predictor ▾',
     nav_optimizer: 'Reagent Optimizer ▾', nav_anomaly: 'Anomaly Alerts ▾',
     nav_dashboard: 'Shift Dashboard ▾', nav_features: 'Feature Explorer ▾',
@@ -3494,8 +3528,8 @@ const STRINGS = {
     btn_submit_shift: 'Submit & Predict', btn_reset: 'Reset Form',
     btn_refresh: 'Refresh', btn_load_hist: 'Load History',
     preset_normal: '⚡ Normal Ore',
-    preset_fines: '⚡ High Fines',
-    preset_lowgrade: '⚡ Low Grade',
+    preset_fines: '⚡ High Fines (>80%)',
+    preset_lowgrade: '⚡ Low Grade (<0.8%)',
     preset_peak: '⚡ Peak Recovery (88%+)',
     lbl_sel_model: 'Select Model:',
     sec_feed_conditions: 'Feed & Process Conditions',
@@ -3516,6 +3550,38 @@ const STRINGS = {
     res_pred_rec: 'Estimated Copper Recovery',
     res_ci_lo: '90% Confidence Interval (Lower)',
     res_ci_hi: '90% Confidence Interval (Upper)',
+    res_model: 'Model Used',
+    res_anom: 'Anomaly Score (Engine 2)',
+    sec_metallurgical_kpi: 'Metallurgical KPIs',
+    kpi_conc_mt: 'Concentrate Produced',
+    kpi_cu_mt: 'Cu Recovered',
+    kpi_delta: 'Delta vs 85% Target',
+    kpi_grade_assumed: 'Assumed Concentrate Grade',
+    p1_title: 'RecovAI — Copper Flotation Decision Support System',
+    p1_intro: 'RecovAI is an advanced AI-powered Decision Support System built for Hindustan Copper Limited, Malanjkhand Copper Project (MCP), Madhya Pradesh. It provides real-time copper recovery forecasting, reagent dosage optimization, operational anomaly detection, and automated shift reporting.',
+    p1_statusbar: 'Active Models: 3 | XGBoost | Random Forest | Linear | Shift Records: 1,778 | Historic Avg Recovery: 83.6% | Benchmark Target: 85.0%',
+    p1_mod_overview: 'Module Overview',
+    th_module: 'Module', th_desc: 'Description', th_engine: 'Engine', th_type: 'Type', th_status: 'Status',
+    m_desc1: 'Forecast concentrate Cu recovery % with 90% confidence intervals for the next shift',
+    m_desc2: 'Calculates least-cost reagent dosages for 85%+ target recovery (Engine 1)',
+    m_desc3: 'Early warning on out-of-distribution plant operating conditions (Engine 2 - Isolation Forest)',
+    m_desc4: 'Historical vs actual performance analytics across plant shifts',
+    m_desc5: 'SHAP explainability & Partial Dependence Plots (Engine 3)',
+    m_desc6: 'Automated natural language shift report for operators & management (Engine 5)',
+    m_desc7: 'Operator Q&A chatbot grounded in shift history & operational procedures',
+    m_desc8: '7–30 day forward recovery forecasting & PSI data drift monitoring',
+    p1_benchmarks: 'Plant Benchmarks',
+    th_param: 'Parameter', th_val: 'Standard Value / Range',
+    bm_target: 'Target Recovery Benchmark',
+    bm_conc_grade: 'Target Concentrate Grade',
+    bm_ph_range: 'Flotation pH Range',
+    bm_sipx_range: 'SIPX Dosage Range',
+    bm_frother_range: 'Frother Dosage Range',
+    bm_lime_range: 'Lime Dosage Range',
+    bm_dep_range: 'Depressant Dosage Range',
+    p2_title: 'Flotation Recovery Predictor',
+    p2_intro: 'Enter operating conditions for the upcoming shift. The machine learning model will forecast copper concentrate recovery % and calculate SHAP feature contributions across 12 process variables.',
+    lbl_preset: 'Quick Presets:',
     ft_visitors: 'Visitors',
     ft_last_update: 'Last Update',
     ft_col1_title: 'Important Links',
@@ -3530,7 +3596,8 @@ const STRINGS = {
   }
 };
 
-let lang = localStorage.getItem('hcl_lang') || 'en'; // Default is English
+let lang = 'en'; // Default is English
+try { localStorage.setItem('hcl_lang', 'en'); } catch(e){}
 
 function applyLang(l) {
   lang = l;
