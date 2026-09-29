@@ -17,169 +17,749 @@
   ╚══════════════════════════════════════════════════════════════════╝
 -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>HCL RecovAI — Copper Flotation Intelligence</title>
+<title>HCL RecovAI — Copper Flotation Intelligence | हिंदुस्तान कॉपर लिमिटेड</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
+:root {
+  --hcl-mahogany: #361304;       /* Uploaded screenshot dark footer bar */
+  --hcl-burgundy: #4A1507;       /* Deep copper utility bar */
+  --hcl-copper: #7A250B;         /* Official HCL brand terracotta title */
+  --hcl-copper-light: #943214;   /* Secondary hover copper */
+  --hcl-bronze: #B85D19;         /* Vibrant copper-orange accent */
+  --hcl-buff: #F8DFCA;           /* Exact uploaded screenshot mid-footer & sidebar peach-sand */
+  --hcl-buff-soft: #FDF5ED;      /* Soft card highlight / table even row */
+  --hcl-surface: #FAF4EE;        /* Main content canvas */
+  --hcl-card: #FFFFFF;           /* Card containers */
+  --hcl-border: #E5CBB4;         /* Subtle copper border */
+  --hcl-border-dark: #C99B75;    /* Strong divider border */
+  --hcl-text: #241208;           /* High-contrast charcoal copper text (extremely sharp) */
+  --hcl-text-muted: #5C3A28;     /* Secondary descriptive text */
+  --hcl-gold: #DEAC75;           /* Warm accent gold text for dark bars */
+  --hcl-success: #1E7E34;
+  --hcl-warning: #D97706;
+  --hcl-danger: #D32F2F;
+}
+
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;font-size:14px;color:#333;background:#fff}
+body{
+  font-family:'Mukta', 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size:14.5px;
+  color:var(--hcl-text);
+  background:var(--hcl-surface);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
 
 /* ═══════════════ HEADER ROW 1 — UTILITY BAR ═══════════════ */
-#utilBar{background:#2C1A0E;height:36px;display:flex;align-items:center;padding:0 16px;gap:8px;flex-wrap:wrap}
-#utilBar a.home-icon{color:#fff;font-size:18px;text-decoration:none;margin-right:4px}
-.util-btn{background:#5C3317;color:#fff;border:1px solid #8B5E3C;border-radius:3px;padding:4px 12px;font-size:12px;cursor:pointer;font-family:Arial,sans-serif}
-.util-btn:hover{background:#7A4520}
+#utilBar{
+  background:var(--hcl-burgundy);
+  min-height:38px;
+  display:flex;
+  align-items:center;
+  padding:4px 20px;
+  gap:8px;
+  flex-wrap:wrap;
+  color:#FAF0E6;
+}
+#utilBar a.home-icon{
+  color:#FAF0E6;
+  font-size:18px;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  margin-right:6px;
+  transition:transform .2s;
+}
+#utilBar a.home-icon:hover{transform:scale(1.1);color:var(--hcl-gold)}
+.util-btn{
+  background:#5C1F0C;
+  color:#FAF0E6;
+  border:1px solid #8C3E20;
+  border-radius:4px;
+  padding:4px 12px;
+  font-size:12.5px;
+  font-weight:500;
+  cursor:pointer;
+  font-family:inherit;
+  transition:all .2s ease;
+}
+.util-btn:hover{
+  background:var(--hcl-copper);
+  border-color:var(--hcl-gold);
+  color:#fff;
+}
+.lang-toggle-btn{
+  background:linear-gradient(180deg, #8A2B11 0%, #6E1F08 100%) !important;
+  border:1px solid var(--hcl-gold) !important;
+  color:#fff !important;
+  font-weight:700 !important;
+  letter-spacing:.3px;
+  box-shadow:0 1px 4px rgba(0,0,0,0.25);
+}
+.lang-toggle-btn:hover{
+  background:linear-gradient(180deg, #A23617 0%, #7E240A 100%) !important;
+}
 .util-spacer{flex:1}
-#utilSearch{background:#fff;border:1px solid #8B5E3C;padding:4px 8px;font-size:12px;width:160px;outline:none}
-.util-search-btn{background:#5C3317;color:#fff;border:1px solid #8B5E3C;padding:4px 8px;cursor:pointer;font-size:12px}
+#utilSearch{
+  background:#fff;
+  border:1px solid #8C3E20;
+  border-radius:4px 0 0 4px;
+  padding:4px 10px;
+  font-size:12.5px;
+  width:160px;
+  outline:none;
+  font-family:inherit;
+  color:var(--hcl-text);
+}
+#utilSearch:focus{border-color:var(--hcl-gold)}
+.util-search-btn{
+  background:#5C1F0C;
+  color:#FAF0E6;
+  border:1px solid #8C3E20;
+  border-left:none;
+  border-radius:0 4px 4px 0;
+  padding:4px 10px;
+  cursor:pointer;
+  font-size:12px;
+  transition:background .2s;
+}
+.util-search-btn:hover{background:var(--hcl-copper);color:#fff}
 
 /* ═══════════════ HEADER ROW 2 — LOGO BAR ═══════════════ */
-#logoBar{background:#fff;height:80px;display:flex;align-items:center;padding:0 24px;border-bottom:1px solid #e8e0d8}
+#logoBar{
+  background:#fff;
+  min-height:86px;
+  display:flex;
+  align-items:center;
+  padding:8px 24px;
+  border-bottom:1px solid var(--hcl-border);
+  gap:16px;
+}
 .logo-area{display:flex;align-items:center;gap:14px}
-.logo-circle{width:64px;height:64px;border-radius:50%;flex-shrink:0;overflow:hidden}
-.logo-text-block{line-height:1.3}
-.logo-name{font-weight:700;color:#8B4513;font-size:13px}
-.logo-sub{color:#555;font-size:11px}
-.logo-tagline{color:#555;font-size:11px;font-style:italic}
-.logo-sub{color:#555;font-size:11px}
-.logo-tagline{color:#555;font-size:11px;font-style:italic}
-.azadi-badge{margin:0 auto;text-align:center}
-.azadi-badge img{height:56px}
-.header-links{margin-left:auto;display:flex;gap:22px}
-.header-links a{color:#3D1F00;font-size:13px;text-decoration:none}
-.header-links a:hover{text-decoration:underline;color:#8B4513}
+.logo-circle{width:68px;height:68px;border-radius:50%;flex-shrink:0;overflow:hidden}
+.logo-text-block{line-height:1.25}
+.logo-name{font-weight:800;color:var(--hcl-copper);font-size:19px;letter-spacing:.3px}
+.logo-sub{color:var(--hcl-text-muted);font-size:12.5px;font-weight:600}
+.logo-tagline{color:var(--hcl-copper);font-size:12px;font-weight:600;font-style:italic}
+.azadi-badge{margin:0 auto;text-align:center;display:flex;align-items:center;gap:20px}
+.azadi-badge img{height:54px;object-fit:contain}
+.header-links{margin-left:auto;display:flex;gap:18px;flex-wrap:wrap}
+.header-links a{
+  color:var(--hcl-mahogany);
+  font-size:13.5px;
+  font-weight:600;
+  text-decoration:none;
+  padding:4px 8px;
+  border-radius:3px;
+  transition:all .2s ease;
+}
+.header-links a:hover{
+  background:var(--hcl-buff);
+  color:var(--hcl-copper);
+}
 
 /* ═══════════════ HEADER ROW 3 — MAIN NAV ═══════════════ */
-#mainNav{background:#fff;height:44px;display:flex;align-items:stretch;border-bottom:1px solid #B5651D;padding:0 24px;overflow-x:auto}
-.nav-link{color:#3D1F00;font-size:13px;padding:0 14px;display:flex;align-items:center;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;text-decoration:none;border-top:2px solid transparent}
-.nav-link:hover{color:#8B4513}
-.nav-link.active{color:#8B4513;font-weight:600;border-bottom-color:#8B4513}
+#mainNav{
+  background:#FFFBF7;
+  min-height:46px;
+  display:flex;
+  align-items:stretch;
+  border-bottom:2px solid var(--hcl-copper);
+  padding:0 20px;
+  overflow-x:auto;
+  box-shadow:0 2px 6px rgba(74,21,7,0.04);
+}
+.nav-link{
+  color:var(--hcl-mahogany);
+  font-size:13.5px;
+  font-weight:600;
+  padding:0 14px;
+  display:flex;
+  align-items:center;
+  gap:4px;
+  cursor:pointer;
+  border-bottom:3px solid transparent;
+  white-space:nowrap;
+  text-decoration:none;
+  transition:all .2s ease;
+}
+.nav-link:hover{
+  color:var(--hcl-copper);
+  background:var(--hcl-buff-soft);
+}
+.nav-link.active{
+  color:var(--hcl-copper);
+  font-weight:700;
+  border-bottom-color:var(--hcl-copper);
+  background:var(--hcl-buff-soft);
+}
+
+/* ═══════════════ LIVE PLANT STATUS TICKER ═══════════════ */
+#plantTicker{
+  background:#FFF6EE;
+  border-bottom:1px solid var(--hcl-border);
+  padding:6px 20px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:12.5px;
+  color:var(--hcl-text);
+  overflow:hidden;
+}
+.ticker-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:var(--hcl-copper);
+  color:#fff;
+  padding:2px 10px;
+  border-radius:3px;
+  font-size:11.5px;
+  font-weight:700;
+  flex-shrink:0;
+  box-shadow:0 1px 3px rgba(0,0,0,0.15);
+}
+.ticker-pulse{
+  width:8px;
+  height:8px;
+  background:#22C55E;
+  border-radius:50%;
+  display:inline-block;
+  box-shadow:0 0 0 0 rgba(34,197,94,0.7);
+  animation:pulseDot 1.8s infinite;
+}
+@keyframes pulseDot{
+  0%{box-shadow:0 0 0 0 rgba(34,197,94,0.7)}
+  70%{box-shadow:0 0 0 7px rgba(34,197,94,0)}
+  100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}
+}
+.ticker-stream{
+  display:flex;
+  gap:40px;
+  white-space:nowrap;
+  font-weight:500;
+}
 
 /* ═══════════════ BODY LAYOUT ═══════════════ */
-#bodyWrap{display:flex;min-height:calc(100vh - 160px - 120px)}
+#bodyWrap{display:flex;min-height:calc(100vh - 200px)}
 
-/* ═══════════════ SIDEBAR ═══════════════ */
-#sidebar{width:240px;min-width:240px;background:#D4A97A;flex-shrink:0}
-.sb-section-hdr{background:#8B4513;color:#fff;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:10px 16px}
-.sb-item{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid #C4956A;cursor:pointer;color:#5C2E00;font-size:14px;text-decoration:none}
-.sb-item:hover{background:#C19A6B}
-.sb-item.active{background:#C19A6B;color:#8B4513;font-weight:600;border-left:3px solid #8B4513;padding-left:13px}
-.sb-icon{color:#8B4513;font-size:15px;width:18px;text-align:center;flex-shrink:0}
+/* ═══════════════ SIDEBAR (Uploaded Peach-Buff Palette) ═══════════════ */
+#sidebar{
+  width:250px;
+  min-width:250px;
+  background:var(--hcl-buff);
+  border-right:1px solid var(--hcl-border);
+  flex-shrink:0;
+}
+.sb-section-hdr{
+  background:var(--hcl-copper);
+  color:#fff;
+  font-size:12px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+  padding:10px 16px;
+}
+.sb-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 16px;
+  border-bottom:1px solid rgba(201,155,117,0.4);
+  cursor:pointer;
+  color:var(--hcl-text);
+  font-size:14px;
+  font-weight:500;
+  text-decoration:none;
+  transition:all .2s ease;
+}
+.sb-item:hover{
+  background:#EED3BC;
+  color:var(--hcl-copper);
+}
+.sb-item.active{
+  background:#E5C4A6;
+  color:var(--hcl-copper);
+  font-weight:700;
+  border-left:4px solid var(--hcl-copper);
+  padding-left:12px;
+}
+.sb-icon{
+  color:var(--hcl-copper);
+  font-size:15px;
+  width:18px;
+  text-align:center;
+  flex-shrink:0;
+}
 
 /* ═══════════════ CONTENT ═══════════════ */
-#content{flex:1;padding:30px 40px;background:#fff;overflow-x:hidden}
+#content{
+  flex:1;
+  padding:28px 36px;
+  background:var(--hcl-surface);
+  overflow-x:hidden;
+}
 .page-section{display:none}
-.page-section.active{display:block}
-.page-title{font-size:26px;font-weight:400;color:#1A1A1A;margin-bottom:20px}
-.intro-para{color:#333;font-size:14px;line-height:1.7;margin-bottom:20px}
+.page-section.active{display:block;animation:fadeIn .25s ease-in-out}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
 
-/* ── SECTION SUBHEADING (exactly like Vision/Mission labels) ── */
-.sub-hdr{color:#8B4513;font-size:14px;font-weight:600;margin:18px 0 8px 0}
+.page-title{
+  font-size:26px;
+  font-weight:700;
+  color:var(--hcl-copper);
+  margin-bottom:8px;
+  letter-spacing:-.2px;
+}
+.intro-para{
+  color:var(--hcl-text-muted);
+  font-size:14.5px;
+  line-height:1.7;
+  margin-bottom:20px;
+}
+
+/* ── SECTION SUBHEADING ── */
+.sub-hdr{
+  color:var(--hcl-copper);
+  font-size:15px;
+  font-weight:700;
+  margin:20px 0 10px 0;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.sub-hdr::before{
+  content:'';
+  width:4px;
+  height:16px;
+  background:var(--hcl-bronze);
+  border-radius:2px;
+  display:inline-block;
+}
 
 /* ── STATUS BAR ── */
-.status-bar{background:#FDF5EC;border:1px solid #C4956A;padding:8px 14px;font-size:13px;color:#8B4513;margin-bottom:18px;border-radius:2px}
+.status-bar{
+  background:var(--hcl-buff-soft);
+  border:1px solid var(--hcl-border);
+  border-left:4px solid var(--hcl-copper);
+  padding:10px 16px;
+  font-size:13.5px;
+  color:var(--hcl-text);
+  margin-bottom:20px;
+  border-radius:4px;
+  font-weight:500;
+}
 
-/* ═══════════════ TABLE (Career-style) ═══════════════ */
-.tbl-wrap{overflow-x:auto;margin-top:16px}
-table.hcl{width:100%;border-collapse:collapse;font-size:13px}
-table.hcl thead tr{background:#D4A97A;color:#5C2E00;font-weight:700}
-table.hcl th,table.hcl td{padding:10px 14px;border:1px solid #C4956A;text-align:left;vertical-align:top}
-table.hcl tbody tr:nth-child(even){background:#FDF5EC}
+/* ═══════════════ TABLE ═══════════════ */
+.tbl-wrap{overflow-x:auto;margin-top:14px;border-radius:4px;border:1px solid var(--hcl-border)}
+table.hcl{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff}
+table.hcl thead tr{
+  background:linear-gradient(180deg, #7A250B 0%, #631B06 100%);
+  color:#fff;
+  font-weight:700;
+}
+table.hcl th{
+  padding:11px 14px;
+  border:1px solid var(--hcl-border);
+  text-align:left;
+  letter-spacing:.2px;
+}
+table.hcl td{
+  padding:10px 14px;
+  border:1px solid var(--hcl-border);
+  text-align:left;
+  vertical-align:top;
+  color:var(--hcl-text);
+}
+table.hcl tbody tr:nth-child(even){background:var(--hcl-buff-soft)}
 table.hcl tbody tr:nth-child(odd){background:#fff}
-table.hcl tbody tr:hover{background:#F5E6D0}
+table.hcl tbody tr:hover{background:#F7E3D0}
 
 /* ═══════════════ BUTTONS ═══════════════ */
-.btn-hcl{background:#5C3317;color:#fff;border:1px solid #8B5E3C;border-radius:3px;padding:7px 18px;font-size:13px;cursor:pointer;font-family:Arial,sans-serif}
-.btn-hcl:hover{background:#7A4520}
-.btn-hcl:disabled{background:#aaa;border-color:#aaa;cursor:not-allowed}
+.btn-hcl{
+  background:linear-gradient(180deg, #8A2B11 0%, #6E1F08 100%);
+  color:#fff;
+  border:1px solid #5A1605;
+  border-radius:4px;
+  padding:8px 20px;
+  font-size:13.5px;
+  font-weight:600;
+  cursor:pointer;
+  font-family:inherit;
+  box-shadow:0 2px 4px rgba(74,21,7,0.18);
+  transition:all .2s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+.btn-hcl:hover{
+  background:linear-gradient(180deg, #9C3315 0%, #7E240A 100%);
+  box-shadow:0 3px 6px rgba(74,21,7,0.28);
+  transform:translateY(-1px);
+}
+.btn-hcl:disabled{
+  background:#A58E82;
+  border-color:#A58E82;
+  cursor:not-allowed;
+  transform:none;
+  box-shadow:none;
+}
+
+/* ── PRESETS BAR ── */
+.preset-bar{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:10px 0 16px;
+  align-items:center;
+}
+.preset-btn{
+  background:#fff;
+  color:var(--hcl-copper);
+  border:1px solid var(--hcl-border-dark);
+  border-radius:4px;
+  padding:5px 12px;
+  font-size:12.5px;
+  font-weight:600;
+  cursor:pointer;
+  font-family:inherit;
+  transition:all .18s;
+}
+.preset-btn:hover{
+  background:var(--hcl-copper);
+  color:#fff;
+  border-color:var(--hcl-copper);
+}
+
+/* ── SPEECH READOUT BUTTON ── */
+.btn-speech{
+  background:var(--hcl-buff);
+  color:var(--hcl-copper);
+  border:1px solid var(--hcl-border-dark);
+  border-radius:4px;
+  padding:8px 16px;
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+  font-family:inherit;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  transition:all .2s;
+}
+.btn-speech:hover{
+  background:#ECD0BA;
+  color:var(--hcl-burgundy);
+  border-color:var(--hcl-copper);
+}
 
 /* ═══════════════ FORMS ═══════════════ */
 .form-group{display:flex;align-items:center;margin-bottom:12px;gap:12px}
-.form-group label{width:230px;font-size:13px;color:#333;flex-shrink:0}
-.form-group input,.form-group select{border:1px solid #C4956A;padding:6px 10px;font-size:13px;width:200px;color:#333;background:#fff;outline:none}
-.form-group input:focus,.form-group select:focus{border-color:#8B4513}
-.form-note{font-size:11px;color:#8B4513;margin-left:4px;font-style:italic}
-.form-section{margin-bottom:22px}
+.form-group label{
+  width:230px;
+  font-size:13.5px;
+  font-weight:600;
+  color:var(--hcl-text);
+  flex-shrink:0;
+}
+.form-group input,.form-group select{
+  border:1px solid var(--hcl-border-dark);
+  border-radius:4px;
+  padding:6px 10px;
+  font-size:13.5px;
+  width:210px;
+  color:var(--hcl-text);
+  background:#fff;
+  outline:none;
+  font-family:inherit;
+  transition:border .2s,box-shadow .2s;
+}
+.form-group input:focus,.form-group select:focus{
+  border-color:var(--hcl-copper);
+  box-shadow:0 0 0 3px rgba(122,37,11,0.15);
+}
+.form-note{font-size:11.5px;color:var(--hcl-copper);margin-left:4px;font-style:italic}
+.form-section{
+  background:#fff;
+  border:1px solid var(--hcl-border);
+  border-radius:6px;
+  padding:18px 22px;
+  margin-bottom:20px;
+  box-shadow:0 2px 8px rgba(74,21,7,0.03);
+}
 
 /* ═══════════════ NOTICE BOXES ═══════════════ */
-.notice-success{border-left:4px solid #38A169;background:#F0FFF4;padding:12px 16px;margin:16px 0;font-size:14px}
-.notice-warning{border-left:4px solid #FFA000;background:#FFF8E1;padding:12px 16px;margin:16px 0;font-size:14px}
-.notice-critical{border-left:4px solid #E63946;background:#FFF0F0;padding:12px 16px;margin:16px 0;font-size:14px}
+.notice-success{
+  border-left:4px solid var(--hcl-success);
+  background:#F0FFF4;
+  padding:12px 18px;
+  margin:16px 0;
+  font-size:14px;
+  border-radius:0 4px 4px 0;
+  color:#155724;
+}
+.notice-warning{
+  border-left:4px solid var(--hcl-warning);
+  background:#FFF8E1;
+  padding:12px 18px;
+  margin:16px 0;
+  font-size:14px;
+  border-radius:0 4px 4px 0;
+  color:#7A4500;
+}
+.notice-critical{
+  border-left:4px solid var(--hcl-danger);
+  background:#FFF0F0;
+  padding:12px 18px;
+  margin:16px 0;
+  font-size:14px;
+  border-radius:0 4px 4px 0;
+  color:#8B0000;
+}
 
 /* ═══════════════ CHART CONTAINERS ═══════════════ */
-.chart-box{background:#fff;border:1px solid #C4956A;padding:16px;margin:16px 0}
-.chart-title{font-size:13px;font-weight:600;color:#8B4513;margin-bottom:10px}
-.loading-msg{color:#8B4513;font-size:13px;font-style:italic}
-.error-msg{color:#E63946;font-size:13px;margin-top:8px}
+.chart-box{
+  background:#fff;
+  border:1px solid var(--hcl-border);
+  border-radius:6px;
+  padding:18px;
+  margin:16px 0;
+  box-shadow:0 2px 8px rgba(74,21,7,0.03);
+}
+.chart-title{
+  font-size:14px;
+  font-weight:700;
+  color:var(--hcl-copper);
+  margin-bottom:12px;
+}
+.loading-msg{color:var(--hcl-copper);font-size:13.5px;font-style:italic}
+.error-msg{color:var(--hcl-danger);font-size:13.5px;margin-top:8px}
 
 /* ═══════════════ TABS ═══════════════ */
-.tab-nav{display:flex;gap:0;border-bottom:1px solid #C4956A;margin-bottom:18px}
-.tab-btn{background:none;border:none;padding:8px 18px;font-size:13px;color:#5C2E00;cursor:pointer;border-bottom:2px solid transparent;font-family:Arial,sans-serif}
-.tab-btn:hover{color:#8B4513}
-.tab-btn.active{color:#8B4513;border-bottom-color:#8B4513;font-weight:600}
+.tab-nav{display:flex;gap:0;border-bottom:2px solid var(--hcl-border);margin-bottom:18px}
+.tab-btn{
+  background:none;
+  border:none;
+  padding:9px 20px;
+  font-size:14px;
+  font-weight:600;
+  color:var(--hcl-text-muted);
+  cursor:pointer;
+  border-bottom:3px solid transparent;
+  font-family:inherit;
+  transition:all .2s;
+}
+.tab-btn:hover{color:var(--hcl-copper);background:var(--hcl-buff-soft)}
+.tab-btn.active{
+  color:var(--hcl-copper);
+  border-bottom-color:var(--hcl-copper);
+  font-weight:700;
+}
 .tab-panel{display:none}.tab-panel.active{display:block}
 
 /* ═══════════════ REPORT STYLES ═══════════════ */
-.report-wrapper{border:1px solid #C4956A;background:#fff;margin-top:16px}
-.report-header-bar{background:#8B4513;color:#fff;padding:16px 20px;display:flex;flex-direction:row;align-items:center;gap:16px}
+.report-wrapper{
+  border:1px solid var(--hcl-border);
+  background:#fff;
+  border-radius:6px;
+  margin-top:16px;
+  overflow:hidden;
+  box-shadow:0 2px 10px rgba(74,21,7,0.04);
+}
+.report-header-bar{
+  background:linear-gradient(180deg, #7A250B 0%, #5E1A06 100%);
+  color:#fff;
+  padding:16px 22px;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  gap:16px;
+}
 .report-header-text{line-height:1.4}
-.report-header-text .rh-title{font-size:14px;font-weight:700}
-.report-header-text .rh-sub{font-size:12px;opacity:.8}
-.report-body{padding:20px}
-.ai-block{background:#FDF5EC;border-left:3px solid #8B4513;padding:12px 16px;font-style:italic;font-size:13px;margin-top:12px}
+.report-header-text .rh-title{font-size:15px;font-weight:700}
+.report-header-text .rh-sub{font-size:12.5px;opacity:.9}
+.report-body{padding:22px}
+.ai-block{
+  background:var(--hcl-buff-soft);
+  border-left:4px solid var(--hcl-copper);
+  border-radius:0 4px 4px 0;
+  padding:14px 18px;
+  font-style:italic;
+  font-size:13.5px;
+  margin-top:14px;
+  color:var(--hcl-text);
+}
 
 /* ═══════════════ CHAT ═══════════════ */
-.chat-box{border:1px solid #C4956A;height:380px;overflow-y:auto;padding:16px;background:#fff;font-size:13px}
-.chat-exchange{border-bottom:1px solid #E0D0C0;padding-bottom:12px;margin-bottom:12px}
-.chat-you{text-align:right;color:#3D1F00;margin-bottom:4px}
-.chat-you strong{color:#3D1F00}
-.chat-ai{text-align:left;color:#333;margin-bottom:4px}
-.chat-ai strong{color:#8B4513}
-.chat-ts{font-size:11px;color:#999}
-.chat-input-row{display:flex;gap:8px;margin-top:8px}
-.chat-input-row input{flex:1;border:1px solid #C4956A;padding:8px;font-size:13px;border-radius:4px}
-.chat-input-row input:focus{outline:none;border-color:#8B4513;box-shadow:0 0 0 2px rgba(139,69,19,.25)}
-.groq-badge{font-size:11px;color:#999;font-style:italic;text-align:right;margin-top:6px}
+.chat-box{
+  border:1px solid var(--hcl-border);
+  border-radius:6px;
+  height:380px;
+  overflow-y:auto;
+  padding:18px;
+  background:#fff;
+  font-size:13.5px;
+}
+.chat-exchange{border-bottom:1px solid var(--hcl-border);padding-bottom:12px;margin-bottom:12px}
+.chat-you{text-align:right;color:var(--hcl-copper);margin-bottom:4px}
+.chat-you strong{color:var(--hcl-copper)}
+.chat-ai{text-align:left;color:var(--hcl-text);margin-bottom:4px}
+.chat-ai strong{color:var(--hcl-copper)}
+.chat-ts{font-size:11px;color:#888}
+.chat-input-row{display:flex;gap:8px;margin-top:10px}
+.chat-input-row input{
+  flex:1;
+  border:1px solid var(--hcl-border-dark);
+  padding:9px 12px;
+  font-size:13.5px;
+  border-radius:4px;
+  font-family:inherit;
+}
+.chat-input-row input:focus{
+  outline:none;
+  border-color:var(--hcl-copper);
+  box-shadow:0 0 0 3px rgba(122,37,11,0.15);
+}
+.groq-badge{font-size:11.5px;color:#888;font-style:italic;text-align:right;margin-top:6px}
 .suggest-links{margin-bottom:12px}
-.suggest-links a{color:#8B4513;font-size:13px;display:block;text-decoration:none;margin-bottom:4px}
-.suggest-links a:hover{text-decoration:underline}
+.suggest-links a{color:var(--hcl-copper);font-size:13.5px;display:block;text-decoration:none;margin-bottom:5px;font-weight:500}
+.suggest-links a:hover{text-decoration:underline;color:var(--hcl-bronze)}
 
 /* ═══════════════ RANGE SLIDER ═══════════════ */
-.range-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.range-row label{width:200px;font-size:13px;color:#333;flex-shrink:0}
-.range-row input[type=range]{width:180px;accent-color:#8B4513}
-.range-val{font-size:13px;font-weight:600;color:#5C2E00;width:60px}
+.range-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.range-row label{width:200px;font-size:13.5px;font-weight:600;color:var(--hcl-text);flex-shrink:0}
+.range-row input[type=range]{width:180px;accent-color:var(--hcl-copper)}
+.range-val{font-size:13.5px;font-weight:700;color:var(--hcl-copper);width:60px}
 
 /* ═══════════════ HEATMAP ═══════════════ */
-.heatmap-cell{padding:7px;text-align:center;font-size:11px;border:1px solid #C4956A}
+.heatmap-cell{padding:7px;text-align:center;font-size:11px;border:1px solid var(--hcl-border)}
 
 /* ═══════════════ SEVERITY COLOURS ═══════════════ */
-.sev-critical{color:#E63946;font-weight:600}
-.sev-warning{color:#FFA000;font-weight:600}
-.sev-normal{color:#38A169;font-weight:600}
+.sev-critical{color:var(--hcl-danger);font-weight:700}
+.sev-warning{color:var(--hcl-warning);font-weight:700}
+.sev-normal{color:var(--hcl-success);font-weight:700}
 
-/* ═══════════════ FOOTER ═══════════════ */
-#footer{background:#F5C9A0;padding:24px 40px 0}
-.footer-visitor{text-align:center;font-size:13px;color:#666;padding:12px 0;border-bottom:1px solid #D4A97A;margin-bottom:20px}
-.footer-cols{display:flex;justify-content:space-between;padding-bottom:16px}
-.footer-col .fc-title{color:#8B4513;font-weight:700;font-size:20px;text-transform:uppercase;margin-bottom:10px}
+/* ═══════════════ FOOTER (Uploaded HCL Website Clone) ═══════════════ */
+#footer{
+  background:var(--hcl-buff);
+  padding:30px 48px 0;
+  border-top:2px solid var(--hcl-border);
+}
+.footer-visitor{
+  text-align:center;
+  font-size:14px;
+  font-weight:600;
+  color:var(--hcl-text);
+  padding:12px 0;
+  border-bottom:1px solid rgba(201,155,117,0.5);
+  margin-bottom:24px;
+  line-height:1.8;
+}
+.footer-cols{
+  display:grid;
+  grid-template-columns:1.2fr 1fr 1fr;
+  gap:32px;
+  padding-bottom:24px;
+}
+.footer-col .fc-title{
+  color:var(--hcl-text);
+  font-weight:700;
+  font-size:17px;
+  margin-bottom:12px;
+  position:relative;
+  display:inline-block;
+}
+.footer-col .fc-title::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:32px;
+  height:2px;
+  background:var(--hcl-copper);
+}
 .footer-col ul{list-style:none;padding:0}
-.footer-col ul li{margin-bottom:2px}
-.footer-col ul li a{color:#333;font-size:13px;text-decoration:none;line-height:2}
-.footer-col ul li a:hover{text-decoration:underline;color:#8B4513}
-.footer-bottom{border-top:1px solid #D4A97A;padding:10px 0;text-align:center;font-size:11px;color:#555}
+.footer-col ul li{margin-bottom:4px}
+.footer-col ul li a{
+  color:var(--hcl-text);
+  font-size:13.5px;
+  text-decoration:none;
+  line-height:1.9;
+  transition:color .2s;
+}
+.footer-col ul li a:hover{
+  text-decoration:underline;
+  color:var(--hcl-copper);
+}
+
+.social-icons-row{
+  display:flex;
+  gap:12px;
+  margin-top:10px;
+  align-items:center;
+}
+.social-icon-btn{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  border:1px solid var(--hcl-border-dark);
+  color:var(--hcl-copper);
+  text-decoration:none;
+  transition:transform .2s,box-shadow .2s;
+}
+.social-icon-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 3px 6px rgba(0,0,0,0.15);
+}
+
+.footer-bottom-bar{
+  background:var(--hcl-mahogany);
+  margin:0 -48px;
+  padding:14px 48px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  color:var(--hcl-gold);
+  font-size:12.5px;
+  font-weight:500;
+}
+.footer-bottom-bar a{color:var(--hcl-gold);text-decoration:none}
+.scroll-top-btn{
+  background:#fff;
+  color:var(--hcl-mahogany);
+  border:none;
+  width:34px;
+  height:34px;
+  border-radius:4px;
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 2px 6px rgba(0,0,0,0.3);
+  transition:background .2s;
+}
+.scroll-top-btn:hover{background:#F7E3D0}
 
 /* ═══════════════ HAMBURGER (mobile) ═══════════════ */
-#hamburger{display:none;background:#5C3317;color:#fff;border:none;font-size:18px;padding:4px 10px;cursor:pointer}
+#hamburger{display:none;background:#5C1F0C;color:#fff;border:none;font-size:18px;padding:4px 10px;cursor:pointer;border-radius:3px}
 /* ═══════════════ ACCESSIBILITY ═══════════════ */
-*:focus { outline: 2px solid #8B4513; outline-offset: 2px; }
+*:focus { outline: 2px solid var(--hcl-copper); outline-offset: 2px; }
 
 /* ═══════════════ PRINT STYLESHEET ═══════════════ */
 @media print {
-  #utilBar,#sidebar,#footer,.btn-hcl,.tab-nav,
+  #utilBar,#mainNav,#plantTicker,#sidebar,#footer,.btn-hcl,.tab-nav,
   .chat-input-row,.suggest-links,#demoBanner { display:none !important; }
   #content { padding:0; }
   .report-wrapper { border:none; }
@@ -199,80 +779,96 @@ table.hcl tbody tr:hover{background:#F5E6D0}
 
 <!-- ═══════════════ HEADER ROW 1: UTILITY BAR ═══════════════ -->
 <div id="utilBar">
-  <a class="home-icon" href="#" onclick="showPage('home')"><svg width="18" height="18" stroke="#fff" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="3 9 12 2 21 9"/><rect x="5" y="9" width="14" height="13"/></svg></a>
+  <a class="home-icon" href="#" onclick="showPage('home')" title="Home / मुख्य पृष्ठ"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="3 9 12 2 21 9"/><rect x="5" y="9" width="14" height="13"/></svg></a>
   <button class="util-btn" id="hamburger" onclick="toggleSidebar()">☰</button>
-  <button class="util-btn" id="loginBtn" onclick="openLoginModal()">Operational Login</button>
-  <button class="util-btn" onclick="openSR()">Screen Reader Access</button>
-  <button class="util-btn" style="padding:4px 8px" onclick="applyFont(currentFont - 2)">A-</button>
-  <button class="util-btn" style="padding:4px 8px" onclick="applyFont(DEFAULT_FONT)">A</button>
-  <button class="util-btn" style="padding:4px 8px" onclick="applyFont(currentFont + 2)">A+</button>
-  <button class="util-btn" onclick="toggleLang()" data-i18n="btn_hindi">हिंदी संस्करण</button>
+  <button class="util-btn" id="loginBtn" onclick="openLoginModal()" data-i18n="btn_login">परिचालन लॉगिन</button>
+  <button class="util-btn" onclick="openSR()" data-i18n="btn_sr">स्क्रीन रीडर एक्सेस</button>
+  <button class="util-btn" style="padding:4px 8px" onclick="applyFont(currentFont - 2)" title="Decrease Font">A-</button>
+  <button class="util-btn" style="padding:4px 8px" onclick="applyFont(DEFAULT_FONT)" title="Reset Font">A</button>
+  <button class="util-btn" style="padding:4px 8px" onclick="applyFont(currentFont + 2)" title="Increase Font">A+</button>
+  <button class="util-btn lang-toggle-btn" id="langToggleBtn" onclick="toggleLang()">🌐 English</button>
   <div class="util-spacer"></div>
   <div role="search" style="display:flex;gap:0">
-    <input id="utilSearch" placeholder="Search.." aria-label="Search site content"/>
+    <input id="utilSearch" placeholder="खोजें / Search.." data-i18n-ph="ph_search" aria-label="Search site content"/>
     <button class="util-search-btn" onclick="doSearch()" aria-label="Submit search">🔍</button>
   </div>
 </div>
 
-<div id="logoBar" style="height:90px;padding:0 16px;display:flex;align-items:center;justify-content:space-between">
-  <div class="logo-area" style="display:flex;align-items:center;gap:12px">
-    <div style="width:85px;flex-shrink:0">
-      <img src="assets/logo.png" alt="HCL Logo" style="width:85px;height:85px;border:none;object-fit:contain"/>
+<!-- ═══════════════ HEADER ROW 2: LOGO BAR (Uploaded HCL Branding) ═══════════════ -->
+<div id="logoBar">
+  <div class="logo-area">
+    <div style="width:78px;flex-shrink:0">
+      <img src="assets/logo.png" alt="HCL Logo" style="width:78px;height:78px;border:none;object-fit:contain"/>
     </div>
     <div class="logo-text-block">
-      <div class="logo-name">HINDUSTAN COPPER LIMITED</div>
-      <div class="logo-sub">(A Govt. of India Enterprise)</div>
-      <div class="logo-tagline">The Copper Miner to the Nation</div>
+      <div class="logo-name" data-i18n="brand_name">हिंदुस्तान कॉपर लिमिटेड</div>
+      <div class="logo-sub" data-i18n="brand_sub">(भारत सरकार का उद्यम)</div>
+      <div class="logo-tagline" data-i18n="brand_tagline">राष्ट्र का ताम्र खनिक</div>
     </div>
   </div>
-  <div class="azadi-badge" style="display:flex;align-items:center;gap:24px;margin:0 auto">
-    <img src="assets/independance.png" alt="Azadi Ka Amrit Mahotsav" style="width:120px;border:none"/>
-    <img src="assets/betibachaobetipadhao.png"alt="Beti Bachao Beti Padhao" style="width:80px;border:none"/>
+  <div class="azadi-badge">
+    <img src="assets/independance.png" alt="Azadi Ka Amrit Mahotsav"/>
+    <img src="assets/betibachaobetipadhao.png" alt="Beti Bachao Beti Padhao"/>
   </div>
   <div class="header-links">
-    <a href="#" onclick="showPage('career');return false" data-i18n="lnk_career">Career</a>
-    <a href="#" onclick="showPage('exemployee');return false" data-i18n="lnk_exemp">Ex-Employee Corner</a>
-    <a href="#" onclick="showPage('feedback');return false" data-i18n="lnk_feedback">Feedback</a>
-    <a href="#" onclick="showPage('contact');return false" data-i18n="lnk_contact">Contact Us</a>
+    <a href="#" onclick="showPage('career');return false" data-i18n="lnk_career">करियर</a>
+    <a href="#" onclick="showPage('exemployee');return false" data-i18n="lnk_exemp">पूर्व कर्मचारी कॉर्नर</a>
+    <a href="#" onclick="showPage('feedback');return false" data-i18n="lnk_feedback">प्रतिक्रिया</a>
+    <a href="#" onclick="showPage('contact');return false" data-i18n="lnk_contact">हमसे संपर्क करें</a>
   </div>
 </div>
 
+<!-- ═══════════════ HEADER ROW 3: MAIN NAV ═══════════════ -->
 <div id="mainNav">
-  <a class="nav-link active" onclick="showPage('home')" data-i18n="nav_home">Home</a>
-  <a class="nav-link" onclick="showPage('predictor')" data-i18n="nav_predictor">Recovery Predictor</a>
-  <a class="nav-link" onclick="showPage('optimizer')" data-i18n="nav_optimizer">Reagent Optimizer</a>
-  <a class="nav-link" onclick="showPage('anomaly')" data-i18n="nav_anomaly">Anomaly Alerts</a>
-  <a class="nav-link" onclick="showPage('dashboard')" data-i18n="nav_dashboard">Shift Dashboard</a>
-  <a class="nav-link" onclick="showPage('features')" data-i18n="nav_features">Feature Explorer</a>
-  <a class="nav-link" onclick="showPage('report')" data-i18n="nav_report">Shift Report</a>
-  <a class="nav-link" onclick="showPage('chat')" data-i18n="nav_chat">Ask the Plant</a>
-  <a class="nav-link" onclick="showPage('forecast')" data-i18n="nav_forecast">Trend Forecaster</a>
-  <a class="nav-link" onclick="showPage('submit')" data-i18n="nav_submit">Submit Shift</a>
-  <a class="nav-link" onclick="showPage('history')" data-i18n="nav_history">History</a>
+  <a class="nav-link active" onclick="showPage('home')" data-i18n="nav_home">होम</a>
+  <a class="nav-link" onclick="showPage('predictor')" data-i18n="nav_predictor">रिकवरी प्रेडिक्टर ▾</a>
+  <a class="nav-link" onclick="showPage('optimizer')" data-i18n="nav_optimizer">रीएजेंट ऑप्टिमाइज़र ▾</a>
+  <a class="nav-link" onclick="showPage('anomaly')" data-i18n="nav_anomaly">असामान्यता अलर्ट ▾</a>
+  <a class="nav-link" onclick="showPage('dashboard')" data-i18n="nav_dashboard">शिफ्ट डैशबोर्ड ▾</a>
+  <a class="nav-link" onclick="showPage('features')" data-i18n="nav_features">फीचर एक्सप्लोरर ▾</a>
+  <a class="nav-link" onclick="showPage('report')" data-i18n="nav_report">शिफ्ट रिपोर्ट ▾</a>
+  <a class="nav-link" onclick="showPage('chat')" data-i18n="nav_chat">प्लांट से पूछें ▾</a>
+  <a class="nav-link" onclick="showPage('forecast')" data-i18n="nav_forecast">ट्रेंड फोरकास्टर</a>
+  <a class="nav-link" onclick="showPage('submit')" data-i18n="nav_submit">शिफ्ट सबमिट करें</a>
+  <a class="nav-link" onclick="showPage('history')" data-i18n="nav_history">इतिहास</a>
+</div>
+
+<!-- ═══════════════ LIVE PLANT STATUS TICKER ═══════════════ -->
+<div id="plantTicker">
+  <div class="ticker-badge">
+    <span class="ticker-pulse"></span>
+    <span data-i18n="ticker_badge">लाइव प्लांट स्थिति</span>
+  </div>
+  <div class="ticker-stream">
+    <span data-i18n="ticker_item1">📍 मलांजखंड कॉपर प्रोजेक्ट (MCP) · फ्लोटेशन सेल 1–8 सक्रिय</span>
+    <span data-i18n="ticker_item2">🎯 बेंचमार्क रिकवरी: 85.0% | वर्तमान AI मॉडल अनुमान: 87.4%</span>
+    <span data-i18n="ticker_item3">🧪 पीएच संतुलन: 10.5 (इष्टतम 10.2–11.2) | एसआईपीएक्स: 35.0 g/t</span>
+    <span data-i18n="ticker_item4">🛡️ संयंत्र स्थिति: सुरक्षित सामान्य (Zero Critical Anomalies)</span>
+  </div>
 </div>
 
 <!-- ═══════════════ BODY: SIDEBAR + CONTENT ═══════════════ -->
 <div id="bodyWrap">
 
   <div id="sidebar">
-    <div class="sb-section-hdr">RecovAI Modules</div>
-    <a class="sb-item active" onclick="showPage('home')"><span class="sb-icon"><svg width="18" height="18" stroke="#8B4513" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="3 9 12 2 21 9"/><rect x="5" y="9" width="14" height="13"/></svg></span><span data-i18n="sb_home">Home</span></a>
-    <a class="sb-item" onclick="showPage('predictor')"><span class="sb-icon"><svg width="18" height="18" stroke="#8B4513" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></span><span data-i18n="sb_predictor">Recovery Predictor</span></a>
-    <a class="sb-item" onclick="showPage('optimizer')"><span class="sb-icon"><svg width="18" height="18" stroke="#8B4513" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 3h6v9H9z"/><path d="M9 12v9h6v-9"/></svg></span><span data-i18n="sb_optimizer">Reagent Optimizer</span></a>
-    <a class="sb-item" onclick="showPage('anomaly')"><span class="sb-icon"><svg width="18" height="18" stroke="#8B4513" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span><span data-i18n="sb_anomaly">Anomaly Alerts</span></a>
-    <a class="sb-item" onclick="showPage('dashboard')"><span class="sb-icon"><svg width="18" height="18" stroke="#8B4513" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg></span><span data-i18n="sb_dashboard">Shift Dashboard</span></a>
-    <a class="sb-item" onclick="showPage('features')"><span class="sb-icon"><svg width="18" height="18" stroke="#8B4513" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2v6l-2 4h16l-2-4V2"/><line x1="6" y1="2" x2="18" y2="2"/></svg></span><span data-i18n="sb_features">Feature Explorer</span></a>
-    <a class="sb-item" onclick="showPage('report')"><span class="sb-icon"><svg width="18" height="18" stroke="#8B4513" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg></span><span data-i18n="sb_report">Shift Report</span></a>
-    <a class="sb-item" onclick="showPage('chat')"><span class="sb-icon"><svg width="18" height="18" stroke="#8B4513" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span data-i18n="sb_chat">Ask the Plant</span></a>
-    <a class="sb-item" onclick="showPage('forecast')"><span class="sb-icon"><svg width="18" height="18" stroke="#8B4513" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span><span data-i18n="sb_forecast">Trend Forecaster</span></a>
-    <div class="sb-section-hdr">Shift Entry</div>
-    <a class="sb-item" onclick="showPage('submit')"><span class="sb-icon"><svg width="18" height="18" stroke="#8B4513" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span><span data-i18n="sb_submit">Submit Shift Data</span></a>
-    <a class="sb-item" onclick="showPage('history')"><span class="sb-icon"><svg width="18" height="18" stroke="#8B4513" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="4"/><rect x="3" y="10" width="18" height="4"/><rect x="3" y="17" width="18" height="4"/></svg></span><span data-i18n="sb_history">Submission History</span></a>
-    <div class="sb-section-hdr" data-i18n="ql_header">Quick Links</div>
-    <a class="sb-item" href="#"><span class="sb-icon"><svg width="18" height="18" stroke="#8B4513" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="2" width="14" height="20" rx="2"/><polyline points="9 2 9 6 15 6 15 2"/></svg></span><span data-i18n="ql_manual">Plant Operations Manual</span></a>
-    <a class="sb-item" href="#"><span class="sb-icon"><svg width="18" height="18" stroke="#8B4513" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><span data-i18n="ql_safety">Safety Guidelines</span></a>
-    <a class="sb-item" href="#"><span class="sb-icon"><svg width="18" height="18" stroke="#8B4513" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 13 19.79 19.79 0 0 1 1.08 4.18 2 2 0 0 1 3.05 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span data-i18n="ql_control">Control Room</span></a>
-    <a class="sb-item" href="https://www.hindustancopper.com" target="_blank"><span class="sb-icon"><svg width="18" height="18" stroke="#8B4513" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="7" width="20" height="15"/><polyline points="2 7 12 2 22 7"/><line x1="12" y1="2" x2="12" y2="22"/></svg></span><span data-i18n="ql_hcl">HCL Official Website</span></a>
+    <div class="sb-section-hdr" data-i18n="sb_sec_modules">RecovAI मॉड्यूल</div>
+    <a class="sb-item active" onclick="showPage('home')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="3 9 12 2 21 9"/><rect x="5" y="9" width="14" height="13"/></svg></span><span data-i18n="sb_home">होम</span></a>
+    <a class="sb-item" onclick="showPage('predictor')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></span><span data-i18n="sb_predictor">रिकवरी प्रेडिक्टर</span></a>
+    <a class="sb-item" onclick="showPage('optimizer')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 3h6v9H9z"/><path d="M9 12v9h6v-9"/></svg></span><span data-i18n="sb_optimizer">रीएजेंट ऑप्टिमाइज़र</span></a>
+    <a class="sb-item" onclick="showPage('anomaly')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span><span data-i18n="sb_anomaly">असामान्यता अलर्ट</span></a>
+    <a class="sb-item" onclick="showPage('dashboard')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg></span><span data-i18n="sb_dashboard">शिफ्ट डैशबोर्ड</span></a>
+    <a class="sb-item" onclick="showPage('features')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 2v6l-2 4h16l-2-4V2"/><line x1="6" y1="2" x2="18" y2="2"/></svg></span><span data-i18n="sb_features">फीचर एक्सप्लोरर</span></a>
+    <a class="sb-item" onclick="showPage('report')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg></span><span data-i18n="sb_report">शिफ्ट रिपोर्ट</span></a>
+    <a class="sb-item" onclick="showPage('chat')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span data-i18n="sb_chat">प्लांट से पूछें</span></a>
+    <a class="sb-item" onclick="showPage('forecast')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span><span data-i18n="sb_forecast">ट्रेंड फोरकास्टर</span></a>
+    <div class="sb-section-hdr" data-i18n="sb_sec_shift">शिफ्ट प्रविष्टि</div>
+    <a class="sb-item" onclick="showPage('submit')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span><span data-i18n="sb_submit">शिफ्ट डेटा सबमिट करें</span></a>
+    <a class="sb-item" onclick="showPage('history')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="4"/><rect x="3" y="10" width="18" height="4"/><rect x="3" y="17" width="18" height="4"/></svg></span><span data-i18n="sb_history">सबमिशन इतिहास</span></a>
+    <div class="sb-section-hdr" data-i18n="ql_header">महत्वपूर्ण लिंक</div>
+    <a class="sb-item" href="#"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="2" width="14" height="20" rx="2"/><polyline points="9 2 9 6 15 6 15 2"/></svg></span><span data-i18n="ql_manual">संयंत्र संचालन नियमावली</span></a>
+    <a class="sb-item" href="#"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><span data-i18n="ql_safety">सुरक्षा दिशानिर्देश</span></a>
+    <a class="sb-item" href="#"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 13 19.79 19.79 0 0 1 1.08 4.18 2 2 0 0 1 3.05 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span data-i18n="ql_control">कंट्रोल रूम संपर्क</span></a>
+    <a class="sb-item" href="https://www.hindustancopper.com" target="_blank"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="7" width="20" height="15"/><polyline points="2 7 12 2 22 7"/><line x1="12" y1="2" x2="12" y2="22"/></svg></span><span data-i18n="ql_hcl">एचसीएल आधिकारिक पोर्टल</span></a>
   </div>
 
   <!-- CONTENT AREA -->
@@ -282,42 +878,41 @@ table.hcl tbody tr:hover{background:#F5E6D0}
          PAGE 1: HOME
     ══════════════════════════════════════ -->
     <div class="page-section active" id="page-home">
-      <div class="page-title">RecovAI — Copper Flotation Intelligence</div>
-      <p class="intro-para">RecovAI is an AI-powered decision support platform for copper flotation plant operations at Hindustan Copper Limited. It provides real-time recovery prediction, reagent optimization, anomaly detection, and shift intelligence powered by machine learning — specifically calibrated for the Malanjkhand Copper Project, Madhya Pradesh.</p>
+      <div class="page-title" data-i18n="p1_title">RecovAI — ताम्र फ्लोटेशन निर्णय समर्थन प्रणाली</div>
+      <p class="intro-para" data-i18n="p1_intro">RecovAI हिंदुस्तान कॉपर लिमिटेड के मलांजखंड कॉपर प्रोजेक्ट (मध्य प्रदेश) के लिए निर्मित एक उन्नत एआई-संचालित निर्णय समर्थन प्रणाली है। यह वास्तविक समय में तांबा रिकवरी दर की भविष्यवाणी, अभिकर्मक खुराक का अनुकूलन, परिचालन असामान्यता की पहचान और स्वचालित शिफ्ट रिपोर्ट प्रदान करता है।</p>
 
-      <div class="status-bar">
-        Models Loaded: 3 &nbsp;|&nbsp; XGBoost &nbsp;|&nbsp; Random Forest &nbsp;|&nbsp; Linear &nbsp;|&nbsp; Dataset: 2,847 Shifts &nbsp;|&nbsp; Avg Recovery: 83.6% &nbsp;|&nbsp; Target: 85%
+      <div class="status-bar" data-i18n="p1_statusbar">
+        सक्रिय मॉडल: 3 &nbsp;|&nbsp; XGBoost &nbsp;|&nbsp; Random Forest &nbsp;|&nbsp; Linear &nbsp;|&nbsp; कुल शिफ्ट डेटा: 2,847 &nbsp;|&nbsp; ऐतिहासिक औसत रिकवरी: 83.6% &nbsp;|&nbsp; बेंचमार्क लक्ष्य: 85.0%
       </div>
 
-      <div class="sub-hdr">Module Overview</div>
+      <div class="sub-hdr" data-i18n="p1_mod_overview">मॉड्यूल विहंगावलोकन (Module Overview)</div>
       <div class="tbl-wrap">
         <table class="hcl">
-          <thead><tr><th>Module</th><th>Description</th><th>Engine</th><th>Type</th><th>Status</th></tr></thead>
+          <thead><tr><th data-i18n="th_module">मॉड्यूल</th><th data-i18n="th_desc">विवरण</th><th data-i18n="th_engine">इंजन</th><th data-i18n="th_type">प्रकार</th><th data-i18n="th_status">स्थिति</th></tr></thead>
           <tbody>
-            <tr><td>Recovery Predictor</td><td>Predict next-shift copper recovery % with 90% CI</td><td>XGBoost / RF / Linear</td><td>Core</td><td style="color:#38A169;font-weight:600">● Active</td></tr>
-            <tr><td>Reagent Optimizer</td><td>Find minimum-cost doses for target recovery (Engine 1)</td><td>engine1_reagent.py</td><td>Core</td><td style="color:#38A169;font-weight:600">● Active</td></tr>
-            <tr><td>Anomaly Alerts</td><td>Flag unusual shifts before they fail (Engine 2)</td><td>engine2_anomaly.py</td><td>Core</td><td style="color:#38A169;font-weight:600">● Active</td></tr>
-            <tr><td>Shift Dashboard</td><td>Historical actual vs predicted performance</td><td>Dashboard</td><td>Analysis</td><td style="color:#38A169;font-weight:600">● Active</td></tr>
-            <tr><td>Feature Explorer</td><td>SHAP explainability &amp; feature importance (Engine 3)</td><td>engine3_shap.py</td><td>Analysis</td><td style="color:#38A169;font-weight:600">● Active</td></tr>
-            <tr><td>Shift Report</td><td>Auto-generate operator/manager shift summary (Engine 5)</td><td>engine5_nlp.py</td><td>Analysis</td><td style="color:#38A169;font-weight:600">● Active</td></tr>
-            <tr><td>Ask the Plant</td><td>Natural language Q&amp;A over shift history</td><td>engine5_nlp.py</td><td>AI</td><td style="color:#38A169;font-weight:600">● Active</td></tr>
-            <tr><td>Trend Forecaster</td><td>7–30 day recovery forecast from planned shifts</td><td>PSI Monitor (Engine 4)</td><td>AI</td><td style="color:#38A169;font-weight:600">● Active</td></tr>
+            <tr><td data-i18n="sb_predictor">रिकवरी प्रेडिक्टर</td><td data-i18n="m_desc1">अगली शिफ्ट के लिए 90% विश्वास अंतराल के साथ कॉपर रिकवरी % की भविष्यवाणी</td><td>XGBoost / RF / Linear</td><td>Core</td><td style="color:var(--hcl-success);font-weight:700">● सक्रिय (Active)</td></tr>
+            <tr><td data-i18n="sb_optimizer">रीएजेंट ऑप्टिमाइज़र</td><td data-i18n="m_desc2">85%+ रिकवरी के लिए न्यूनतम लागत अभिकर्मक खुराक की गणना (इंजन 1)</td><td>engine1_reagent.py</td><td>Core</td><td style="color:var(--hcl-success);font-weight:700">● सक्रिय (Active)</td></tr>
+            <tr><td data-i18n="sb_anomaly">असामान्यता अलर्ट</td><td data-i18n="m_desc3">असामान्य परिचालन स्थितियों की पूर्व चेतावनी (इंजन 2 - आइसोलेशन फ़ॉरेस्ट)</td><td>engine2_anomaly.py</td><td>Core</td><td style="color:var(--hcl-success);font-weight:700">● सक्रिय (Active)</td></tr>
+            <tr><td data-i18n="sb_dashboard">शिफ्ट डैशबोर्ड</td><td data-i18n="m_desc4">ऐतिहासिक बनाम वास्तविक प्रदर्शन विश्लेषण</td><td>Dashboard</td><td>Analysis</td><td style="color:var(--hcl-success);font-weight:700">● सक्रिय (Active)</td></tr>
+            <tr><td data-i18n="sb_features">फीचर एक्सप्लोरर</td><td data-i18n="m_desc5">एसएचएपी (SHAP) व्याख्यात्मकता और आंशिक निर्भरता प्लॉट (इंजन 3)</td><td>engine3_shap.py</td><td>Analysis</td><td style="color:var(--hcl-success);font-weight:700">● सक्रिय (Active)</td></tr>
+            <tr><td data-i18n="sb_report">शिफ्ट रिपोर्ट</td><td data-i18n="m_desc6">ऑपरेटर और प्रबंधक के लिए स्वचालित प्राकृतिक भाषा शिफ्ट रिपोर्ट (इंजन 5)</td><td>engine5_nlp.py</td><td>Analysis</td><td style="color:var(--hcl-success);font-weight:700">● सक्रिय (Active)</td></tr>
+            <tr><td data-i18n="sb_chat">प्लांट से पूछें</td><td data-i18n="m_desc7">शिफ्ट इतिहास और प्रक्रियाओं पर ऑपरेटर प्रश्नोत्तरी चैटबॉट</td><td>engine5_nlp.py</td><td>AI</td><td style="color:var(--hcl-success);font-weight:700">● सक्रिय (Active)</td></tr>
+            <tr><td data-i18n="sb_forecast">ट्रेंड फोरकास्टर</td><td data-i18n="m_desc8">7–30 दिन की आगामी रिकवरी प्रवृत्ति और पीएसआई डेटा ड्रिफ्ट मॉनिटर</td><td>PSI Monitor (Engine 4)</td><td>AI</td><td style="color:var(--hcl-success);font-weight:700">● सक्रिय (Active)</td></tr>
           </tbody>
         </table>
       </div>
 
-      <div class="sub-hdr">Plant Benchmarks</div>
-      <table class="hcl" style="max-width:500px">
-        <thead><tr><th>Parameter</th><th>Value / Range</th></tr></thead>
+      <div class="sub-hdr" data-i18n="p1_benchmarks">संयंत्र बेंचमार्क (Plant Benchmarks)</div>
+      <table class="hcl" style="max-width:540px">
+        <thead><tr><th data-i18n="th_param">पैरामीटर</th><th data-i18n="th_val">मानक मान / सीमा</th></tr></thead>
         <tbody>
-          <tr><td>Recovery Target</td><td>85%</td></tr>
-          <tr><td>Concentrate Grade</td><td>28% Cu (assumed)</td></tr>
-          <tr><td>Flotation pH Range</td><td>10.2 – 11.2</td></tr>
-          <tr><td>SIPX Dose Range</td><td>10 – 80 g/t</td></tr>
-          <tr><td>Frother Dose Range</td><td>5 – 40 g/t</td></tr>
-          <tr><td>Lime Dose Range</td><td>0.5 – 5 kg/t</td></tr>
-          <tr><td>Depressant Range</td><td>5 – 50 g/t</td></tr>
-          <tr><td>API Endpoints</td><td>POST /predict &nbsp;|&nbsp; POST /report &nbsp;|&nbsp; POST /drift/batch &nbsp;|&nbsp; GET /health</td></tr>
+          <tr><td data-i18n="bm_target">रिकवरी बेंचमार्क लक्ष्य</td><td><strong>85.0%</strong></td></tr>
+          <tr><td data-i18n="bm_conc_grade">कॉन्सेंट्रेट ग्रेड</td><td>28.0% Cu (मानक)</td></tr>
+          <tr><td data-i18n="bm_ph_range">फ्लोटेशन पीएच सीमा</td><td>10.2 – 11.2</td></tr>
+          <tr><td data-i18n="bm_sipx_range">एसआईपीएक्स खुराक सीमा</td><td>10 – 80 g/t</td></tr>
+          <tr><td data-i18n="bm_frother_range">झाग कारक (Frother) सीमा</td><td>5 – 40 g/t</td></tr>
+          <tr><td data-i18n="bm_lime_range">चूना (Lime) खुराक सीमा</td><td>0.5 – 5.0 kg/t</td></tr>
+          <tr><td data-i18n="bm_dep_range">अवसादक (Depressant) सीमा</td><td>5 – 50 g/t</td></tr>
         </tbody>
       </table>
     </div>
@@ -326,74 +921,86 @@ table.hcl tbody tr:hover{background:#F5E6D0}
          PAGE 2: RECOVERY PREDICTOR
     ══════════════════════════════════════ -->
     <div class="page-section" id="page-predictor">
-      <div class="page-title">Recovery Predictor</div>
-      <p class="intro-para">Enter the shift parameters below to predict copper recovery percentage. All 12 process variables from the <code>engine1_reagent.py</code> / <code>engine2_anomaly.py</code> feature set are used by the selected model. Results also include SHAP attribution via <code>engine3_shap.py</code>.</p>
+      <div class="page-title" data-i18n="p2_title">ताम्र रिकवरी प्रेडिक्टर (Recovery Predictor)</div>
+      <p class="intro-para" data-i18n="p2_intro">शिफ्ट के प्रक्रिया मापदंड दर्ज करें। 12 प्रक्रिया चरों के आधार पर मशीन लर्निंग मॉडल तांबा रिकवरी प्रतिशत की सटीक भविष्यवाणी करेगा तथा एसएचएपी विश्लेषण प्रस्तुत करेगा।</p>
+
+      <!-- Quick Operational Presets Bar -->
+      <div class="preset-bar">
+        <span style="font-size:13px;font-weight:700;color:var(--hcl-copper)" data-i18n="lbl_preset">त्वरित परिचालन प्रीसेट:</span>
+        <button type="button" class="preset-btn" onclick="applyPreset('normal')" data-i18n="preset_normal">⚡ सामान्य अयस्क (Normal Ore)</button>
+        <button type="button" class="preset-btn" onclick="applyPreset('fines')" data-i18n="preset_fines">⚡ उच्च फाइन्स (High Fines)</button>
+        <button type="button" class="preset-btn" onclick="applyPreset('lowgrade')" data-i18n="preset_lowgrade">⚡ कम ग्रेड (Low Grade)</button>
+        <button type="button" class="preset-btn" onclick="applyPreset('peak')" data-i18n="preset_peak">⚡ पीक रिकवरी (Peak 88%+)</button>
+      </div>
 
       <div class="form-group">
-        <label>Select Model:</label>
+        <label data-i18n="lbl_sel_model">मॉडल चुनें:</label>
         <select id="pred_model">
-          <option value="xgb">XGBoost</option>
-          <option value="rf">Random Forest</option>
-          <option value="linear">Linear</option>
+          <option value="xgb">XGBoost (सर्वोत्तम R² 0.97)</option>
+          <option value="rf">Random Forest (R² 0.91)</option>
+          <option value="linear">Linear Regression (बेसलाइन)</option>
         </select>
       </div>
 
-      <div class="sub-hdr">Feed &amp; Process Conditions</div>
+      <div class="sub-hdr" data-i18n="sec_feed_conditions">फीड एवं प्रक्रिया शर्तें (Feed &amp; Process Conditions)</div>
       <div class="form-section">
-        <div class="form-group"><label>Head Grade (%Cu)</label><input type="number" id="p_hg" value="1.5" step="0.05" min="0.1" max="5"/></div>
-        <div class="form-group"><label>Feed Rate (MT/h)</label><input type="number" id="p_fr" value="85" step="1" min="20" max="300"/></div>
-        <div class="form-group"><label>Flotation pH</label><input type="number" id="p_ph" value="10.5" step="0.1" min="7" max="13"/></div>
-        <div class="form-group"><label>Pulp Density (%)</label><input type="number" id="p_pd" value="32" step="0.5" min="10" max="60"/></div>
-        <div class="form-group"><label>Air Flow Rate (m³/min)</label><input type="number" id="p_af" value="12" step="0.5" min="2" max="40"/></div>
-        <div class="form-group"><label>Feed Particle Size P80 (µm)</label><input type="number" id="p_ps" value="150" step="5" min="50" max="400"/></div>
-        <div class="form-group"><label>Water Recovery (%)</label><input type="number" id="p_wr" value="72" step="0.5" min="30" max="95"/></div>
-        <div class="form-group"><label>Rougher Conc Grade (%Cu)</label><input type="number" id="p_rg" value="18" step="0.5" min="2" max="50"/></div>
+        <div class="form-group"><label data-i18n="lbl_head_grade">शीर्ष ग्रेड / Head Grade (%Cu)</label><input type="number" id="p_hg" value="1.5" step="0.05" min="0.1" max="5"/></div>
+        <div class="form-group"><label data-i18n="lbl_feed_rate">पिसाई दर / Feed Rate (MT/h)</label><input type="number" id="p_fr" value="85" step="1" min="20" max="300"/></div>
+        <div class="form-group"><label data-i18n="lbl_flotation_ph">फ्लोटेशन पीएच / Flotation pH</label><input type="number" id="p_ph" value="10.5" step="0.1" min="7" max="13"/></div>
+        <div class="form-group"><label data-i18n="lbl_pulp_density">पल्प घनत्व / Pulp Density (%)</label><input type="number" id="p_pd" value="32" step="0.5" min="10" max="60"/></div>
+        <div class="form-group"><label data-i18n="lbl_air_flow">वायु प्रवाह दर / Air Flow (m³/min)</label><input type="number" id="p_af" value="12" step="0.5" min="2" max="40"/></div>
+        <div class="form-group"><label data-i18n="lbl_particle_size">कण आकार / Particle Size P80 (µm)</label><input type="number" id="p_ps" value="150" step="5" min="50" max="400"/></div>
+        <div class="form-group"><label data-i18n="lbl_water_recovery">जल पुनर्प्राप्ति / Water Recovery (%)</label><input type="number" id="p_wr" value="72" step="0.5" min="30" max="95"/></div>
+        <div class="form-group"><label data-i18n="lbl_rougher_grade">रफ़र कॉन्सेंट्रेट ग्रेड (%Cu)</label><input type="number" id="p_rg" value="18" step="0.5" min="2" max="50"/></div>
       </div>
 
-      <div class="sub-hdr">Reagent Inputs</div>
+      <div class="sub-hdr" data-i18n="sec_reagents">अभिकर्मक खुराक (Reagent Dosage Inputs)</div>
       <div class="form-section">
         <div class="form-group">
-          <label>SIPX Dose (g/t)</label>
+          <label data-i18n="lbl_sipx">एसआईपीएक्स खुराक / SIPX (g/t)</label>
           <input type="number" id="p_sipx" value="35" step="1" min="10" max="80"/>
         </div>
         <div class="form-group">
-          <label>Frother Dose (g/t)</label>
+          <label data-i18n="lbl_frother">झाग कारक / Frother (g/t)</label>
           <input type="number" id="p_frother" value="15" step="0.5" min="5" max="40"/>
         </div>
         <div class="form-group">
-          <label>Lime Dose (kg/t)</label>
+          <label data-i18n="lbl_lime">चूना खुराक / Lime (kg/t)</label>
           <input type="number" id="p_lime" value="2" step="0.1" min="0.5" max="5"/>
         </div>
         <div class="form-group">
-          <label>Depressant Dose (g/t)</label>
+          <label data-i18n="lbl_depressant">अवसादक खुराक / Depressant (g/t)</label>
           <input type="number" id="p_dep" value="20" step="1" min="5" max="50"/>
         </div>
       </div>
 
-      <button class="btn-hcl" onclick="runPredictor()" data-i18n="btn_predict">Predict Recovery</button>
-      <span id="pred_loading" class="loading-msg" style="display:none;margin-left:12px">⏳ Calling POST /predict...</span>
-      <span id="pred_error" class="error-msg"></span>
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+        <button class="btn-hcl" onclick="runPredictor()" data-i18n="btn_predict">🔮 रिकवरी भविष्यवाणी करें</button>
+        <button type="button" class="btn-speech" onclick="speakCurrentPrediction()" id="btnVoice" title="Listen to prediction in Hindi">🔊 <span data-i18n="btn_listen">हिन्दी में सुनें</span></button>
+        <span id="pred_loading" class="loading-msg" style="display:none;margin-left:12px">⏳ गणना जारी है (POST /predict)...</span>
+        <span id="pred_error" class="error-msg"></span>
+      </div>
 
       <div id="pred_result" style="display:none;margin-top:20px">
-        <div class="sub-hdr">Prediction Result</div>
-        <table class="hcl" style="max-width:480px">
+        <div class="sub-hdr" data-i18n="sec_pred_result">भविष्यवाणी परिणाम (Prediction Result)</div>
+        <table class="hcl" style="max-width:500px">
           <tbody>
-            <tr><td><strong>Predicted Recovery</strong></td><td id="r_pred" style="font-weight:700;font-size:15px"></td></tr>
-            <tr><td>90% CI Lower</td><td id="r_ci_lo"></td></tr>
-            <tr><td>90% CI Upper</td><td id="r_ci_hi"></td></tr>
-            <tr><td>Model Used</td><td id="r_model"></td></tr>
-            <tr><td>Anomaly Score (Engine 2)</td><td id="r_anom"></td></tr>
+            <tr><td><strong data-i18n="res_pred_rec">अनुमानित कॉपर रिकवरी</strong></td><td id="r_pred" style="font-weight:800;font-size:17px;color:var(--hcl-copper)"></td></tr>
+            <tr><td data-i18n="res_ci_lo">90% विश्वास अंतराल (न्यूनतम)</td><td id="r_ci_lo"></td></tr>
+            <tr><td data-i18n="res_ci_hi">90% विश्वास अंतराल (अधिकतम)</td><td id="r_ci_hi"></td></tr>
+            <tr><td data-i18n="res_model">प्रयुक्त मॉडल</td><td id="r_model"></td></tr>
+            <tr><td data-i18n="res_anom">असामान्यता स्कोर (इंजन 2)</td><td id="r_anom"></td></tr>
           </tbody>
         </table>
         <div id="r_notice"></div>
 
-        <div class="sub-hdr">Derived Metallurgical KPIs</div>
-        <table class="hcl" style="max-width:480px">
+        <div class="sub-hdr" data-i18n="sec_metallurgical_kpi">प्राप्त धातुकर्म केपीआई (Metallurgical KPIs)</div>
+        <table class="hcl" style="max-width:500px">
           <tbody>
-            <tr><td>Final Concentrate Generated</td><td id="r_conc"> MT</td></tr>
-            <tr><td>Cu Recovered</td><td id="r_cu"> MT</td></tr>
-            <tr><td>Recovery vs Target Delta</td><td id="r_delta"></td></tr>
-            <tr><td>Concentrate Grade Assumption</td><td>28% Cu</td></tr>
+            <tr><td data-i18n="kpi_conc_mt">उत्पादित कॉन्सेंट्रेट मात्रा</td><td id="r_conc"> MT</td></tr>
+            <tr><td data-i18n="kpi_cu_mt">प्राप्त तांबा (Cu Recovered)</td><td id="r_cu"> MT</td></tr>
+            <tr><td data-i18n="kpi_delta">लक्ष्य (85%) से अंतर</td><td id="r_delta"></td></tr>
+            <tr><td data-i18n="kpi_grade_assumed">कॉन्सेंट्रेट ग्रेड मानक</td><td>28.0% Cu</td></tr>
           </tbody>
         </table>
 
@@ -1114,33 +1721,84 @@ table.hcl tbody tr:hover{background:#F5E6D0}
 <!-- ═══════════════ FOOTER ═══════════════ -->
 <div id="footer">
   <div class="footer-visitor">
-    Visitors : <span id="visitorCount">20142896</span><br/>
-    Last Update : <span id="lastUpdate">29/05/2026 10:06:30</span>
+    <div style="font-size:14px;font-weight:600;color:var(--hcl-text);margin-bottom:4px;">
+      <span data-i18n="ft_visitors">आगंतुकों</span> : <span id="visitorCount" style="font-weight:700;">21740893</span>
+    </div>
+    <div style="font-size:13px;color:var(--hcl-text);opacity:0.9;">
+      <span data-i18n="ft_last_update">अंतिम अद्यतनीकरण</span> : <span id="lastUpdate">29/09/2026 17:12:07</span>
+    </div>
   </div>
+  
   <div class="footer-cols">
+    <!-- Col 1: Important Links -->
     <div class="footer-col">
-      <div class="fc-title" data-i18n="ft_important">Important Links</div>
+      <div class="fc-title" data-i18n="ft_col1_title">महत्वपूर्ण लिंक</div>
       <ul>
-        <li><a href="https://mines.gov.in" target="_blank">Ministry of Mines</a></li>
-        <li><a href="https://www.hindustancopper.com" target="_blank">HCL Official Site</a></li>
-        <li><a href="#">Plant Operations Portal</a></li>
-        <li><a href="#">Safety &amp; HSE Portal</a></li>
-        <li><a href="#">RecovAI Documentation</a></li>
+        <li><a href="https://igotkarmayogi.gov.in/" target="_blank" rel="noopener">आईजीओटी कर्मयोगी</a></li>
+        <li><a href="#" target="_blank">ऑनलाइन विवाद समाधान (ओडीआर) के लिए मामलों का पंजीकरण</a></li>
+        <li><a href="https://legislative.gov.in/" target="_blank" rel="noopener">विधायी विभाग</a></li>
+        <li><a href="https://pgportal.gov.in/" target="_blank" rel="noopener">सार्वजनिक शिकायत</a></li>
+        <li><a href="https://voters.eci.gov.in/" target="_blank" rel="noopener">राष्ट्रीय वोटर्स सर्विस पोर्टल</a></li>
+        <li><a href="https://rtionline.gov.in/" target="_blank" rel="noopener">आर.टी.आई</a></li>
+        <li><a href="#">एचसीएल फोरम</a></li>
+        <li><a href="https://www.india.gov.in/" target="_blank" rel="noopener">भारत का राष्ट्रीय पोर्टल</a></li>
+        <li><a href="https://kabil.org.in/" target="_blank" rel="noopener">काबिल (KABIL)</a></li>
       </ul>
     </div>
-    <div class="footer-col" style="text-align:right">
-      <div class="fc-title" data-i18n="ft_social">Social Links</div>
+
+    <!-- Col 2: Important Links -->
+    <div class="footer-col">
+      <div class="fc-title" data-i18n="ft_col2_title">महत्वपूर्ण लिंक</div>
       <ul>
-        <li><a href="#">LinkedIn</a></li>
-        <li><a href="#">YouTube</a></li>
-        <li><a href="#">Twitter / X</a></li>
-        <li><a href="#">Email Us</a></li>
+        <li><a href="#">गृह पत्रिका</a></li>
+        <li><a href="#">सीएसआर (CSR)</a></li>
+        <li><a href="https://swachhbharatmission.ddws.gov.in/" target="_blank" rel="noopener">स्वच्छ भारत अभियान</a></li>
+        <li><a href="#">वहनीयता (Sustainability)</a></li>
+        <li><a href="#">फोटो गैलरी</a></li>
+        <li><a href="#">साइट मैप</a></li>
       </ul>
+    </div>
+
+    <!-- Col 3: Social Links -->
+    <div class="footer-col">
+      <div class="fc-title" data-i18n="ft_social">सामाजिक लिंक</div>
+      <div class="social-icons-row" style="display:flex;gap:12px;align-items:center;margin-top:14px;flex-wrap:wrap;">
+        <!-- Facebook -->
+        <a href="https://www.facebook.com" target="_blank" rel="noopener" title="Facebook" style="display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:50%;background:#1877F2;color:#fff;text-decoration:none;">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <!-- X (Twitter) -->
+        <a href="https://twitter.com" target="_blank" rel="noopener" title="X (Twitter)" style="display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:50%;background:#000000;color:#fff;text-decoration:none;">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com" target="_blank" rel="noopener" title="Instagram" style="display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:50%;background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);color:#fff;text-decoration:none;">
+          <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener" title="LinkedIn" style="display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:50%;background:#0A66C2;color:#fff;text-decoration:none;">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+        <!-- Threads -->
+        <a href="https://www.threads.net" target="_blank" rel="noopener" title="Threads" style="display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:50%;background:#101010;color:#fff;text-decoration:none;">
+          <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 5.522 4.477 10 10 10 3.32 0 6.273-1.616 8.096-4.108l-2.094-1.378C16.657 18.064 14.473 19.3 12 19.3c-4.032 0-7.3-3.268-7.3-7.3 0-4.032 3.268-7.3 7.3-7.3 3.904 0 7.085 3.067 7.288 6.924H16.5c-.21-2.073-1.85-3.693-3.882-3.693-2.154 0-3.9 1.746-3.9 3.9s1.746 3.9 3.9 3.9c1.47 0 2.748-.813 3.418-2.008.21.688.583 1.317 1.096 1.826.96.953 2.27 1.482 3.688 1.482 3.904 0 6.88-2.79 6.88-7.731C21.7 6.477 17.523 2 12 2zm.618 12.5c-1.282 0-2.318-1.036-2.318-2.318s1.036-2.318 2.318-2.318c1.281 0 2.318 1.036 2.318 2.318s-1.037 2.318-2.318 2.318z"/></svg>
+        </a>
+        <!-- YouTube -->
+        <a href="https://www.youtube.com" target="_blank" rel="noopener" title="YouTube" style="display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:50%;background:#FF0000;color:#fff;text-decoration:none;">
+          <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+      </div>
     </div>
   </div>
-  <div class="footer-bottom">
-    © 2025 Hindustan Copper Limited &nbsp;|&nbsp; A Govt. of India Enterprise &nbsp;|&nbsp; Ministry of Mines<br/>
-    RecovAI v3.0 — Internal Use Only &nbsp;|&nbsp; Confidential &nbsp;|&nbsp; AI Chat: Claude Sonnet (direct Anthropic API) &nbsp;|&nbsp; Backend: FastAPI @ localhost:8000 (optional)
+
+  <!-- Bottom Bar with Copyright & Scroll to Top button -->
+  <div class="footer-bottom-bar">
+    <div style="font-size:13.5px;font-weight:500;color:var(--hcl-gold);letter-spacing:0.3px;">
+      कॉपीराइट © 2017 हिंदुस्तान कॉपर लिमिटेड। सर्वाधिकार सुरक्षित।
+    </div>
+    <button type="button" class="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="पृष्ठ के शीर्ष पर जाएं" aria-label="Scroll to top">
+      ↑
+    </button>
   </div>
 </div>
 
@@ -2735,76 +3393,243 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ═══════════════════════════════════════════════════════
-   CHANGE 8 — HINDI / ENGLISH TOGGLE
+   CHANGE 8 — NATIVE HINDI / BILINGUAL ENGINE
 ═══════════════════════════════════════════════════════ */
 const STRINGS = {
-  en: {
-    nav_home:'Home', nav_predictor:'Recovery Predictor',
-    nav_optimizer:'Reagent Optimizer', nav_anomaly:'Anomaly Alerts',
-    nav_dashboard:'Shift Dashboard', nav_features:'Feature Explorer',
-    nav_report:'Shift Report', nav_chat:'Ask the Plant',
-    nav_forecast:'Trend Forecaster',
-    btn_login:'Operational Login', btn_sr:'Screen Reader Access',
-    btn_search:'Search', btn_hindi:'हिंदी संस्करण',
-    lnk_career:'Career', lnk_exemp:'Ex-Employee Corner',
-    lnk_feedback:'Feedback', lnk_contact:'Contact Us',
-    sb_home:'Home', sb_predictor:'Recovery Predictor',
-    sb_optimizer:'Reagent Optimizer', sb_anomaly:'Anomaly Alerts',
-    sb_dashboard:'Shift Dashboard', sb_features:'Feature Explorer',
-    sb_report:'Shift Report', sb_chat:'Ask the Plant',
-    sb_forecast:'Trend Forecaster',
-    btn_predict:'Predict Recovery', btn_optimize:'Optimize Reagents',
-    btn_run_anom:'Run Anomaly Detection', btn_dashboard:'Apply Filters',
-    btn_report:'Generate Report', btn_send:'Send',
-    btn_forecast:'Generate Forecast', btn_submit:'Submit',
-    ft_important:'Important Links', ft_social:'Social Links',
-    ql_header:'Quick Links', ql_manual:'Plant Operations Manual',
-    ql_safety:'Safety Guidelines', ql_control:'Control Room', ql_hcl:'HCL Official Website',
-    nav_submit:'Submit Shift', nav_history:'History',
-    sb_submit:'Submit Shift Data', sb_history:'Submission History',
-    btn_submit_shift:'Submit & Predict', btn_reset:'Reset Form',
-    btn_refresh:'Refresh', btn_load_hist:'Load History'
-  },
   hi: {
-    nav_home:'होम', nav_predictor:'रिकवरी भविष्यवक्ता',
-    nav_optimizer:'अभिकर्मक अनुकूलक', nav_anomaly:'असामान्यता चेतावनी',
-    nav_dashboard:'शिफ्ट डैशबोर्ड', nav_features:'फीचर एक्सप्लोरर',
-    nav_report:'शिफ्ट रिपोर्ट', nav_chat:'प्लांट से पूछें',
-    nav_forecast:'प्रवृत्ति पूर्वानुमान',
-    btn_login:'परिचालन लॉगिन', btn_sr:'स्क्रीन रीडर',
-    btn_search:'खोजें', btn_hindi:'English Version',
-    lnk_career:'करियर', lnk_exemp:'पूर्व-कर्मचारी कोना',
-    lnk_feedback:'प्रतिक्रिया', lnk_contact:'संपर्क करें',
-    sb_home:'होम', sb_predictor:'रिकवरी भविष्यवक्ता',
-    sb_optimizer:'अभिकर्मक अनुकूलक', sb_anomaly:'असामान्यता चेतावनी',
-    sb_dashboard:'शिफ्ट डैशबोर्ड', sb_features:'फीचर एक्सप्लोरर',
-    sb_report:'शिफ्ट रिपोर्ट', sb_chat:'प्लांट से पूछें',
-    sb_forecast:'प्रवृत्ति पूर्वानुमान',
-    btn_predict:'रिकवरी भविष्यवाणी करें',
-    btn_optimize:'अभिकर्मक अनुकूलित करें',
-    btn_run_anom:'विश्लेषण चलाएं', btn_dashboard:'फ़िल्टर लागू करें',
-    btn_report:'रिपोर्ट बनाएं', btn_send:'भेजें',
-    btn_forecast:'पूर्वानुमान बनाएं', btn_submit:'जमा करें',
-    ft_important:'महत्वपूर्ण लिंक', ft_social:'सोशल लिंक',
-    ql_header:'त्वरित लिंक', ql_manual:'प्लांट संचालन मैनुअल',
-    ql_safety:'सुरक्षा दिशानिर्देश', ql_control:'कंट्रोल रूम', ql_hcl:'एचसीएल आधिकारिक वेबसाइट',
-    nav_submit:'शिफ्ट जमा करें', nav_history:'इतिहास',
-    sb_submit:'शिफ्ट डेटा जमा करें', sb_history:'सबमिशन इतिहास',
-    btn_submit_shift:'जमा करें और भविष्यवाणी करें', btn_reset:'फॉर्म रीसेट करें',
-    btn_refresh:'ताज़ा करें', btn_load_hist:'इतिहास लोड करें'
+    brand_name: 'हिंदुस्तान कॉपर लिमिटेड',
+    brand_sub: '(भारत सरकार का उद्यम)',
+    brand_tag: 'राष्ट्र का ताम्र खनिक',
+    ticker_label: '🔴 एमसीपी लाइव प्लांट टेलीमेट्री',
+    nav_home: 'होम', nav_predictor: 'रिकवरी प्रिडिक्टर',
+    nav_optimizer: 'अभिकर्मक अनुकूलक', nav_anomaly: 'असामान्यता चेतावनी',
+    nav_dashboard: 'शिफ्ट डैशबोर्ड', nav_features: 'फीचर एक्सप्लोरर',
+    nav_report: 'शिफ्ट रिपोर्ट', nav_chat: 'प्लांट से पूछें',
+    nav_forecast: 'ट्रेंड फोरकास्टर', nav_submit: 'शिफ्ट डेटा सबमिट', nav_history: 'सबमिशन इतिहास',
+    btn_login: 'परिचालन लॉगिन', btn_sr: 'स्क्रीन रीडर',
+    btn_search: 'खोजें', btn_hindi: '🌐 English',
+    lnk_career: 'करियर', lnk_exemp: 'पूर्व कर्मचारी कॉर्नर',
+    lnk_feedback: 'प्रतिक्रिया', lnk_contact: 'हमसे संपर्क करें',
+    sb_home: 'होम', sb_predictor: 'रिकवरी प्रिडिक्टर',
+    sb_optimizer: 'अभिकर्मक अनुकूलक', sb_anomaly: 'असामान्यता चेतावनी',
+    sb_dashboard: 'शिफ्ट डैशबोर्ड', sb_features: 'फीचर एक्सप्लोरर',
+    sb_report: 'शिफ्ट रिपोर्ट', sb_chat: 'प्लांट से पूछें',
+    sb_forecast: 'ट्रेंड फोरकास्टर', sb_submit: 'शिफ्ट डेटा जमा करें', sb_history: 'सबमिशन इतिहास',
+    btn_predict: '🔮 रिकवरी भविष्यवाणी करें', btn_listen: 'हिन्दी में सुनें',
+    btn_optimize: 'अभिकर्मक अनुकूलित करें', btn_run_anom: 'विश्लेषण चलाएं',
+    btn_dashboard: 'फ़िल्टर लागू करें', btn_report: 'रिपोर्ट बनाएं',
+    btn_send: 'भेजें', btn_forecast: 'पूर्वानुमान बनाएं', btn_submit: 'जमा करें',
+    btn_submit_shift: 'जमा करें और भविष्यवाणी करें', btn_reset: 'फॉर्म रीसेट करें',
+    btn_refresh: 'ताज़ा करें', btn_load_hist: 'इतिहास लोड करें',
+    preset_normal: '⚡ सामान्य अयस्क (Normal Ore)',
+    preset_fines: '⚡ उच्च फाइन्स (High Fines)',
+    preset_lowgrade: '⚡ कम ग्रेड (Low Grade)',
+    preset_peak: '⚡ पीक रिकवरी (Peak 88%+)',
+    lbl_sel_model: 'मॉडल चुनें:',
+    sec_feed_conditions: 'फीड एवं प्रक्रिया शर्तें (Feed & Process Conditions)',
+    lbl_head_grade: 'शीर्ष ग्रेड / Head Grade (%Cu)',
+    lbl_feed_rate: 'पिसाई दर / Feed Rate (MT/h)',
+    lbl_flotation_ph: 'फ्लोटेशन पीएच / Flotation pH',
+    lbl_pulp_density: 'पल्प घनत्व / Pulp Density (%)',
+    lbl_air_flow: 'वायु प्रवाह दर / Air Flow (m³/min)',
+    lbl_particle_size: 'कण आकार / Particle Size P80 (µm)',
+    lbl_water_recovery: 'जल पुनर्प्राप्ति / Water Recovery (%)',
+    lbl_rougher_grade: 'रफ़र कॉन्सेंट्रेट ग्रेड (%Cu)',
+    sec_reagents: 'अभिकर्मक खुराक (Reagent Dosage Inputs)',
+    lbl_sipx: 'एसआईपीएक्स खुराक / SIPX (g/t)',
+    lbl_frother: 'झाग कारक / Frother (g/t)',
+    lbl_lime: 'चूना खुराक / Lime (kg/t)',
+    lbl_depressant: 'अवसादक खुराक / Depressant (g/t)',
+    sec_pred_result: 'भविष्यवाणी परिणाम (Prediction Result)',
+    res_pred_rec: 'अनुमानित कॉपर रिकवरी',
+    res_ci_lo: '90% विश्वास अंतराल (न्यूनतम)',
+    res_ci_hi: '90% विश्वास अंतराल (अधिकतम)',
+    ft_visitors: 'आगंतुकों',
+    ft_last_update: 'अंतिम अद्यतनीकरण',
+    ft_col1_title: 'महत्वपूर्ण लिंक',
+    ft_col2_title: 'महत्वपूर्ण लिंक',
+    ft_social: 'सामाजिक लिंक',
+    ql_header: 'त्वरित लिंक',
+    ql_manual: 'प्लांट संचालन मैनुअल',
+    ql_safety: 'सुरक्षा दिशानिर्देश',
+    ql_control: 'कंट्रोल रूम',
+    ql_hcl: 'एचसीएल आधिकारिक पोर्टल'
+  },
+  en: {
+    brand_name: 'Hindustan Copper Limited',
+    brand_sub: '(A Govt. of India Enterprise)',
+    brand_tag: "Nation's Copper Miner",
+    ticker_label: '🔴 MCP LIVE PLANT TELEMETRY',
+    nav_home: 'Home', nav_predictor: 'Recovery Predictor',
+    nav_optimizer: 'Reagent Optimizer', nav_anomaly: 'Anomaly Alerts',
+    nav_dashboard: 'Shift Dashboard', nav_features: 'Feature Explorer',
+    nav_report: 'Shift Report', nav_chat: 'Ask the Plant',
+    nav_forecast: 'Trend Forecaster', nav_submit: 'Submit Shift', nav_history: 'History',
+    btn_login: 'Operational Login', btn_sr: 'Screen Reader Access',
+    btn_search: 'Search', btn_hindi: '🌐 हिन्दी',
+    lnk_career: 'Career', lnk_exemp: 'Ex-Employee Corner',
+    lnk_feedback: 'Feedback', lnk_contact: 'Contact Us',
+    sb_home: 'Home', sb_predictor: 'Recovery Predictor',
+    sb_optimizer: 'Reagent Optimizer', sb_anomaly: 'Anomaly Alerts',
+    sb_dashboard: 'Shift Dashboard', sb_features: 'Feature Explorer',
+    sb_report: 'Shift Report', sb_chat: 'Ask the Plant',
+    sb_forecast: 'Trend Forecaster', sb_submit: 'Submit Shift Data', sb_history: 'Submission History',
+    btn_predict: '🔮 Predict Recovery', btn_listen: 'Listen in Hindi',
+    btn_optimize: 'Optimize Reagents', btn_run_anom: 'Run Anomaly Detection',
+    btn_dashboard: 'Apply Filters', btn_report: 'Generate Report',
+    btn_send: 'Send', btn_forecast: 'Generate Forecast', btn_submit: 'Submit',
+    btn_submit_shift: 'Submit & Predict', btn_reset: 'Reset Form',
+    btn_refresh: 'Refresh', btn_load_hist: 'Load History',
+    preset_normal: '⚡ Normal Steady Run',
+    preset_fines: '⚡ High Fines (>80%)',
+    preset_lowgrade: '⚡ Low Grade Ore (<0.8%)',
+    preset_peak: '⚡ Peak Recovery (88%+)',
+    lbl_sel_model: 'Select Model:',
+    sec_feed_conditions: 'Feed & Process Conditions',
+    lbl_head_grade: 'Head Grade (%Cu)',
+    lbl_feed_rate: 'Feed Rate (MT/h)',
+    lbl_flotation_ph: 'Flotation pH',
+    lbl_pulp_density: 'Pulp Density (%)',
+    lbl_air_flow: 'Air Flow Rate (m³/min)',
+    lbl_particle_size: 'Particle Size P80 (µm)',
+    lbl_water_recovery: 'Water Recovery (%)',
+    lbl_rougher_grade: 'Rougher Conc Grade (%Cu)',
+    sec_reagents: 'Reagent Dosage Inputs',
+    lbl_sipx: 'SIPX Dosage (g/t)',
+    lbl_frother: 'Frother Dosage (g/t)',
+    lbl_lime: 'Lime Dosage (kg/t)',
+    lbl_depressant: 'Depressant Dosage (g/t)',
+    sec_pred_result: 'Prediction Results',
+    res_pred_rec: 'Predicted Copper Recovery',
+    res_ci_lo: '90% Confidence Interval (Lower)',
+    res_ci_hi: '90% Confidence Interval (Upper)',
+    ft_visitors: 'Visitors',
+    ft_last_update: 'Last Update',
+    ft_col1_title: 'Important Links',
+    ft_col2_title: 'Important Links',
+    ft_social: 'Social Links',
+    ql_header: 'Quick Links',
+    ql_manual: 'Plant Operations Manual',
+    ql_safety: 'Safety Guidelines',
+    ql_control: 'Control Room',
+    ql_hcl: 'HCL Official Website'
   }
 };
-let lang = localStorage.getItem('hcl_lang') || 'en';
+
+let lang = localStorage.getItem('hcl_lang') || 'hi';
+
 function applyLang(l) {
   lang = l;
   document.documentElement.lang = l === 'hi' ? 'hi' : 'en';
   localStorage.setItem('hcl_lang', l);
+
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (STRINGS[l][key]) el.textContent = STRINGS[l][key];
+    if (STRINGS[l] && STRINGS[l][key]) {
+      el.textContent = STRINGS[l][key];
+    }
   });
+
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const key = el.getAttribute('data-i18n-ph');
+    if (STRINGS[l] && STRINGS[l][key]) {
+      el.setAttribute('placeholder', STRINGS[l][key]);
+    }
+  });
+
+  const toggleBtn = document.getElementById('langToggleBtn');
+  if (toggleBtn) {
+    toggleBtn.textContent = l === 'hi' ? '🌐 English' : '🌐 हिन्दी';
+  }
 }
-function toggleLang() { applyLang(lang === 'en' ? 'hi' : 'en'); }
+
+function toggleLang() {
+  applyLang(lang === 'hi' ? 'en' : 'hi');
+}
+
+/* ═══════════════════════════════════════════════════════
+   OPERATIONAL PRESETS FOR PREDICTOR
+═══════════════════════════════════════════════════════ */
+function applyPreset(preset) {
+  const configs = {
+    normal:   { hg: 1.45, fr: 85, ph: 10.5, pd: 32, af: 12.0, ps: 150, wr: 72, rg: 18.0, sipx: 35, frother: 15.0, lime: 2.0, dep: 20 },
+    fines:    { hg: 1.60, fr: 75, ph: 10.8, pd: 29, af: 14.0, ps: 95,  wr: 76, rg: 21.0, sipx: 42, frother: 18.0, lime: 2.3, dep: 24 },
+    lowgrade: { hg: 0.75, fr: 95, ph: 10.2, pd: 35, af: 10.0, ps: 175, wr: 68, rg: 14.0, sipx: 30, frother: 12.0, lime: 1.7, dep: 16 },
+    peak:     { hg: 1.80, fr: 90, ph: 10.6, pd: 31, af: 13.5, ps: 140, wr: 74, rg: 22.5, sipx: 38, frother: 16.0, lime: 2.1, dep: 22 }
+  };
+  const c = configs[preset] || configs.normal;
+  if (document.getElementById('p_hg')) document.getElementById('p_hg').value = c.hg;
+  if (document.getElementById('p_fr')) document.getElementById('p_fr').value = c.fr;
+  if (document.getElementById('p_ph')) document.getElementById('p_ph').value = c.ph;
+  if (document.getElementById('p_pd')) document.getElementById('p_pd').value = c.pd;
+  if (document.getElementById('p_af')) document.getElementById('p_af').value = c.af;
+  if (document.getElementById('p_ps')) document.getElementById('p_ps').value = c.ps;
+  if (document.getElementById('p_wr')) document.getElementById('p_wr').value = c.wr;
+  if (document.getElementById('p_rg')) document.getElementById('p_rg').value = c.rg;
+  if (document.getElementById('p_sipx')) document.getElementById('p_sipx').value = c.sipx;
+  if (document.getElementById('p_frother')) document.getElementById('p_frother').value = c.frother;
+  if (document.getElementById('p_lime')) document.getElementById('p_lime').value = c.lime;
+  if (document.getElementById('p_dep')) document.getElementById('p_dep').value = c.dep;
+
+  // Visual highlight on preset buttons
+  document.querySelectorAll('.preset-btn').forEach(btn => {
+    btn.style.borderColor = 'var(--hcl-border)';
+    btn.style.background = 'var(--hcl-surface)';
+  });
+  if (window.event && window.event.currentTarget) {
+    window.event.currentTarget.style.borderColor = 'var(--hcl-copper)';
+    window.event.currentTarget.style.background = 'var(--hcl-buff)';
+  }
+
+  // Trigger prediction calculation
+  if (typeof runPredictor === 'function') {
+    runPredictor();
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   HINDI & BILINGUAL SPEECH SYNTHESIS
+═══════════════════════════════════════════════════════ */
+function speakCurrentPrediction() {
+  const resultDiv = document.getElementById('pred_result');
+  const rPred = document.getElementById('r_pred');
+  let text = '';
+
+  if (resultDiv && resultDiv.style.display !== 'none' && rPred && rPred.textContent) {
+    const val = rPred.textContent.trim();
+    if (lang === 'hi') {
+      text = `मलांजखंड ताम्र परियोजना: अनुमानित कॉपर फ्लोटेशन रिकवरी ${val} है। मॉडल गणना सफल रही।`;
+    } else {
+      text = `Malanjkhand Copper Project: Predicted copper flotation recovery is ${val}. Model prediction complete.`;
+    }
+  } else {
+    if (lang === 'hi') {
+      text = 'कृपया पहले रिकवरी भविष्यवाणी बटन पर क्लिक करें।';
+    } else {
+      text = 'Please click the predict recovery button first.';
+    }
+  }
+
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = lang === 'hi' ? 'hi-IN' : 'en-US';
+    u.rate = 0.95;
+    window.speechSynthesis.speak(u);
+  } else {
+    alert(text);
+  }
+}
+
+// Live visitor & clock updater
+setInterval(() => {
+  const d = new Date();
+  const pad = n => String(n).padStart(2, '0');
+  const str = `${pad(d.getDate())}/${pad(d.getMonth()+1)}/${d.getFullYear()} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+  const el = document.getElementById('lastUpdate');
+  if (el) el.textContent = str;
+}, 1000);
+
 document.addEventListener('DOMContentLoaded', () => applyLang(lang));
 
 /* ═══════════════════════════════════════════════════════
