@@ -22,26 +22,27 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>HCL RecovAI — Copper Flotation Intelligence | हिंदुस्तान कॉपर लिमिटेड</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%231565C0'/%3E%3Cstop offset='100%25' stop-color='%230D47A1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23bg)'/%3E%3Cellipse cx='32' cy='32' rx='20' ry='9' fill='none' stroke='%2390CAF9' stroke-width='1.8' transform='rotate(-35 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='20' ry='9' fill='none' stroke='%2390CAF9' stroke-width='1.8' transform='rotate(35 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='20' ry='9' fill='none' stroke='%2390CAF9' stroke-width='1.8'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%2390CAF9'/%3E%3Ctext x='32' y='36.5' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='11' fill='%230D47A1'%3ECu%3C/text%3E%3C/svg%3E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 :root {
-  --hcl-mahogany: #361304;       /* Uploaded screenshot dark footer bar */
-  --hcl-burgundy: #4A1507;       /* Deep copper utility bar */
-  --hcl-copper: #7A250B;         /* Official HCL brand terracotta title */
-  --hcl-copper-light: #943214;   /* Secondary hover copper */
-  --hcl-bronze: #B85D19;         /* Vibrant copper-orange accent */
-  --hcl-buff: #F8DFCA;           /* Exact uploaded screenshot mid-footer & sidebar peach-sand */
-  --hcl-buff-soft: #FDF5ED;      /* Soft card highlight / table even row */
-  --hcl-surface: #FAF4EE;        /* Main content canvas */
+  --hcl-mahogany: #0F2A4A;       /* Deep navy for footer bar */
+  --hcl-burgundy: #102E52;       /* Dark blue utility bar */
+  --hcl-copper: #1565C0;         /* Primary blue accent */
+  --hcl-copper-light: #1976D2;   /* Lighter hover blue */
+  --hcl-bronze: #2196F3;         /* Bright blue accent */
+  --hcl-buff: #E3F0FF;           /* Light blue sidebar / footer bg */
+  --hcl-buff-soft: #F0F7FF;      /* Soft blue card highlight / table even row */
+  --hcl-surface: #F5F9FF;        /* Main content canvas — off-white with blue tint */
   --hcl-card: #FFFFFF;           /* Card containers */
-  --hcl-border: #E5CBB4;         /* Subtle copper border */
-  --hcl-border-dark: #C99B75;    /* Strong divider border */
-  --hcl-text: #241208;           /* High-contrast charcoal copper text (extremely sharp) */
-  --hcl-text-muted: #5C3A28;     /* Secondary descriptive text */
-  --hcl-gold: #DEAC75;           /* Warm accent gold text for dark bars */
+  --hcl-border: #C8DDED;         /* Subtle blue border */
+  --hcl-border-dark: #90B4D2;    /* Stronger divider border */
+  --hcl-text: #0D1B2A;           /* High-contrast navy text */
+  --hcl-text-muted: #3D5A80;     /* Secondary descriptive text */
+  --hcl-gold: #90CAF9;           /* Light blue accent for dark bars */
   --hcl-success: #1E7E34;
   --hcl-warning: #D97706;
   --hcl-danger: #D32F2F;
@@ -59,17 +60,17 @@ body{
 
 /* ═══════════════ HEADER ROW 1 — UTILITY BAR ═══════════════ */
 #utilBar{
-  background:var(--hcl-burgundy);
+  background:var(--hcl-burgundy);  /* Deep blue utility bar */
   min-height:38px;
   display:flex;
   align-items:center;
   padding:4px 20px;
   gap:8px;
   flex-wrap:wrap;
-  color:#FAF0E6;
+  color:#E8F0FE;
 }
 #utilBar a.home-icon{
-  color:#FAF0E6;
+  color:#E8F0FE;
   font-size:18px;
   text-decoration:none;
   display:flex;
@@ -79,9 +80,9 @@ body{
 }
 #utilBar a.home-icon:hover{transform:scale(1.1);color:var(--hcl-gold)}
 .util-btn{
-  background:#5C1F0C;
-  color:#FAF0E6;
-  border:1px solid #8C3E20;
+  background:#0D47A1;
+  color:#E8F0FE;
+  border:1px solid #1565C0;
   border-radius:4px;
   padding:4px 12px;
   font-size:12.5px;
@@ -95,8 +96,12 @@ body{
   border-color:var(--hcl-gold);
   color:#fff;
 }
+.zoom-btn:hover{
+  background:var(--hcl-copper) !important;
+  color:#fff !important;
+}
 .lang-toggle-btn{
-  background:linear-gradient(180deg, #8A2B11 0%, #6E1F08 100%) !important;
+  background:linear-gradient(180deg, #1565C0 0%, #0D47A1 100%) !important;
   border:1px solid var(--hcl-gold) !important;
   color:#fff !important;
   font-weight:700 !important;
@@ -104,12 +109,12 @@ body{
   box-shadow:0 1px 4px rgba(0,0,0,0.25);
 }
 .lang-toggle-btn:hover{
-  background:linear-gradient(180deg, #A23617 0%, #7E240A 100%) !important;
+  background:linear-gradient(180deg, #1976D2 0%, #1565C0 100%) !important;
 }
 .util-spacer{flex:1}
 #utilSearch{
   background:#fff;
-  border:1px solid #8C3E20;
+  border:1px solid #1565C0;
   border-radius:4px 0 0 4px;
   padding:4px 10px;
   font-size:12.5px;
@@ -120,9 +125,9 @@ body{
 }
 #utilSearch:focus{border-color:var(--hcl-gold)}
 .util-search-btn{
-  background:#5C1F0C;
-  color:#FAF0E6;
-  border:1px solid #8C3E20;
+  background:#0D47A1;
+  color:#E8F0FE;
+  border:1px solid #1565C0;
   border-left:none;
   border-radius:0 4px 4px 0;
   padding:4px 10px;
@@ -165,45 +170,11 @@ body{
   color:var(--hcl-copper);
 }
 
-/* ═══════════════ HEADER ROW 3 — MAIN NAV ═══════════════ */
-#mainNav{
-  background:#FFFBF7;
-  min-height:46px;
-  display:flex;
-  align-items:stretch;
-  border-bottom:2px solid var(--hcl-copper);
-  padding:0 20px;
-  overflow-x:auto;
-  box-shadow:0 2px 6px rgba(74,21,7,0.04);
-}
-.nav-link{
-  color:var(--hcl-mahogany);
-  font-size:13.5px;
-  font-weight:600;
-  padding:0 14px;
-  display:flex;
-  align-items:center;
-  gap:4px;
-  cursor:pointer;
-  border-bottom:3px solid transparent;
-  white-space:nowrap;
-  text-decoration:none;
-  transition:all .2s ease;
-}
-.nav-link:hover{
-  color:var(--hcl-copper);
-  background:var(--hcl-buff-soft);
-}
-.nav-link.active{
-  color:var(--hcl-copper);
-  font-weight:700;
-  border-bottom-color:var(--hcl-copper);
-  background:var(--hcl-buff-soft);
-}
+/* ═══════════════ (NAV BAR REMOVED — navigation via sidebar) ═══════════════ */
 
 /* ═══════════════ LIVE PLANT STATUS TICKER ═══════════════ */
 #plantTicker{
-  background:#FFF6EE;
+  background:#EBF4FF;
   border-bottom:1px solid var(--hcl-border);
   padding:6px 20px;
   display:flex;
@@ -272,7 +243,7 @@ body{
   align-items:center;
   gap:10px;
   padding:12px 16px;
-  border-bottom:1px solid rgba(201,155,117,0.4);
+  border-bottom:1px solid rgba(144,180,210,0.4);
   cursor:pointer;
   color:var(--hcl-text);
   font-size:14px;
@@ -281,11 +252,11 @@ body{
   transition:all .2s ease;
 }
 .sb-item:hover{
-  background:#EED3BC;
+  background:#D1E5F9;
   color:var(--hcl-copper);
 }
 .sb-item.active{
-  background:#E5C4A6;
+  background:#BBDEFB;
   color:var(--hcl-copper);
   font-weight:700;
   border-left:4px solid var(--hcl-copper);
@@ -360,7 +331,7 @@ body{
 .tbl-wrap{overflow-x:auto;margin-top:14px;border-radius:4px;border:1px solid var(--hcl-border)}
 table.hcl{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff}
 table.hcl thead tr{
-  background:linear-gradient(180deg, #7A250B 0%, #631B06 100%);
+  background:linear-gradient(180deg, #1565C0 0%, #0D47A1 100%);
   color:#fff;
   font-weight:700;
 }
@@ -379,33 +350,33 @@ table.hcl td{
 }
 table.hcl tbody tr:nth-child(even){background:var(--hcl-buff-soft)}
 table.hcl tbody tr:nth-child(odd){background:#fff}
-table.hcl tbody tr:hover{background:#F7E3D0}
+table.hcl tbody tr:hover{background:#DCEEFB}
 
 /* ═══════════════ BUTTONS ═══════════════ */
 .btn-hcl{
-  background:linear-gradient(180deg, #8A2B11 0%, #6E1F08 100%);
+  background:linear-gradient(180deg, #1565C0 0%, #0D47A1 100%);
   color:#fff;
-  border:1px solid #5A1605;
+  border:1px solid #0D47A1;
   border-radius:4px;
   padding:8px 20px;
   font-size:13.5px;
   font-weight:600;
   cursor:pointer;
   font-family:inherit;
-  box-shadow:0 2px 4px rgba(74,21,7,0.18);
+  box-shadow:0 2px 4px rgba(13,71,161,0.18);
   transition:all .2s ease;
   display:inline-flex;
   align-items:center;
   gap:6px;
 }
 .btn-hcl:hover{
-  background:linear-gradient(180deg, #9C3315 0%, #7E240A 100%);
-  box-shadow:0 3px 6px rgba(74,21,7,0.28);
+  background:linear-gradient(180deg, #1976D2 0%, #1565C0 100%);
+  box-shadow:0 3px 6px rgba(13,71,161,0.28);
   transform:translateY(-1px);
 }
 .btn-hcl:disabled{
-  background:#A58E82;
-  border-color:#A58E82;
+  background:#90A4AE;
+  border-color:#90A4AE;
   cursor:not-allowed;
   transform:none;
   box-shadow:none;
@@ -454,7 +425,7 @@ table.hcl tbody tr:hover{background:#F7E3D0}
   transition:all .2s;
 }
 .btn-speech:hover{
-  background:#ECD0BA;
+  background:#BBDEFB;
   color:var(--hcl-burgundy);
   border-color:var(--hcl-copper);
 }
@@ -482,7 +453,7 @@ table.hcl tbody tr:hover{background:#F7E3D0}
 }
 .form-group input:focus,.form-group select:focus{
   border-color:var(--hcl-copper);
-  box-shadow:0 0 0 3px rgba(122,37,11,0.15);
+  box-shadow:0 0 0 3px rgba(21,101,192,0.15);
 }
 .form-note{font-size:11.5px;color:var(--hcl-copper);margin-left:4px;font-style:italic}
 .form-section{
@@ -491,7 +462,7 @@ table.hcl tbody tr:hover{background:#F7E3D0}
   border-radius:6px;
   padding:18px 22px;
   margin-bottom:20px;
-  box-shadow:0 2px 8px rgba(74,21,7,0.03);
+  box-shadow:0 2px 8px rgba(13,71,161,0.03);
 }
 
 /* ═══════════════ NOTICE BOXES ═══════════════ */
@@ -530,7 +501,7 @@ table.hcl tbody tr:hover{background:#F7E3D0}
   border-radius:6px;
   padding:18px;
   margin:16px 0;
-  box-shadow:0 2px 8px rgba(74,21,7,0.03);
+  box-shadow:0 2px 8px rgba(13,71,161,0.03);
 }
 .chart-title{
   font-size:14px;
@@ -570,10 +541,10 @@ table.hcl tbody tr:hover{background:#F7E3D0}
   border-radius:6px;
   margin-top:16px;
   overflow:hidden;
-  box-shadow:0 2px 10px rgba(74,21,7,0.04);
+  box-shadow:0 2px 10px rgba(13,71,161,0.04);
 }
 .report-header-bar{
-  background:linear-gradient(180deg, #7A250B 0%, #5E1A06 100%);
+  background:linear-gradient(180deg, #1565C0 0%, #0D47A1 100%);
   color:#fff;
   padding:16px 22px;
   display:flex;
@@ -624,7 +595,7 @@ table.hcl tbody tr:hover{background:#F7E3D0}
 .chat-input-row input:focus{
   outline:none;
   border-color:var(--hcl-copper);
-  box-shadow:0 0 0 3px rgba(122,37,11,0.15);
+  box-shadow:0 0 0 3px rgba(21,101,192,0.15);
 }
 .groq-badge{font-size:11.5px;color:#888;font-style:italic;text-align:right;margin-top:6px}
 .suggest-links{margin-bottom:12px}
@@ -657,7 +628,7 @@ table.hcl tbody tr:hover{background:#F7E3D0}
   font-weight:600;
   color:var(--hcl-text);
   padding:12px 0;
-  border-bottom:1px solid rgba(201,155,117,0.5);
+  border-bottom:1px solid rgba(144,180,210,0.5);
   margin-bottom:24px;
   line-height:1.8;
 }
@@ -750,10 +721,10 @@ table.hcl tbody tr:hover{background:#F7E3D0}
   box-shadow:0 2px 6px rgba(0,0,0,0.3);
   transition:background .2s;
 }
-.scroll-top-btn:hover{background:#F7E3D0}
+.scroll-top-btn:hover{background:#DCEEFB}
 
 /* ═══════════════ HAMBURGER (mobile) ═══════════════ */
-#hamburger{display:none;background:#5C1F0C;color:#fff;border:none;font-size:18px;padding:4px 10px;cursor:pointer;border-radius:3px}
+#hamburger{display:none;background:#0D47A1;color:#fff;border:none;font-size:18px;padding:4px 10px;cursor:pointer;border-radius:3px}
 /* ═══════════════ ACCESSIBILITY ═══════════════ */
 *:focus { outline: 2px solid var(--hcl-copper); outline-offset: 2px; }
 
@@ -769,11 +740,11 @@ table.hcl tbody tr:hover{background:#F7E3D0}
 <body>
 
 <!-- WCAG Skip Link -->
-<a href="#content" style="position:absolute;left:-999px;top:0;background:#8B4513;color:#fff;padding:8px 16px;z-index:9999;font-size:13px;text-decoration:none" onfocus="this.style.left='0'" onblur="this.style.left='-999px'">Skip to main content</a>
+<a href="#content" style="position:absolute;left:-999px;top:0;background:#0D47A1;color:#fff;padding:8px 16px;z-index:9999;font-size:13px;text-decoration:none" onfocus="this.style.left='0'" onblur="this.style.left='-999px'">Skip to main content</a>
 
 <!-- Change 10: Demo Mode Banner -->
 <div id="demoBanner" style="display:none;background:#FFF8E1;border-bottom:2px solid #FFA000;padding:8px 16px;font-size:13px;color:#5C2E00;position:relative">
-  ⚠️ FastAPI backend not reachable — running in standalone demo mode. All prediction/optimization math works locally. For live AI chat, enter your Anthropic API key in "Ask the Plant" (no backend needed).
+  Notice: FastAPI backend not reachable — running in standalone demo mode. All prediction/optimization math works locally. Start the backend server for live Groq AI chat in "Ask the Plant".
   <button onclick="document.getElementById('demoBanner').style.display='none'" aria-label="Dismiss banner" style="position:absolute;right:12px;top:8px;background:none;border:none;font-size:16px;cursor:pointer;color:#5C2E00">✕</button>
 </div>
 
@@ -781,17 +752,23 @@ table.hcl tbody tr:hover{background:#F7E3D0}
 <div id="utilBar">
   <a class="home-icon" href="#" onclick="showPage('home')" title="Home / मुख्य पृष्ठ"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="3 9 12 2 21 9"/><rect x="5" y="9" width="14" height="13"/></svg></a>
   <button class="util-btn" id="hamburger" onclick="toggleSidebar()">☰</button>
-  <button class="util-btn" id="loginBtn" onclick="openLoginModal()" data-i18n="btn_login">Operational Login</button>
-  <button class="util-btn" onclick="openSR()" data-i18n="btn_sr">Screen Reader Access</button>
-  <button class="util-btn" style="padding:4px 8px" onclick="applyFont(currentFont - 2)" title="Decrease Font">A-</button>
-  <button class="util-btn" style="padding:4px 8px" onclick="applyFont(DEFAULT_FONT)" title="Reset Font">A</button>
-  <div class="lang-switch-box" style="display:inline-flex;border-radius:4px;overflow:hidden;border:1px solid rgba(255,255,255,0.4);margin-left:6px;vertical-align:middle;">
-    <button type="button" class="util-btn lang-btn" id="langBtnEn" onclick="applyLang('en')" style="padding:4px 10px;font-weight:700;font-size:12px;background:rgba(255,255,255,0.35);color:#fff;border:none;cursor:pointer;">English</button>
-    <button type="button" class="util-btn lang-btn" id="langBtnHi" onclick="applyLang('hi')" style="padding:4px 10px;font-weight:500;font-size:12px;background:transparent;color:#fff;border:none;border-left:1px solid rgba(255,255,255,0.3);cursor:pointer;">हिन्दी</button>
-  </div>
-  <div role="search" style="display:flex;gap:0">
-    <input id="utilSearch" placeholder="Search site content..." data-i18n-ph="ph_search" aria-label="Search site content"/>
-    <button class="util-search-btn" onclick="doSearch()" aria-label="Submit search">🔍</button>
+  <div class="util-spacer" style="flex:1"></div>
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-left:auto">
+    <button class="util-btn" id="loginBtn" onclick="openLoginModal()" data-i18n="btn_login">Operational Login</button>
+    <button class="util-btn" onclick="openSR()" data-i18n="btn_sr">Screen Reader Access</button>
+    <div class="zoom-switch-box" style="display:inline-flex;border-radius:4px;overflow:hidden;border:1px solid rgba(255,255,255,0.4);vertical-align:middle;">
+      <button type="button" class="util-btn zoom-btn" id="zoomOutBtn" onclick="zoomOut()" title="Decrease Font / Zoom Out (A-)" style="padding:4px 9px;border:none;border-radius:0;font-weight:700;font-size:12px;background:rgba(255,255,255,0.15);color:#fff;cursor:pointer">A-</button>
+      <button type="button" class="util-btn zoom-btn" id="zoomResetBtn" onclick="zoomReset()" title="Reset Font / Normal (A)" style="padding:4px 9px;border:none;border-left:1px solid rgba(255,255,255,0.3);border-radius:0;font-weight:700;font-size:12px;background:rgba(255,255,255,0.25);color:#fff;cursor:pointer">A</button>
+      <button type="button" class="util-btn zoom-btn" id="zoomInBtn" onclick="zoomIn()" title="Increase Font / Zoom In (A+)" style="padding:4px 9px;border:none;border-left:1px solid rgba(255,255,255,0.3);border-radius:0;font-weight:700;font-size:12px;background:rgba(255,255,255,0.15);color:#fff;cursor:pointer">A+</button>
+    </div>
+    <div class="lang-switch-box" style="display:inline-flex;border-radius:4px;overflow:hidden;border:1px solid rgba(255,255,255,0.4);vertical-align:middle;">
+      <button type="button" class="util-btn lang-btn" id="langBtnEn" onclick="applyLang('en')" style="padding:4px 10px;font-weight:700;font-size:12px;background:rgba(255,255,255,0.35);color:#fff;border:none;cursor:pointer;">English</button>
+      <button type="button" class="util-btn lang-btn" id="langBtnHi" onclick="applyLang('hi')" style="padding:4px 10px;font-weight:500;font-size:12px;background:transparent;color:#fff;border:none;border-left:1px solid rgba(255,255,255,0.3);cursor:pointer;">हिन्दी</button>
+    </div>
+    <div role="search" style="display:flex;gap:0">
+      <input id="utilSearch" placeholder="Search site content..." data-i18n-ph="ph_search" aria-label="Search site content"/>
+      <button class="util-search-btn" onclick="doSearch()" aria-label="Submit search">🔍</button>
+    </div>
   </div>
 </div>
 
@@ -819,20 +796,7 @@ table.hcl tbody tr:hover{background:#F7E3D0}
   </div>
 </div>
 
-<!-- ═══════════════ HEADER ROW 3: MAIN NAV ═══════════════ -->
-<div id="mainNav">
-  <a class="nav-link active" onclick="showPage('home')" data-i18n="nav_home">Home</a>
-  <a class="nav-link" onclick="showPage('predictor')" data-i18n="nav_predictor">Recovery Predictor ▾</a>
-  <a class="nav-link" onclick="showPage('optimizer')" data-i18n="nav_optimizer">Reagent Optimizer ▾</a>
-  <a class="nav-link" onclick="showPage('anomaly')" data-i18n="nav_anomaly">Anomaly Alerts ▾</a>
-  <a class="nav-link" onclick="showPage('dashboard')" data-i18n="nav_dashboard">Shift Dashboard ▾</a>
-  <a class="nav-link" onclick="showPage('features')" data-i18n="nav_features">Feature Explorer ▾</a>
-  <a class="nav-link" onclick="showPage('report')" data-i18n="nav_report">Shift Report ▾</a>
-  <a class="nav-link" onclick="showPage('chat')" data-i18n="nav_chat">Ask the Plant ▾</a>
-  <a class="nav-link" onclick="showPage('forecast')" data-i18n="nav_forecast">Trend Forecaster</a>
-  <a class="nav-link" onclick="showPage('submit')" data-i18n="nav_submit">Submit Shift</a>
-  <a class="nav-link" onclick="showPage('history')" data-i18n="nav_history">History</a>
-</div>
+<!-- (MAIN NAV BAR REMOVED — navigation via sidebar) -->
 
 <!-- ═══════════════ LIVE PLANT STATUS TICKER ═══════════════ -->
 <div id="plantTicker">
@@ -841,10 +805,10 @@ table.hcl tbody tr:hover{background:#F7E3D0}
     <span data-i18n="ticker_badge">LIVE PLANT STATUS</span>
   </div>
   <div class="ticker-stream">
-    <span data-i18n="ticker_item1">📍 Malanjkhand Copper Project (MCP) · Flotation Cells 1–8 Active</span>
-    <span data-i18n="ticker_item2">🎯 Benchmark Recovery: 85.0% | Current AI Model Estimate: 87.4%</span>
-    <span data-i18n="ticker_item3">🧪 pH Balance: 10.5 (Optimal 10.2–11.2) | SIPX: 35.0 g/t</span>
-    <span data-i18n="ticker_item4">🛡️ Plant Status: Safe Steady-State (Zero Critical Anomalies)</span>
+    <span data-i18n="ticker_item1">Malanjkhand Copper Project (MCP) · Flotation Cells 1–8 Active</span>
+    <span data-i18n="ticker_item2">Benchmark Recovery: 85.0% | Current AI Model Estimate: 87.4%</span>
+    <span data-i18n="ticker_item3">pH Balance: 10.5 (Optimal 10.2–11.2) | SIPX: 35.0 g/t</span>
+    <span data-i18n="ticker_item4">Plant Status: Safe Steady-State (Zero Critical Anomalies)</span>
   </div>
 </div>
 
@@ -865,6 +829,10 @@ table.hcl tbody tr:hover{background:#F7E3D0}
     <div class="sb-section-hdr" data-i18n="sb_sec_shift">Shift Entry</div>
     <a class="sb-item" onclick="showPage('submit')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span><span data-i18n="sb_submit">Submit Shift Data</span></a>
     <a class="sb-item" onclick="showPage('history')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="4"/><rect x="3" y="10" width="18" height="4"/><rect x="3" y="17" width="18" height="4"/></svg></span><span data-i18n="sb_history">Submission History</span></a>
+    <div class="sb-section-hdr">Advanced Tools</div>
+    <a class="sb-item" onclick="showPage('whatif')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24"><path d="M10 2v7.31L4.69 17.5A2 2 0 0 0 6.38 20.5h11.24a2 2 0 0 0 1.69-3L14 9.31V2"/></svg></span><span>What-If Simulator</span></a>
+    <a class="sb-item" onclick="showPage('batch')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></span><span>Batch Predict</span></a>
+    <a class="sb-item" onclick="showPage('losscalc')"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><line x1="12" y1="6" x2="12" y2="8"/><line x1="12" y1="16" x2="12" y2="18"/></svg></span><span>Loss Calculator</span></a>
     <div class="sb-section-hdr" data-i18n="ql_header">Quick Links</div>
     <a class="sb-item" href="#"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="2" width="14" height="20" rx="2"/><polyline points="9 2 9 6 15 6 15 2"/></svg></span><span data-i18n="ql_manual">Plant Operations Manual</span></a>
     <a class="sb-item" href="#"><span class="sb-icon"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><span data-i18n="ql_safety">Safety Guidelines</span></a>
@@ -883,7 +851,7 @@ table.hcl tbody tr:hover{background:#F7E3D0}
       <p class="intro-para" data-i18n="p1_intro">RecovAI is an advanced AI-powered Decision Support System built for Hindustan Copper Limited, Malanjkhand Copper Project (MCP), Madhya Pradesh. It provides real-time copper recovery forecasting, reagent dosage optimization, operational anomaly detection, and automated shift reporting.</p>
 
       <div class="status-bar" data-i18n="p1_statusbar">
-        Active Models: 3 &nbsp;|&nbsp; XGBoost &nbsp;|&nbsp; Random Forest &nbsp;|&nbsp; Linear &nbsp;|&nbsp; Shift Records: 1,778 &nbsp;|&nbsp; Historic Avg Recovery: 83.6% &nbsp;|&nbsp; Benchmark Target: 85.0%
+        Active Models: 6 &nbsp;|&nbsp; XGBoost &nbsp;|&nbsp; Random Forest &nbsp;|&nbsp; LightGBM &nbsp;|&nbsp; Stacking Ensemble (Best) &nbsp;|&nbsp; Quantile &nbsp;|&nbsp; Linear &nbsp;|&nbsp; Shift Records: 1,778 &nbsp;|&nbsp; Historic Avg Recovery: 83.6% &nbsp;|&nbsp; Benchmark Target: 85.0%
       </div>
 
       <div class="sub-hdr" data-i18n="p1_mod_overview">Module Overview</div>
@@ -928,16 +896,19 @@ table.hcl tbody tr:hover{background:#F7E3D0}
       <!-- Quick Operational Presets Bar -->
       <div class="preset-bar">
         <span style="font-size:13px;font-weight:700;color:var(--hcl-copper)" data-i18n="lbl_preset">Quick Presets:</span>
-        <button type="button" class="preset-btn" onclick="applyPreset('normal')" data-i18n="preset_normal">⚡ Normal Ore</button>
-        <button type="button" class="preset-btn" onclick="applyPreset('fines')" data-i18n="preset_fines">⚡ High Fines (>80%)</button>
-        <button type="button" class="preset-btn" onclick="applyPreset('lowgrade')" data-i18n="preset_lowgrade">⚡ Low Grade (<0.8%)</button>
-        <button type="button" class="preset-btn" onclick="applyPreset('peak')" data-i18n="preset_peak">⚡ Peak Recovery (88%+)</button>
+        <button type="button" class="preset-btn" onclick="applyPreset('normal')" data-i18n="preset_normal">Normal Ore</button>
+        <button type="button" class="preset-btn" onclick="applyPreset('fines')" data-i18n="preset_fines">High Fines (>80%)</button>
+        <button type="button" class="preset-btn" onclick="applyPreset('lowgrade')" data-i18n="preset_lowgrade">Low Grade (<0.8%)</button>
+        <button type="button" class="preset-btn" onclick="applyPreset('peak')" data-i18n="preset_peak">Peak Recovery (88%+)</button>
       </div>
 
       <div class="form-group">
         <label data-i18n="lbl_sel_model">Select Model:</label>
         <select id="pred_model">
-          <option value="xgb">XGBoost (Best R² 0.97)</option>
+          <option value="stack">Stacking Ensemble (Best R² 0.9743)</option>
+          <option value="xgb">XGBoost (R² 0.972)</option>
+          <option value="lgbm">LightGBM (R² 0.9698)</option>
+          <option value="quantile">XGBoost Quantile (Q10/Q50/Q90 Band)</option>
           <option value="rf">Random Forest (R² 0.91)</option>
           <option value="linear">Linear Regression (Baseline)</option>
         </select>
@@ -1057,7 +1028,7 @@ table.hcl tbody tr:hover{background:#F7E3D0}
         <div class="form-group"><label>Frother cost ($/g/t)</label><input type="number" id="o_c_fro" value="1.10" step="0.05" style="width:100px"/></div>
         <div class="form-group"><label>Lime cost ($/kg/t)</label><input type="number" id="o_c_lime" value="0.50" step="0.05" style="width:100px"/></div>
         <div class="form-group"><label>Depressant cost ($/g/t)</label><input type="number" id="o_c_dep" value="0.65" step="0.05" style="width:100px"/></div>
-        <div class="form-group"><label>Model</label><select id="o_model"><option>XGBoost</option><option>Random Forest</option><option>Linear</option></select></div>
+        <div class="form-group"><label>Model</label><select id="o_model"><option value="stack">Stacking Ensemble</option><option value="xgb">XGBoost</option><option value="lgbm">LightGBM</option><option value="rf">Random Forest</option><option value="linear">Linear</option></select></div>
       </div>
 
       <button class="btn-hcl" onclick="runOptimizer()" data-i18n="btn_optimize">Optimize Doses</button>
@@ -1105,7 +1076,7 @@ table.hcl tbody tr:hover{background:#F7E3D0}
       </div>
 
       <div class="status-bar">
-        Total Shifts: 2,847 &nbsp;|&nbsp; 🔴 Critical: 143 &nbsp;|&nbsp; 🟡 Warning: 312 &nbsp;|&nbsp; 🟢 Normal: 2,392
+        Total Shifts: 2,847 &nbsp;|&nbsp; ● Critical: 143 &nbsp;|&nbsp; ● Warning: 312 &nbsp;|&nbsp; ● Normal: 2,392
       </div>
 
       <button class="btn-hcl" onclick="loadAnomalies()" data-i18n="btn_run_anom">Run Anomaly Detection</button>
@@ -1140,7 +1111,7 @@ table.hcl tbody tr:hover{background:#F7E3D0}
         <div class="form-group" style="margin:0"><label style="width:auto;margin-right:6px">Month:</label><select id="d_month" style="width:130px"><option>All Months</option><option>Jan</option><option>Feb</option><option>Mar</option><option>Apr</option><option>May</option></select></div>
         <div class="form-group" style="margin:0"><label style="width:auto;margin-right:6px">Shift:</label><select id="d_shift" style="width:130px"><option>All Shifts</option><option>Morning</option><option>Afternoon</option><option>Night</option></select></div>
         <div class="form-group" style="margin:0"><label style="width:auto;margin-right:6px">Feed Cond:</label><select id="d_cond" style="width:130px"><option>All Conditions</option><option>Normal</option><option>High Fines</option><option>Low Grade</option><option>Mixed</option></select></div>
-        <div class="form-group" style="margin:0"><label style="width:auto;margin-right:6px">Model:</label><select id="d_model" style="width:100px"><option>XGBoost</option><option>RF</option><option>Linear</option></select></div>
+        <div class="form-group" style="margin:0"><label style="width:auto;margin-right:6px">Model:</label><select id="d_model" style="width:130px"><option value="stack">Stacking Ensemble</option><option value="xgb">XGBoost</option><option value="lgbm">LightGBM</option><option value="rf">RF</option><option value="linear">Linear</option></select></div>
         <button class="btn-hcl" onclick="loadDashboard()" data-i18n="btn_dashboard">Apply Filters</button>
       </div>
 
@@ -1192,7 +1163,7 @@ table.hcl tbody tr:hover{background:#F7E3D0}
       <div class="tab-panel active" id="feat_imp">
         <div class="form-group">
           <label>Select Model:</label>
-          <select id="fi_model"><option>XGBoost</option><option>Random Forest</option><option>Linear</option></select>
+          <select id="fi_model"><option value="stack">Stacking Ensemble</option><option value="xgb">XGBoost</option><option value="lgbm">LightGBM</option><option value="rf">Random Forest</option><option value="linear">Linear</option></select>
         </div>
         <button class="btn-hcl" onclick="loadImportance()">Load Importance</button>
         <div class="chart-box" style="margin-top:14px">
@@ -1235,7 +1206,7 @@ table.hcl tbody tr:hover{background:#F7E3D0}
     ══════════════════════════════════════ -->
     <div class="page-section" id="page-report">
       <div class="page-title">Shift Report Generator</div>
-      <p class="intro-para">Auto-generate a shift performance report using <strong>engine5_nlp.py</strong> — Claude Sonnet (<code>claude-sonnet-4-20250514</code>) writes a concise metallurgical report from structured engine outputs via <code>POST /report</code>.</p>
+      <p class="intro-para">Auto-generate a shift performance report using <strong>engine5_nlp.py</strong> — Groq Llama 3.3 70B (<code>llama-3.3-70b-versatile</code>) writes a concise metallurgical report from structured engine outputs via <code>POST /report</code>.</p>
 
       <div class="form-group"><label>Select Shift:</label>
         <select id="rep_shift" style="width:240px">
@@ -1249,7 +1220,7 @@ table.hcl tbody tr:hover{background:#F7E3D0}
       </div>
       <div class="form-group">
         <label>AI Enhancement:</label>
-        <label><input type="checkbox" id="rep_ai"> Enhance with Claude AI (uses Anthropic API key — enter in "Ask the Plant" tab)</label>
+        <label><input type="checkbox" id="rep_ai"> Enhance with Groq AI (Llama 3.3 70B via backend)</label>
       </div>
       <button class="btn-hcl" onclick="generateReport()" data-i18n="btn_report">Generate Report</button>
       <span id="rep_loading" class="loading-msg" style="display:none;margin-left:12px">⏳ Calling POST /report via engine5_nlp...</span>
@@ -1286,8 +1257,8 @@ table.hcl tbody tr:hover{background:#F7E3D0}
             <div id="rep_recs" style="padding:6px 0"></div>
 
             <div id="rep_ai_block" style="display:none">
-              <div class="sub-hdr">AI Analysis (engine5_nlp.py — Claude Sonnet)</div>
-              <div class="ai-block" id="rep_ai_text">Awaiting Claude API response...</div>
+              <div class="sub-hdr">AI Analysis (engine5_nlp.py — Groq Llama 3.3 70B)</div>
+              <div class="ai-block" id="rep_ai_text">Awaiting Groq AI response...</div>
             </div>
           </div>
         </div>
@@ -1302,17 +1273,18 @@ table.hcl tbody tr:hover{background:#F7E3D0}
          PAGE 8: ASK THE PLANT
     ══════════════════════════════════════ -->
     <div class="page-section" id="page-chat">
-      <div class="page-title">Ask the Plant</div>
-      <p class="intro-para">Ask questions in plain English about your plant's shift history, recovery trends, and process conditions. Powered by <strong>Claude Sonnet (Anthropic API)</strong> — runs directly in your browser, no backend needed. Enter your Anthropic API key below to enable live AI answers.</p>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+        <div class="page-title" style="margin:0">Ask the Plant — AI Shift Assistant</div>
+        <button class="btn-hcl" style="font-size:12px;padding:6px 12px" onclick="clearChatMemory()">Clear Chat Memory</button>
+      </div>
+      <p class="intro-para">Ask questions in plain English about your plant's shift history, recovery trends, and process conditions. <strong style="color:var(--hcl-success)">● Live AI Connected:</strong> Backend is powered by <strong>Groq (Llama 3.3 70B Versatile)</strong> for sub-second responses with conversation memory.</p>
 
-      <div style="background:#FDF5EC;border:1px solid #C4956A;padding:12px 16px;margin-bottom:14px;border-radius:2px">
-        <div style="font-size:13px;color:#5C2E00;font-weight:600;margin-bottom:8px">🔑 Anthropic API Key (required for live AI answers)</div>
-        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-          <input type="password" id="chatApiKeyInput" placeholder="sk-ant-..." style="flex:1;min-width:200px;border:1px solid #C4956A;padding:6px 10px;font-size:13px;font-family:monospace;outline:none" oninput="setAnthropicKey(this.value)"/>
-          <button class="btn-hcl" onclick="verifyChatKey()">Verify Key</button>
-          <span id="keyStatus" style="font-size:12px;color:#555"></span>
+      <div style="background:var(--hcl-buff-soft);border:1px solid var(--hcl-border-dark);padding:12px 16px;margin-bottom:14px;border-radius:6px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+          <div style="font-size:13px;color:var(--hcl-text);font-weight:600">AI Engine: Groq Llama 3.3 70B Versatile</div>
+          <span style="font-size:11px;background:#2E7D32;color:#fff;padding:2px 8px;border-radius:10px;font-weight:700">● LIVE</span>
         </div>
-        <div style="font-size:11px;color:#888;margin-top:6px">Your key is stored in browser session memory only — never logged or transmitted anywhere except api.anthropic.com. Get one at <a href="https://console.anthropic.com" target="_blank" style="color:#8B4513">console.anthropic.com</a>. Without a key, the demo Q&A engine answers from a local knowledge base.</div>
+        <div style="font-size:11px;color:#888;margin-top:4px">All questions are processed live by the high-speed <strong>Groq AI Engine</strong> configured on your server with session memory across refreshes.</div>
       </div>
 
       <div class="sub-hdr">Try asking:</div>
@@ -1327,7 +1299,7 @@ table.hcl tbody tr:hover{background:#F7E3D0}
 
       <div class="chat-box" id="chatBox">
         <div class="chat-exchange">
-          <div class="chat-ai"><strong>RecovAI:</strong> Hello! I am the RecovAI plant intelligence assistant for the Malanjkhand Copper Project. Enter your Anthropic API key above for live AI answers powered by Claude Sonnet — or ask away and I'll answer from my local knowledge base. I can help with shift performance, reagent trends, anomalies, and recovery patterns.</div>
+          <div class="chat-ai"><strong>RecovAI:</strong> Hello! I am the RecovAI plant intelligence assistant for the Malanjkhand Copper Project, powered by <strong>Groq Llama 3.3 70B</strong>. Ask me anything about shift performance, reagent trends, anomalies, and recovery patterns — I respond in real-time with conversation memory.</div>
           <div class="chat-ts">System — RecovAI v3.0 initialized</div>
         </div>
       </div>
@@ -1335,7 +1307,7 @@ table.hcl tbody tr:hover{background:#F7E3D0}
         <input type="text" id="chatInput" placeholder="Ask about plant operations, shifts, reagents, anomalies..." onkeydown="if(event.key==='Enter')sendChat()"/>
         <button class="btn-hcl" onclick="sendChat()" data-i18n="btn_send">Send</button>
       </div>
-      <div class="groq-badge">Powered by Claude Sonnet (Anthropic API) · Confidential · Internal Use Only</div>
+      <div class="groq-badge">Powered by Groq (Llama 3.3 70B Versatile) · Confidential · Internal Use Only</div>
     </div>
 
     <!-- ══════════════════════════════════════
@@ -1471,7 +1443,7 @@ table.hcl tbody tr:hover{background:#F7E3D0}
       <p class="intro-para">Saare submitted shifts ka record — database se live fetch hota hai <strong>GET /history/predictions</strong> se. Har row pe click karo full details ke liye.</p>
 
       <div style="display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap">
-        <button class="btn-hcl" onclick="loadHistory()">🔄 Refresh</button>
+        <button class="btn-hcl" onclick="loadHistory()">Refresh</button>
         <span style="font-size:13px;color:#8B4513">Total Records: <strong id="hist_total">—</strong></span>
         <span id="hist_loading" class="loading-msg" style="display:none">⏳ Loading from database...</span>
       </div>
@@ -1559,6 +1531,254 @@ table.hcl tbody tr:hover{background:#F7E3D0}
             <tbody id="fc_summary_body"></tbody>
           </table>
         </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         PAGE: WHAT-IF SIMULATOR
+    ══════════════════════════════════════ -->
+    <div class="page-section" id="page-whatif">
+      <div class="page-title">What-If Recovery Simulator</div>
+      <p class="intro-para">Dynamically adjust operating parameters in real-time. The Stacking Ensemble (R² 0.9743) evaluates your scenario on-the-fly and generates instant recovery forecasts with uncertainty bounds.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:20px;margin-top:16px;">
+        
+        <!-- Left Column: Process Sliders -->
+        <div style="background:#FFFBF7;border:1px solid var(--hcl-border);padding:18px;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+          <div class="sub-hdr" style="margin-top:0">Feed &amp; Flotation Conditions</div>
+          
+          <div style="margin-bottom:14px">
+            <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:4px">
+              <span>Head Grade (%Cu):</span>
+              <span id="wi_hg_val" style="color:var(--hcl-copper);font-weight:700">1.50</span>
+            </div>
+            <input type="range" id="wi_hg" min="0.5" max="3.0" step="0.05" value="1.50" style="width:100%;accent-color:var(--hcl-copper)" oninput="wiUpdate()"/>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:4px">
+              <span>Feed Rate (MT/h):</span>
+              <span id="wi_fr_val" style="color:var(--hcl-copper);font-weight:700">85</span>
+            </div>
+            <input type="range" id="wi_fr" min="30" max="200" step="1" value="85" style="width:100%;accent-color:var(--hcl-copper)" oninput="wiUpdate()"/>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:4px">
+              <span>Flotation pH:</span>
+              <span id="wi_ph_val" style="color:var(--hcl-copper);font-weight:700">10.5</span>
+            </div>
+            <input type="range" id="wi_ph" min="8.0" max="12.5" step="0.1" value="10.5" style="width:100%;accent-color:var(--hcl-copper)" oninput="wiUpdate()"/>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:4px">
+              <span>Pulp Density (%):</span>
+              <span id="wi_pd_val" style="color:var(--hcl-copper);font-weight:700">32.0</span>
+            </div>
+            <input type="range" id="wi_pd" min="20" max="50" step="0.5" value="32.0" style="width:100%;accent-color:var(--hcl-copper)" oninput="wiUpdate()"/>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:4px">
+              <span>Air Flow Rate (m³/min):</span>
+              <span id="wi_af_val" style="color:var(--hcl-copper);font-weight:700">12.0</span>
+            </div>
+            <input type="range" id="wi_af" min="5" max="30" step="0.5" value="12.0" style="width:100%;accent-color:var(--hcl-copper)" oninput="wiUpdate()"/>
+          </div>
+
+          <div class="sub-hdr" style="margin-top:20px">Reagent Dosing &amp; Separation</div>
+
+          <div style="margin-bottom:14px">
+            <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:4px">
+              <span>SIPX Collector (g/t):</span>
+              <span id="wi_sipx_val" style="color:var(--hcl-copper);font-weight:700">35</span>
+            </div>
+            <input type="range" id="wi_sipx" min="5" max="80" step="1" value="35" style="width:100%;accent-color:var(--hcl-copper)" oninput="wiUpdate()"/>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:4px">
+              <span>Frother (g/t):</span>
+              <span id="wi_froth_val" style="color:var(--hcl-copper);font-weight:700">15.0</span>
+            </div>
+            <input type="range" id="wi_froth" min="5" max="50" step="0.5" value="15.0" style="width:100%;accent-color:var(--hcl-copper)" oninput="wiUpdate()"/>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:4px">
+              <span>Depressant (g/t):</span>
+              <span id="wi_dep_val" style="color:var(--hcl-copper);font-weight:700">20</span>
+            </div>
+            <input type="range" id="wi_dep" min="5" max="60" step="1" value="20" style="width:100%;accent-color:var(--hcl-copper)" oninput="wiUpdate()"/>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:4px">
+              <span>Water Recovery (%):</span>
+              <span id="wi_wr_val" style="color:var(--hcl-copper);font-weight:700">72</span>
+            </div>
+            <input type="range" id="wi_wr" min="40" max="90" step="1" value="72" style="width:100%;accent-color:var(--hcl-copper)" oninput="wiUpdate()"/>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:4px">
+              <span>Rougher Conc Grade (%Cu):</span>
+              <span id="wi_rg_val" style="color:var(--hcl-copper);font-weight:700">18.0</span>
+            </div>
+            <input type="range" id="wi_rg" min="5" max="35" step="0.5" value="18.0" style="width:100%;accent-color:var(--hcl-copper)" oninput="wiUpdate()"/>
+          </div>
+        </div>
+
+        <!-- Right Column: Live Output & Insights -->
+        <div style="display:flex;flex-direction:column;gap:18px">
+          
+          <div style="background:linear-gradient(135deg, #FFF9F3 0%, #F5E8DC 100%);border:2px solid var(--hcl-copper);padding:24px;border-radius:8px;text-align:center;box-shadow:0 4px 14px rgba(74,21,7,0.08);">
+            <div style="font-size:13px;text-transform:uppercase;letter-spacing:1px;font-weight:700;color:var(--hcl-mahogany)">Simulated Cu Recovery</div>
+            <div id="wi_result" style="font-size:54px;font-weight:900;color:var(--hcl-copper);margin:10px 0;letter-spacing:-1px">--%</div>
+            <div id="wi_status" style="display:inline-block;padding:5px 16px;border-radius:20px;font-weight:700;font-size:13px;background:rgba(56,161,105,0.2);color:#22543D">Ready</div>
+            <div id="wi_band" style="font-size:13px;color:#666;margin-top:12px;font-family:monospace">Confidence Band: Q10 --% | Q90 --%</div>
+          </div>
+
+          <div style="background:#FFFBF7;border:1px solid var(--hcl-border);padding:18px;border-radius:6px;">
+            <div class="sub-hdr" style="margin-top:0">Key Simulation Presets</div>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px">
+              <button class="btn-hcl" onclick="document.getElementById('wi_hg').value=1.85;document.getElementById('wi_ph').value=10.8;document.getElementById('wi_sipx').value=40;document.getElementById('wi_froth').value=16;wiUpdate()">Maximize Recovery (High Cu, High Reagents)</button>
+              <button class="btn-hcl" style="background:#6B4226" onclick="document.getElementById('wi_hg').value=0.90;document.getElementById('wi_ph').value=10.5;document.getElementById('wi_sipx').value=32;document.getElementById('wi_froth').value=14;wiUpdate()">Low Head Grade Ore Handling (&lt;1.0% Cu)</button>
+              <button class="btn-hcl" style="background:#5C1F0C" onclick="document.getElementById('wi_hg').value=1.50;document.getElementById('wi_fr').value=85;document.getElementById('wi_ph').value=10.5;document.getElementById('wi_pd').value=32;document.getElementById('wi_af').value=12;document.getElementById('wi_sipx').value=35;document.getElementById('wi_froth').value=15;document.getElementById('wi_dep').value=20;document.getElementById('wi_wr').value=72;document.getElementById('wi_rg').value=18;wiUpdate()">Reset to Benchmark Baseline</button>
+            </div>
+          </div>
+
+          <div style="background:#FFFBF7;border:1px solid var(--hcl-border);padding:18px;border-radius:6px;font-size:13px;line-height:1.7">
+            <strong style="color:var(--hcl-copper)">Operator Note:</strong>
+            Changes to SIPX and Flotation pH exhibit non-linear recovery response. Keep pH in the 10.2–11.2 zone to prevent pyrite flotation and maximize chalcopyrite selectivity.
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         PAGE: BATCH PREDICTOR
+    ══════════════════════════════════════ -->
+    <div class="page-section" id="page-batch">
+      <div class="page-title">Batch Shift Recovery Predictor</div>
+      <p class="intro-para">Upload a CSV file containing multiple shifts to run bulk inference across the Stacking Ensemble. Generates predictions, uncertainty confidence bands (Q10/Q90), and isolation forest anomaly flags.</p>
+
+      <div style="background:#FFFBF7;border:1px solid var(--hcl-border);padding:24px;border-radius:6px;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+          <input type="file" id="batchFile" accept=".csv" style="display:none" onchange="document.getElementById('batchFileLabel').textContent = this.files[0] ? this.files[0].name : 'No file chosen'"/>
+          <button class="btn-hcl" onclick="document.getElementById('batchFile').click()">Select CSV File</button>
+          <span id="batchFileLabel" style="font-size:13px;color:#555;font-style:italic">No file chosen</span>
+          <button class="btn-hcl" style="background:#2E7D32" onclick="runBatchPredict()">Run Batch Prediction</button>
+          <button class="btn-hcl" style="background:#6B4226" onclick="downloadSampleBatchCSV()">Download Sample CSV</button>
+        </div>
+
+        <div id="batchProgress" style="display:none;margin-top:16px">
+          <div id="batchProgressText" style="font-size:13px;font-weight:600;margin-bottom:6px;color:var(--hcl-copper)">Processing rows...</div>
+          <div style="width:100%;height:10px;background:#E0D0C0;border-radius:5px;overflow:hidden">
+            <div id="batchProgressBar" style="width:0%;height:100%;background:linear-gradient(90deg, var(--hcl-copper), #38A169);transition:width .2s"></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0">
+        <div class="sub-hdr" style="margin:0">Batch Prediction Output</div>
+        <button id="batchDownloadBtn" class="btn-hcl" style="display:none;background:#2E7D32" onclick="downloadBatchCSV()">Export Results to CSV</button>
+      </div>
+
+      <div class="tbl-wrap" id="batchResultTable">
+        <div style="padding:30px;text-align:center;color:#888;font-size:13.5px;border:1px dashed var(--hcl-border);border-radius:4px">
+          Select a CSV shift file and click <strong>"Run Batch Prediction"</strong> to view tabular results here.
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         PAGE: LOSS & DOWNTIME CALCULATOR
+    ══════════════════════════════════════ -->
+    <div class="page-section" id="page-losscalc">
+      <div class="page-title">Plant Downtime &amp; Copper Loss Calculator</div>
+      <p class="intro-para">Quantify direct financial and production loss in Metric Tonnes (MT) of copper metal and Rupee / Dollar value resulting from mill downtime and below-benchmark recovery performance.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:20px;margin-top:16px;">
+        
+        <!-- Input Form -->
+        <div style="background:#FFFBF7;border:1px solid var(--hcl-border);padding:20px;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+          <div class="sub-hdr" style="margin-top:0">Operational Downtime &amp; Recovery</div>
+
+          <div class="form-group">
+            <label>Mill Downtime Hours (hrs):</label>
+            <input type="number" id="lc_downtime" value="1.5" step="0.25" min="0" oninput="calcLoss()"/>
+          </div>
+
+          <div class="form-group">
+            <label>Actual Shift Recovery (%):</label>
+            <input type="number" id="lc_actual" value="82.4" step="0.1" min="50" max="100" oninput="calcLoss()"/>
+          </div>
+
+          <div class="form-group">
+            <label>Benchmark Target Recovery (%):</label>
+            <input type="number" id="lc_target" value="85.0" step="0.1" min="50" max="100" oninput="calcLoss()"/>
+          </div>
+
+          <div class="form-group">
+            <label>Mill Feed Rate (MT/h):</label>
+            <input type="number" id="lc_feedrate" value="85" step="1" min="10" oninput="calcLoss()"/>
+          </div>
+
+          <div class="form-group">
+            <label>Feed Head Grade (%Cu):</label>
+            <input type="number" id="lc_hg" value="1.50" step="0.05" min="0.1" oninput="calcLoss()"/>
+          </div>
+
+          <div class="sub-hdr" style="margin-top:20px">Market &amp; Currency Assumptions</div>
+
+          <div class="form-group">
+            <label>LME Copper Price (USD / MT):</label>
+            <input type="number" id="lc_price" value="9200" step="50" oninput="calcLoss()"/>
+          </div>
+
+          <div class="form-group">
+            <label>USD to INR Exchange Rate (₹/$):</label>
+            <input type="number" id="lc_fx" value="83.5" step="0.1" oninput="calcLoss()"/>
+          </div>
+        </div>
+
+        <!-- Output Cards -->
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div style="background:#FFFBF7;border:1px solid var(--hcl-border);padding:16px;border-radius:6px;text-align:center">
+              <div style="font-size:12px;color:#777;font-weight:600">Feed Lost (Downtime)</div>
+              <div id="lc_feed_mt" style="font-size:20px;font-weight:800;color:var(--hcl-copper);margin-top:6px">-- MT</div>
+            </div>
+            <div style="background:#FFFBF7;border:1px solid var(--hcl-border);padding:16px;border-radius:6px;text-align:center">
+              <div style="font-size:12px;color:#777;font-weight:600">Cu Metal Lost (Downtime)</div>
+              <div id="lc_cu_downtime" style="font-size:20px;font-weight:800;color:#E63946;margin-top:6px">-- MT Cu</div>
+            </div>
+          </div>
+
+          <div style="background:#FFFBF7;border:1px solid var(--hcl-border);padding:16px;border-radius:6px;text-align:center">
+            <div style="font-size:12px;color:#777;font-weight:600">Cu Metal Lost (Below-Benchmark Recovery Gap)</div>
+            <div id="lc_cu_recovery" style="font-size:22px;font-weight:800;color:#E63946;margin-top:6px">-- MT Cu</div>
+          </div>
+
+          <!-- Total Loss Highlighting -->
+          <div style="background:linear-gradient(135deg, #FFF3F3 0%, #FEE2E2 100%);border:2px solid #E63946;padding:20px;border-radius:8px;text-align:center;box-shadow:0 4px 12px rgba(230,57,70,0.1);">
+            <div style="font-size:13px;text-transform:uppercase;letter-spacing:1px;font-weight:700;color:#9B1C1C">Total Shift Revenue Loss</div>
+            <div id="lc_loss_inr" style="font-size:36px;font-weight:900;color:#C53030;margin:8px 0">₹ --</div>
+            <div id="lc_loss_usd" style="font-size:18px;font-weight:700;color:#742A2A">$ --</div>
+          </div>
+
+          <div style="background:#FFFBF7;border:1px solid var(--hcl-border);padding:16px;border-radius:6px;font-size:13px;line-height:1.7">
+            <strong style="color:var(--hcl-copper)">Actionable Recommendation:</strong>
+            Even a <strong>1.0% increase</strong> in flotation recovery across Malanjkhand's 85 MT/h feed rate recovers an additional ~0.10 MT of pure copper per shift (~₹75,000/shift or ₹8.2 Crore annually).
+          </div>
+
+        </div>
+
       </div>
     </div>
 
@@ -1811,6 +2031,7 @@ function showPage(id){
   document.querySelectorAll('.page-section').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-link').forEach(n=>n.classList.remove('active'));
   document.querySelectorAll('.sb-item').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-item-dropdown').forEach(d=>d.classList.remove('open'));
   const pg=document.getElementById('page-'+id);
   if(pg) pg.classList.add('active');
   document.querySelectorAll('.nav-link,.sb-item').forEach(el=>{
@@ -1821,7 +2042,23 @@ function showPage(id){
   if(id==='features')initImportanceChart();
   if(id==='forecast')initFcChart();
   if(id==='report')populateShiftSelect();
+  if(id==='whatif')wiUpdate();
+  if(id==='losscalc')calcLoss();
 }
+
+// Touch/click support for top navigation dropdowns
+document.addEventListener('click', function(e){
+  const dd = e.target.closest('.nav-item-dropdown');
+  document.querySelectorAll('.nav-item-dropdown').forEach(d=>{
+    if(d !== dd) d.classList.remove('open');
+  });
+  if(dd && e.target.classList.contains('nav-link')){
+    // If it's a dropdown toggle link
+    if(e.target.textContent.includes('▾')){
+      dd.classList.toggle('open');
+    }
+  }
+});
 
 function toggleSidebar(){
   document.getElementById('sidebar').classList.toggle('open');
@@ -1860,7 +2097,9 @@ function switchTab(btn,panelId){
    The key is stored only in sessionStorage (never sent
    anywhere except api.anthropic.com).
 ═══════════════════════════════════════════════════════ */
-const API='http://localhost:8000';
+const API = (window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+  ? 'http://localhost:8000'
+  : window.location.origin;
 
 function getAnthropicKey(){
   return sessionStorage.getItem('recovai_ak')||'';
@@ -1908,7 +2147,7 @@ Answer questions about shift data, recovery trends, reagent dosing, anomalies, f
 async function callClaudeAPI(messages, onChunk){
   const key = getAnthropicKey();
   if(!key){
-    return "⚠️ No Anthropic API key set. Click the key icon (🔑) above the chat to enter your key, then ask again.";
+    return "No Anthropic API key set. Click the key icon  above the chat to enter your key, then ask again.";
   }
   try{
     const resp = await fetch('https://api.anthropic.com/v1/messages',{
@@ -1934,7 +2173,7 @@ async function callClaudeAPI(messages, onChunk){
     const data = await resp.json();
     return data.content?.[0]?.text || '(empty response)';
   }catch(e){
-    return `❌ Network error: ${e.message}. Check your API key and internet connection.`;
+    return `Network error: ${e.message}. Check your API key and internet connection.`;
   }
 }
 
@@ -2047,7 +2286,7 @@ function renderPredResult(data,inputs){
   // Notice
   const nb=document.getElementById('r_notice');
   if(pred>=85){nb.className='notice-success';nb.textContent='✅ Above Target — Recovery is at or above the 85% plant benchmark.';}
-  else if(pred>=80){nb.className='notice-warning';nb.textContent='⚠️ Near Target — Recovery is below target. Review reagent dosing.';}
+  else if(pred>=80){nb.className='notice-warning';nb.textContent='Near Target — Recovery is below target. Review reagent dosing.';}
   else{nb.className='notice-critical';nb.textContent='❌ Below Target — Critical: Recovery is significantly below benchmark.';}
 
   // Gauge SVG (70–100 range → 0–400px)
@@ -2140,10 +2379,10 @@ async function runOptimizer(){
   document.getElementById('ores_rec').textContent=(data.predicted_recovery||0).toFixed(2)+'%';
   document.getElementById('ores_cost').textContent='$'+(data.cost_index||0).toFixed(2)+'/t ore';
   const met=data.predicted_recovery>=body.target_rec;
-  document.getElementById('ores_status').innerHTML=met?'<span style="color:#38A169">✅ Target Met</span>':'<span style="color:#FFA000">⚠️ Target Missed — adjust bounds</span>';
+  document.getElementById('ores_status').innerHTML=met?'<span style="color:#38A169">● Target Met</span>':'<span style="color:#FFA000">● Target Missed — adjust bounds</span>';
   const n=document.getElementById('opt_notice');
   n.className=met?'notice-success':'notice-warning';
-  n.textContent=met?'✅ Optimization successful. Reagent doses achieve target recovery within defined bounds.':'⚠️ Could not fully achieve target. Consider widening reagent bounds or lowering target.';
+  n.textContent=met?'Optimization successful. Reagent doses achieve target recovery within defined bounds.':'Could not fully achieve target. Consider widening reagent bounds or lowering target.';
 
   if(optChart)optChart.destroy();
   const ctx=document.getElementById('optChart').getContext('2d');
@@ -2471,7 +2710,7 @@ async function generateReport(){
   // Try backend with timeout
   if(useAI){
     document.getElementById('rep_ai_block').style.display='block';
-    document.getElementById('rep_ai_text').textContent='⏳ Generating AI analysis...';
+    document.getElementById('rep_ai_text').textContent='Generating AI analysis...';
     try{
       const res=await Promise.race([
         fetch(API+'/report',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({shift_data:d,shift_id:shift,view,use_ai:true})}),
@@ -2528,9 +2767,9 @@ async function generateReport(){
   document.getElementById('rep_recs').innerHTML='<ul style="padding-left:18px">'+recs.map(r=>`<li style="margin-bottom:6px;font-size:13px;line-height:1.6">${r}</li>`).join('')+'</ul>';
 
   const sn=document.getElementById('rep_status_notice');
-  if(d.rec>=85){sn.className='notice-success';sn.textContent='✅ Recovery above 85% target this shift.';}
-  else if(d.rec>=80){sn.className='notice-warning';sn.textContent='⚠️ Recovery below target this shift. Review process conditions.';}
-  else{sn.className='notice-critical';sn.textContent='❌ Critical — Recovery significantly below 85% benchmark.';}
+  if(d.rec>=85){sn.className='notice-success';sn.textContent='Recovery above 85% target this shift.';}
+  else if(d.rec>=80){sn.className='notice-warning';sn.textContent='Recovery below target this shift. Review process conditions.';}
+  else{sn.className='notice-critical';sn.textContent='Critical — Recovery significantly below 85% benchmark.';}
 
   if(useAI)document.getElementById('rep_ai_block').style.display='block';
   load.style.display='none';
@@ -2630,7 +2869,7 @@ async function generateReport(){
   // Try backend with timeout, then Claude API directly, then local fallback
   if(useAI){
     document.getElementById('rep_ai_block').style.display='block';
-    document.getElementById('rep_ai_text').textContent='⏳ Generating AI analysis...';
+    document.getElementById('rep_ai_text').textContent='Generating AI analysis...';
     let aiText=null;
 
     // Try FastAPI first
@@ -2699,9 +2938,9 @@ async function generateReport(){
   document.getElementById('rep_recs').innerHTML='<ul style="padding-left:18px">'+recs.map(r=>`<li style="margin-bottom:6px;font-size:13px;line-height:1.6">${r}</li>`).join('')+'</ul>';
 
   const sn=document.getElementById('rep_status_notice');
-  if(d.rec>=85){sn.className='notice-success';sn.textContent='✅ Recovery above 85% target this shift.';}
-  else if(d.rec>=80){sn.className='notice-warning';sn.textContent='⚠️ Recovery below target this shift. Review process conditions.';}
-  else{sn.className='notice-critical';sn.textContent='❌ Critical — Recovery significantly below 85% benchmark.';}
+  if(d.rec>=85){sn.className='notice-success';sn.textContent='Recovery above 85% target this shift.';}
+  else if(d.rec>=80){sn.className='notice-warning';sn.textContent='Recovery below target this shift. Review process conditions.';}
+  else{sn.className='notice-critical';sn.textContent='Critical — Recovery significantly below 85% benchmark.';}
 
   if(useAI)document.getElementById('rep_ai_block').style.display='block';
   load.style.display='none';
@@ -2817,7 +3056,7 @@ async function verifyChatKey(){
   const keyInput=document.getElementById('chatApiKeyInput');
   const status=document.getElementById('keyStatus');
   const k=keyInput.value.trim();
-  if(!k){status.style.color='#E63946';status.textContent='⚠️ Enter a key first';return;}
+  if(!k){status.style.color='#E63946';status.textContent='Enter a key first';return;}
   status.style.color='#555';status.textContent='⏳ Verifying...';
   setAnthropicKey(k);
   try{
@@ -2827,9 +3066,9 @@ async function verifyChatKey(){
       body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:10,messages:[{role:'user',content:'Hi'}]})
     });
     if(resp.ok){status.style.color='#38A169';status.textContent='✅ Key valid — AI chat active';}
-    else if(resp.status===401){status.style.color='#E63946';status.textContent='❌ Invalid key';}
-    else{status.style.color='#FFA000';status.textContent='⚠️ Status '+resp.status;}
-  }catch(e){status.style.color='#E63946';status.textContent='❌ Network error: '+e.message;}
+    else if(resp.status===401){status.style.color='#E63946';status.textContent='Invalid key';}
+    else{status.style.color='#FFA000';status.textContent='Status '+resp.status;}
+  }catch(e){status.style.color='#E63946';status.textContent='Network error: '+e.message;}
 }
 
 async function sendChat(){
@@ -2843,9 +3082,8 @@ async function sendChat(){
 
   const ts=new Date().toLocaleTimeString('en-IN');
   const box=document.getElementById('chatBox');
-  let html=`<div class="chat-exchange"><div class="chat-you"><strong>You:</strong> ${msg}</div><div class="chat-ts" style="text-align:right">${ts}</div>`;
 
-  // Show "typing..." indicator
+  // Show "thinking" indicator
   const typingId = 'typing_'+Date.now();
   let html2=`<div class="chat-exchange" id="${typingId}"><div class="chat-you"><strong>You:</strong> ${msg}</div><div class="chat-ts" style="text-align:right">${ts}</div><div class="chat-ai"><strong>RecovAI:</strong> <em style="color:#999">Thinking...</em></div></div>`;
   box.innerHTML+=html2;
@@ -2855,21 +3093,19 @@ async function sendChat(){
   const apiKey=getAnthropicKey();
 
   if(apiKey){
-    // Use Claude API directly — no backend needed
     const msgs=[...chatHistory.slice(-8),{role:'user',content:msg}];
     reply = await callClaudeAPI(msgs);
   } else {
-    // Try FastAPI backend with short timeout
+    // Try FastAPI backend (Groq) with short timeout
     try{
       const res=await Promise.race([
         fetch(API+'/report',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg,history:chatHistory.slice(-6)})}),
-        new Promise((_,rej)=>setTimeout(()=>rej(new Error('timeout')),1500))
+        new Promise((_,rej)=>setTimeout(()=>rej(new Error('timeout')),8000))
       ]);
       if(!res.ok)throw new Error('HTTP '+res.status);
       const d=await res.json();
       reply=d.response||d.report||'';
     }catch(e){
-      // Smart local Q&A fallback
       reply=localPlantQA(msg);
     }
   }
@@ -2879,10 +3115,190 @@ async function sendChat(){
   if(typingEl)typingEl.remove();
 
   chatHistory.push({role:'user',content:msg},{role:'assistant',content:reply});
+  // Persist to sessionStorage
+  try{sessionStorage.setItem('recovai_chat',JSON.stringify(chatHistory.slice(-30)));}catch(e){}
+
   const finalHtml=`<div class="chat-exchange"><div class="chat-you"><strong>You:</strong> ${msg}</div><div class="chat-ts" style="text-align:right">${ts}</div><div class="chat-ai"><strong>RecovAI:</strong> ${reply.replace(/\n/g,'<br>')}</div><div class="chat-ts">${new Date().toLocaleTimeString('en-IN')}</div></div>`;
   box.innerHTML+=finalHtml;
   box.scrollTop=box.scrollHeight;
 }
+
+function clearChatMemory(){
+  chatHistory.length=0;
+  try{sessionStorage.removeItem('recovai_chat');}catch(e){}
+  const box=document.getElementById('chatBox');
+  box.innerHTML='<div class="chat-exchange"><div class="chat-ai"><strong>RecovAI:</strong> Chat history cleared. How can I help you?</div></div>';
+}
+
+// Restore chat on page load
+(function restoreChat(){
+  try{
+    const saved=sessionStorage.getItem('recovai_chat');
+    if(!saved)return;
+    const hist=JSON.parse(saved);
+    if(!hist||!hist.length)return;
+    chatHistory.push(...hist);
+    const box=document.getElementById('chatBox');
+    if(!box)return;
+    let html='';
+    for(let i=0;i<hist.length-1;i+=2){
+      const u=hist[i],a=hist[i+1];
+      if(u&&a) html+=`<div class="chat-exchange"><div class="chat-you"><strong>You:</strong> ${u.content}</div><div class="chat-ai"><strong>RecovAI:</strong> ${(a.content||'').replace(/\n/g,'<br>')}</div></div>`;
+    }
+    if(html) box.innerHTML=html;
+  }catch(e){}
+})();
+
+/* ──────────────────────────────────────────────────────────────────────
+   WHAT-IF SIMULATOR
+────────────────────────────────────────────────────────────────────── */
+let wiDebounce=null;
+function wiUpdate(){
+  ['hg','fr','ph','pd','af','sipx','froth','dep','wr','rg'].forEach(k=>{
+    const el=document.getElementById('wi_'+k);
+    const label=document.getElementById('wi_'+k+'_val');
+    if(el&&label) label.textContent=el.value;
+  });
+  clearTimeout(wiDebounce);
+  wiDebounce=setTimeout(wiFetch,400);
+}
+
+async function wiFetch(){
+  const body={
+    head_grade:    +document.getElementById('wi_hg').value,
+    feed_rate:     +document.getElementById('wi_fr').value,
+    ph:            +document.getElementById('wi_ph').value,
+    pulp_density:  +document.getElementById('wi_pd').value,
+    air_flow:      +document.getElementById('wi_af').value,
+    sipx:          +document.getElementById('wi_sipx').value,
+    frother:       +document.getElementById('wi_froth').value,
+    depressant:    +document.getElementById('wi_dep').value,
+    water_recovery:+document.getElementById('wi_wr').value,
+    rougher_grade: +document.getElementById('wi_rg').value,
+    lime:10, particle_size:150, model:'stack'
+  };
+  try{
+    const res=await fetch(API+'/predict',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    const d=await res.json();
+    const pct=d.predicted_recovery;
+    document.getElementById('wi_result').textContent=pct.toFixed(2)+'%';
+    document.getElementById('wi_band').textContent=`Confidence Band: Q10 ${d.ci_lower}% | Q90 ${d.ci_upper}%`;
+    const statusEl=document.getElementById('wi_status');
+    if(pct>=85){statusEl.textContent='Above Target (85%)';statusEl.style.background='rgba(56,161,105,0.3)';}
+    else if(pct>=80){statusEl.textContent='Near Target';statusEl.style.background='rgba(255,160,0,0.3)';}
+    else{statusEl.textContent='Below Target — Action Needed';statusEl.style.background='rgba(220,53,69,0.3)';}
+  }catch(e){
+    document.getElementById('wi_result').textContent='Error';
+    document.getElementById('wi_status').textContent='Backend offline';
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   BATCH PREDICT
+────────────────────────────────────────────────────────────────────── */
+let batchResults=[];
+
+async function runBatchPredict(){
+  const file=document.getElementById('batchFile').files[0];
+  if(!file){alert('Please select a CSV file first.');return;}
+  const text=await file.text();
+  const lines=text.trim().split('\n');
+  const headers=lines[0].split(',').map(h=>h.trim().toLowerCase());
+  const rows=lines.slice(1).filter(l=>l.trim());
+
+  const prog=document.getElementById('batchProgress');
+  const progText=document.getElementById('batchProgressText');
+  const progBar=document.getElementById('batchProgressBar');
+  prog.style.display='block';
+  batchResults=[];
+
+  for(let i=0;i<rows.length;i++){
+    const vals=rows[i].split(',').map(v=>v.trim());
+    const obj={};
+    headers.forEach((h,j)=>obj[h]=parseFloat(vals[j])||0);
+    obj.model='stack';
+    try{
+      const res=await fetch(API+'/predict',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(obj)});
+      const d=await res.json();
+      batchResults.push({...obj,predicted_recovery:d.predicted_recovery,ci_lower:d.ci_lower,ci_upper:d.ci_upper,anomaly:d.anomaly_result});
+    }catch(e){
+      batchResults.push({...obj,predicted_recovery:'ERROR',ci_lower:'',ci_upper:'',anomaly:''});
+    }
+    const pct=Math.round(((i+1)/rows.length)*100);
+    progBar.style.width=pct+'%';
+    progText.textContent=`Processing row ${i+1} of ${rows.length} (${pct}%)`;
+  }
+
+  // Render table
+  const cols=['head_grade','feed_rate','ph','pulp_density','sipx','frother','predicted_recovery','ci_lower','ci_upper','anomaly'];
+  let html=`<table class="hcl"><thead><tr>${cols.map(c=>`<th>${c}</th>`).join('')}</tr></thead><tbody>`;
+  batchResults.forEach(r=>{
+    const recVal=parseFloat(r.predicted_recovery);
+    const color=isNaN(recVal)?'':(recVal>=85?'color:#38A169':recVal>=80?'color:#FFA000':'color:#E63946');
+    html+=`<tr>${cols.map(c=>c==='predicted_recovery'?`<td style="font-weight:700;${color}">${r[c]}</td>`:`<td>${r[c]!==undefined?r[c]:''}</td>`).join('')}</tr>`;
+  });
+  html+=`</tbody></table>`;
+  document.getElementById('batchResultTable').innerHTML=html;
+  document.getElementById('batchDownloadBtn').style.display='inline-block';
+  progText.textContent=`Complete: ${rows.length} rows processed.`;
+}
+
+function downloadBatchCSV(){
+  if(!batchResults.length)return;
+  const keys=Object.keys(batchResults[0]);
+  const csv=[keys.join(','),...batchResults.map(r=>keys.map(k=>r[k]??'').join(','))].join('\n');
+  const a=document.createElement('a');
+  a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv);
+  a.download='recovai_batch_predictions.csv';
+  a.click();
+}
+
+function downloadSampleBatchCSV(){
+  const headers = "head_grade,feed_rate,ph,pulp_density,air_flow,particle_size,water_recovery,rougher_grade,sipx,frother,lime,depressant";
+  const rows = [
+    "1.50,85,10.5,32,12,150,72,18,35,15,2.0,20",
+    "1.85,92,10.8,33,14,140,75,19,38,16,2.2,18",
+    "1.20,78,10.2,30,11,165,70,16,32,14,1.8,22",
+    "1.65,88,10.6,32.5,12.5,148,73,18.5,36,15.5,2.1,19",
+    "1.42,82,10.4,31.5,11.8,155,71,17.2,34,14.8,1.9,21"
+  ];
+  const blob = new Blob([headers + "\n" + rows.join("\n")], {type: 'text/csv'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = "recovai_batch_shifts_sample.csv";
+  a.click();
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   DOWNTIME / LOSS CALCULATOR
+────────────────────────────────────────────────────────────────────── */
+function calcLoss(){
+  const dt    = parseFloat(document.getElementById('lc_downtime').value)||0;
+  const actual= parseFloat(document.getElementById('lc_actual').value)||0;
+  const target= parseFloat(document.getElementById('lc_target').value)||0;
+  const fr    = parseFloat(document.getElementById('lc_feedrate').value)||0;
+  const hg    = parseFloat(document.getElementById('lc_hg').value)||0;
+  const price = parseFloat(document.getElementById('lc_price').value)||9200;
+  const fx    = parseFloat(document.getElementById('lc_fx').value)||83.5;
+
+  // Feed processed during downtime
+  const feedMT = dt * fr;
+  // Cu lost due to downtime (feed not processed * head grade * typical recovery)
+  const cuDowntime = feedMT * (hg/100) * (target/100) * 10; // *10 = concentration factor
+  // Cu lost due to below-target recovery (for 8h shift)
+  const shiftFeed = 8 * fr;
+  const cuRecoveryGap = shiftFeed * (hg/100) * ((target - actual)/100) * 10;
+  const totalCuLost = cuDowntime + Math.max(0, cuRecoveryGap);
+  const lossUSD = totalCuLost * price;
+  const lossINR = lossUSD * fx;
+
+  document.getElementById('lc_feed_mt').textContent    = feedMT.toFixed(1)+' MT';
+  document.getElementById('lc_cu_downtime').textContent= cuDowntime.toFixed(3)+' MT Cu';
+  document.getElementById('lc_cu_recovery').textContent= Math.max(0,cuRecoveryGap).toFixed(3)+' MT Cu';
+  document.getElementById('lc_loss_usd').textContent   = '$ '+lossUSD.toLocaleString('en-IN',{maximumFractionDigits:0});
+  document.getElementById('lc_loss_inr').textContent   = '₹ '+lossINR.toLocaleString('en-IN',{maximumFractionDigits:0});
+}
+calcLoss(); // init on load
 
 /* ═══════════════════════════════════════════════════════
    PAGE 9: TREND FORECASTER
@@ -3058,7 +3474,7 @@ function renderSubmitResult(data, payload){
   // Notice box
   const notice = document.getElementById('submit_notice');
   if(pred>=85){notice.className='notice-success';notice.textContent='✅ Recovery '+pred.toFixed(2)+'% — Target se upar! Achha shift raha.';}
-  else if(pred>=80){notice.className='notice-warning';notice.textContent='⚠️ Recovery '+pred.toFixed(2)+'% — Target se thoda neeche. Reagent doses check karo.';}
+  else if(pred>=80){notice.className='notice-warning';notice.textContent='Recovery '+pred.toFixed(2)+'% — Target se thoda neeche. Reagent doses check karo.';}
   else{notice.className='notice-critical';notice.textContent='❌ Recovery '+pred.toFixed(2)+'% — Critical! Turant process review karo.';}
 
   document.getElementById('submit_result').style.display='block';
@@ -3136,7 +3552,7 @@ async function loadHistoryDetail(id){
     const pred = d.predicted_recovery;
     const notice = document.getElementById('hd_notice');
     if(pred>=85){notice.className='notice-success';notice.textContent='✅ Recovery '+pred.toFixed(2)+'% — Above Target';}
-    else if(pred>=80){notice.className='notice-warning';notice.textContent='⚠️ Recovery '+pred.toFixed(2)+'% — Near Target';}
+    else if(pred>=80){notice.className='notice-warning';notice.textContent='Recovery '+pred.toFixed(2)+'% — Near Target';}
     else{notice.className='notice-critical';notice.textContent='❌ Recovery '+pred.toFixed(2)+'% — Below Target';}
 
     // Inputs table
@@ -3189,25 +3605,73 @@ document.addEventListener('DOMContentLoaded',()=>{
 </script>
 <!-- ═══════════════ OPERATIONAL LOGIN MODAL ═══════════════ -->
 <div id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle"
-     style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);z-index:1000;align-items:center;justify-content:center">
-  <div style="background:#fff;width:420px;max-width:95%;border:1px solid #8B4513">
-    <div style="background:#2C1A0E;color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between">
-      <span id="loginModalTitle" style="font-weight:700;font-size:15px">Operational Staff Login</span>
-      <button onclick="closeLoginModal()" aria-label="Close login" style="background:none;border:none;color:#fff;font-size:18px;cursor:pointer">✕</button>
+     style="display:none;position:fixed;inset:0;background:rgba(10,25,47,0.6);z-index:10000;display:none;align-items:center;justify-content:center;backdrop-filter:blur(3px)">
+  <div style="background:#fff;width:400px;max-width:92vw;max-height:90vh;overflow-y:auto;border-radius:12px;box-shadow:0 24px 64px rgba(0,0,0,0.3);font-family:inherit">
+
+    <!-- Header -->
+    <div style="background:linear-gradient(135deg,#0F2A4A 0%,#1565C0 100%);padding:20px 24px;border-radius:12px 12px 0 0;display:flex;align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:36px;height:36px;background:rgba(255,255,255,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <div>
+          <div id="loginModalTitle" style="font-weight:700;font-size:15px;color:#fff;letter-spacing:.2px">Operational Staff Login</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.65);margin-top:1px">Hindustan Copper Limited · Secure Portal</div>
+        </div>
+      </div>
+      <button onclick="closeLoginModal()" aria-label="Close login" style="background:rgba(255,255,255,0.12);border:none;color:#fff;width:30px;height:30px;border-radius:6px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:background .2s" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">✕</button>
     </div>
-    <div style="padding:24px">
-      <div class="form-group"><label for="lgEmpId">Employee ID *</label><input id="lgEmpId" type="text" placeholder="e.g. HCL-12345"/></div>
-      <div class="form-group"><label for="lgPass">Password *</label><input id="lgPass" type="password" placeholder="Min 6 characters"/></div>
-      <div class="form-group">
-        <label id="lgCaptchaLabel">CAPTCHA *</label>
-        <input id="lgCaptcha" type="number" style="width:80px" aria-labelledby="lgCaptchaLabel"/>
+
+    <!-- Body -->
+    <div style="padding:28px 24px 24px">
+
+      <!-- Employee ID -->
+      <div style="margin-bottom:18px">
+        <label for="lgEmpId" style="display:block;font-size:12.5px;font-weight:600;color:#3D5A80;margin-bottom:6px;letter-spacing:.3px;text-transform:uppercase">Employee ID</label>
+        <input id="lgEmpId" type="text" placeholder="e.g. HCL-12345" autocomplete="username"
+               style="width:100%;padding:10px 14px;border:1.5px solid #C8DDED;border-radius:7px;font-size:14px;font-family:inherit;color:#0D1B2A;outline:none;transition:border .2s,box-shadow .2s;box-sizing:border-box"
+               onfocus="this.style.borderColor='#1565C0';this.style.boxShadow='0 0 0 3px rgba(21,101,192,0.12)'"
+               onblur="this.style.borderColor='#C8DDED';this.style.boxShadow='none'"/>
       </div>
-      <div id="lgErr" style="color:#E63946;font-size:12px;margin-bottom:10px"></div>
-      <div style="display:flex;gap:10px;align-items:center">
-        <button class="btn-hcl" onclick="submitLogin()">Login</button>
-        <button class="btn-hcl" onclick="closeLoginModal()">Cancel</button>
-        <a href="#" onclick="alert('Contact HR: hr@hindustancopper.com');return false" style="font-size:12px;color:#8B4513;margin-left:8px">Forgot Password?</a>
+
+      <!-- Password -->
+      <div style="margin-bottom:18px">
+        <label for="lgPass" style="display:block;font-size:12.5px;font-weight:600;color:#3D5A80;margin-bottom:6px;letter-spacing:.3px;text-transform:uppercase">Password</label>
+        <input id="lgPass" type="password" placeholder="Enter your password" autocomplete="current-password"
+               style="width:100%;padding:10px 14px;border:1.5px solid #C8DDED;border-radius:7px;font-size:14px;font-family:inherit;color:#0D1B2A;outline:none;transition:border .2s,box-shadow .2s;box-sizing:border-box"
+               onfocus="this.style.borderColor='#1565C0';this.style.boxShadow='0 0 0 3px rgba(21,101,192,0.12)'"
+               onblur="this.style.borderColor='#C8DDED';this.style.boxShadow='none'"
+               onkeydown="if(event.key==='Enter')submitLogin()"/>
       </div>
+
+      <!-- CAPTCHA -->
+      <div style="margin-bottom:20px">
+        <label id="lgCaptchaLabel" style="display:block;font-size:12.5px;font-weight:600;color:#3D5A80;margin-bottom:6px;letter-spacing:.3px;text-transform:uppercase">Security Check</label>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="background:#F0F7FF;border:1.5px solid #C8DDED;border-radius:7px;padding:9px 16px;font-size:14px;font-weight:700;color:#0F2A4A;letter-spacing:1px;white-space:nowrap;min-width:140px" id="lgCaptchaQuestion">What is 9 + 7?</div>
+          <input id="lgCaptcha" type="number" placeholder="Answer" aria-labelledby="lgCaptchaLabel"
+                 style="width:100px;padding:10px 14px;border:1.5px solid #C8DDED;border-radius:7px;font-size:14px;font-family:inherit;color:#0D1B2A;outline:none;transition:border .2s,box-shadow .2s;box-sizing:border-box"
+                 onfocus="this.style.borderColor='#1565C0';this.style.boxShadow='0 0 0 3px rgba(21,101,192,0.12)'"
+                 onblur="this.style.borderColor='#C8DDED';this.style.boxShadow='none'"
+                 onkeydown="if(event.key==='Enter')submitLogin()"/>
+        </div>
+      </div>
+
+      <!-- Error -->
+      <div id="lgErr" style="color:#D32F2F;font-size:12.5px;margin-bottom:12px;min-height:18px;font-weight:500"></div>
+
+      <!-- Buttons -->
+      <button onclick="submitLogin()" style="width:100%;padding:11px;background:linear-gradient(135deg,#1565C0,#0D47A1);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;font-family:inherit;cursor:pointer;letter-spacing:.3px;box-shadow:0 4px 14px rgba(13,71,161,0.3);transition:all .2s;margin-bottom:10px"
+              onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 18px rgba(13,71,161,0.4)'"
+              onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 14px rgba(13,71,161,0.3)'">Sign In</button>
+      <button onclick="closeLoginModal()" style="width:100%;padding:11px;background:#fff;color:#3D5A80;border:1.5px solid #C8DDED;border-radius:8px;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer;transition:all .2s"
+              onmouseover="this.style.background='#F0F7FF';this.style.borderColor='#90B4D2'"
+              onmouseout="this.style.background='#fff';this.style.borderColor='#C8DDED'">Cancel</button>
+    </div>
+
+    <!-- Footer -->
+    <div style="padding:14px 24px;border-top:1px solid #EEF3F8;text-align:center;background:#F8FBFF;border-radius:0 0 12px 12px">
+      <a href="#" onclick="alert('Contact HR: hr@hindustancopper.com');return false" style="font-size:12.5px;color:#1565C0;text-decoration:none;font-weight:500">Forgot Password? Contact HR</a>
     </div>
   </div>
 </div>
@@ -3216,8 +3680,8 @@ document.addEventListener('DOMContentLoaded',()=>{
 <div id="srOverlay" role="dialog" aria-modal="true" aria-labelledby="srTitle"
      style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#fff;z-index:1001;overflow-y:auto;padding:30px 40px">
   <div style="max-width:900px;margin:0 auto">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;border-bottom:2px solid #8B4513;padding-bottom:12px">
-      <h1 id="srTitle" style="color:#8B4513;font-size:22px;font-weight:400">Screen Reader Access</h1>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;border-bottom:2px solid var(--hcl-copper);padding-bottom:12px">
+      <h1 id="srTitle" style="color:var(--hcl-copper);font-size:22px;font-weight:400">Screen Reader Access</h1>
       <button onclick="closeSR()" aria-label="Close screen reader page" class="btn-hcl">✕ Close</button>
     </div>
     <p style="margin-bottom:20px;line-height:1.7">This website is designed to be accessible with screen reader software. The following free screen readers are compatible with this portal. We recommend using the latest version for the best experience.</p>
@@ -3263,16 +3727,85 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 <script>
 /* ═══════════════════════════════════════════════════════
-   CHANGE 4 — FONT SIZE
+   CHANGE 4 — ACCESSIBILITY ZOOM & FONT RESIZING (A- / A / A+)
 ═══════════════════════════════════════════════════════ */
 const DEFAULT_FONT = 14;
+const DEFAULT_ZOOM = 1.0;
+const MIN_ZOOM = 0.8;
+const MAX_ZOOM = 1.35;
+const ZOOM_STEP = 0.1;
+
+let currentZoom = parseFloat(localStorage.getItem('hcl_zoom_level')) || DEFAULT_ZOOM;
 let currentFont = parseInt(localStorage.getItem('hcl_font_size')) || DEFAULT_FONT;
-function applyFont(size) {
-  currentFont = Math.min(22, Math.max(10, size));
-  document.body.style.fontSize = currentFont + 'px';
+
+function applyZoom(zoom) {
+  currentZoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, Math.round(zoom * 100) / 100));
+  currentFont = Math.round(DEFAULT_FONT * currentZoom);
+  
+  // 1. Primary browser zoom on body (supported by Edge, Chrome, Safari, Firefox 126+)
+  // Scales text, tables, graphs, metrics, and cards smoothly and proportionally
+  try {
+    document.body.style.zoom = currentZoom;
+  } catch (e) {}
+
+  // 2. Adjust root rem scale & body font size for universal fallback
+  try {
+    document.documentElement.style.fontSize = (currentZoom * 100) + '%';
+    document.body.style.fontSize = currentFont + 'px';
+  } catch (e) {}
+
+  localStorage.setItem('hcl_zoom_level', currentZoom);
   localStorage.setItem('hcl_font_size', currentFont);
+  updateZoomUI();
 }
-document.addEventListener('DOMContentLoaded', () => applyFont(currentFont));
+
+function zoomIn() {
+  applyZoom(currentZoom + ZOOM_STEP);
+}
+
+function zoomOut() {
+  applyZoom(currentZoom - ZOOM_STEP);
+}
+
+function zoomReset() {
+  applyZoom(DEFAULT_ZOOM);
+}
+
+// Backward-compatible applyFont function
+function applyFont(size) {
+  if (size === DEFAULT_FONT) {
+    zoomReset();
+  } else if (size > currentFont) {
+    zoomIn();
+  } else {
+    zoomOut();
+  }
+}
+
+function updateZoomUI() {
+  const zReset = document.getElementById('zoomResetBtn');
+  const zIn = document.getElementById('zoomInBtn');
+  const zOut = document.getElementById('zoomOutBtn');
+  
+  if (zOut) {
+    zOut.title = `Decrease Font / Zoom Out (A-) [${Math.round(currentZoom * 100)}%]`;
+    zOut.style.opacity = currentZoom <= MIN_ZOOM ? '0.45' : '1';
+    zOut.style.pointerEvents = currentZoom <= MIN_ZOOM ? 'none' : 'auto';
+  }
+  if (zReset) {
+    zReset.title = `Reset Font / Normal 100% (A) [Currently ${Math.round(currentZoom * 100)}%]`;
+    zReset.style.background = Math.abs(currentZoom - DEFAULT_ZOOM) < 0.02 ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.1)';
+  }
+  if (zIn) {
+    zIn.title = `Increase Font / Zoom In (A+) [${Math.round(currentZoom * 100)}%]`;
+    zIn.style.opacity = currentZoom >= MAX_ZOOM ? '0.45' : '1';
+    zIn.style.pointerEvents = currentZoom >= MAX_ZOOM ? 'none' : 'auto';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  applyZoom(currentZoom);
+});
 
 /* ═══════════════════════════════════════════════════════
    CHANGE 5 — SEARCH
@@ -3337,7 +3870,7 @@ function openLoginModal() {
   if (sessionStorage.getItem('hcl_operator')) return;
   const a = Math.ceil(Math.random()*9), b = Math.ceil(Math.random()*9);
   captchaAnswer = a + b;
-  document.getElementById('lgCaptchaLabel').textContent = 'CAPTCHA: What is ' + a + ' + ' + b + '? *';
+  document.getElementById('lgCaptchaQuestion').textContent = 'What is ' + a + ' + ' + b + '?';
   document.getElementById('lgCaptcha').value = '';
   document.getElementById('lgErr').textContent = '';
   document.getElementById('lgEmpId').value = '';
@@ -3401,7 +3934,7 @@ const STRINGS = {
     brand_name: 'हिंदुस्तान कॉपर लिमिटेड',
     brand_sub: '(भारत सरकार का उद्यम)',
     brand_tag: 'राष्ट्र का ताम्र खनिक',
-    ticker_label: '🔴 एमसीपी लाइव प्लांट टेलीमेट्री',
+    ticker_label: '● एमसीपी लाइव प्लांट टेलीमेट्री',
     nav_home: 'होम', nav_predictor: 'रिकवरी प्रिडिक्टर',
     nav_optimizer: 'अभिकर्मक अनुकूलक', nav_anomaly: 'असामान्यता चेतावनी',
     nav_dashboard: 'शिफ्ट डैशबोर्ड', nav_features: 'फीचर एक्सप्लोरर',
@@ -3422,10 +3955,10 @@ const STRINGS = {
     btn_send: 'भेजें', btn_forecast: 'पूर्वानुमान बनाएं', btn_submit: 'जमा करें',
     btn_submit_shift: 'जमा करें और भविष्यवाणी करें', btn_reset: 'फॉर्म रीसेट करें',
     btn_refresh: 'ताज़ा करें', btn_load_hist: 'इतिहास लोड करें',
-    preset_normal: '⚡ सामान्य अयस्क (Normal Ore)',
-    preset_fines: '⚡ उच्च फाइन्स (High Fines)',
-    preset_lowgrade: '⚡ कम ग्रेड (Low Grade)',
-    preset_peak: '⚡ पीक रिकवरी (Peak 88%+)',
+    preset_normal: 'सामान्य अयस्क (Normal Ore)',
+    preset_fines: 'उच्च फाइन्स (High Fines)',
+    preset_lowgrade: 'कम ग्रेड (Low Grade)',
+    preset_peak: 'पीक रिकवरी (Peak 88%+)',
     lbl_sel_model: 'मॉडल चुनें:',
     sec_feed_conditions: 'फीड एवं प्रक्रिया शर्तें (Feed & Process Conditions)',
     lbl_head_grade: 'शीर्ष ग्रेड / Head Grade (%Cu)',
@@ -3457,10 +3990,10 @@ const STRINGS = {
     ql_control: 'कंट्रोल रूम',
     ql_hcl: 'एचसीएल आधिकारिक पोर्टल',
     ticker_badge: 'लाइव प्लांट स्थिति',
-    ticker_item1: '📍 मलांजखंड कॉपर प्रोजेक्ट (MCP) · फ्लोटेशन सेल 1–8 सक्रिय',
-    ticker_item2: '🎯 बेंचमार्क रिकवरी: 85.0% | वर्तमान AI मॉडल अनुमान: 87.4%',
-    ticker_item3: '🧪 पीएच संतुलन: 10.5 (इष्टतम 10.2–11.2) | एसआईपीएक्स: 35.0 g/t',
-    ticker_item4: '🛡️ संयंत्र स्थिति: सुरक्षित सामान्य (Zero Critical Anomalies)',
+    ticker_item1: 'मलांजखंड कॉपर प्रोजेक्ट (MCP) · फ्लोटेशन सेल 1–8 सक्रिय',
+    ticker_item2: 'बेंचमार्क रिकवरी: 85.0% | वर्तमान AI मॉडल अनुमान: 87.4%',
+    ticker_item3: 'पीएच संतुलन: 10.5 (इष्टतम 10.2–11.2) | एसआईपीएक्स: 35.0 g/t',
+    ticker_item4: 'संयंत्र स्थिति: सुरक्षित सामान्य (Zero Critical Anomalies)',
     sb_sec_modules: 'RecovAI मॉड्यूल',
     sb_sec_shift: 'शिफ्ट प्रविष्टि',
     p1_title: 'RecovAI — ताम्र फ्लोटेशन निर्णय समर्थन प्रणाली',
@@ -3501,10 +4034,10 @@ const STRINGS = {
     brand_sub: '(A Govt. of India Enterprise)',
     brand_tagline: "Nation's Copper Miner",
     ticker_badge: 'LIVE PLANT STATUS',
-    ticker_item1: '📍 Malanjkhand Copper Project (MCP) · Flotation Cells 1–8 Active',
-    ticker_item2: '🎯 Benchmark Recovery: 85.0% | Current AI Model Estimate: 87.4%',
-    ticker_item3: '🧪 pH Balance: 10.5 (Optimal 10.2–11.2) | SIPX: 35.0 g/t',
-    ticker_item4: '🛡️ Plant Status: Safe Steady-State (Zero Critical Anomalies)',
+    ticker_item1: 'Malanjkhand Copper Project (MCP) · Flotation Cells 1–8 Active',
+    ticker_item2: 'Benchmark Recovery: 85.0% | Current AI Model Estimate: 87.4%',
+    ticker_item3: 'pH Balance: 10.5 (Optimal 10.2–11.2) | SIPX: 35.0 g/t',
+    ticker_item4: 'Plant Status: Safe Steady-State (Zero Critical Anomalies)',
     sb_sec_modules: 'RecovAI Modules',
     sb_sec_shift: 'Shift Entry',
     nav_home: 'Home', nav_predictor: 'Recovery Predictor ▾',
@@ -3527,10 +4060,10 @@ const STRINGS = {
     btn_send: 'Send', btn_forecast: 'Generate Forecast', btn_submit: 'Submit',
     btn_submit_shift: 'Submit & Predict', btn_reset: 'Reset Form',
     btn_refresh: 'Refresh', btn_load_hist: 'Load History',
-    preset_normal: '⚡ Normal Ore',
-    preset_fines: '⚡ High Fines (>80%)',
-    preset_lowgrade: '⚡ Low Grade (<0.8%)',
-    preset_peak: '⚡ Peak Recovery (88%+)',
+    preset_normal: 'Normal Ore',
+    preset_fines: 'High Fines (>80%)',
+    preset_lowgrade: 'Low Grade (<0.8%)',
+    preset_peak: 'Peak Recovery (88%+)',
     lbl_sel_model: 'Select Model:',
     sec_feed_conditions: 'Feed & Process Conditions',
     lbl_head_grade: 'Head Grade (%Cu)',
