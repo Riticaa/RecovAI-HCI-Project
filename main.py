@@ -63,7 +63,8 @@
 
 from fastapi import FastAPI, Query, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, HTMLResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from typing import Optional, List
 import os, json, logging, uuid, random, math, joblib
@@ -73,6 +74,14 @@ import pandas as pd
 import numpy as np
 from sqlalchemy.orm import Session
 from database import init_db, get_db, save_prediction, get_recent_predictions, get_prediction_by_id
+
+# Load .env file (GROQ_API_KEY etc.) — python-dotenv is in requirements.txt
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 
 app = FastAPI(
     title="HCL RecovAI Backend",
@@ -88,6 +97,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Serve static assets (images/logos) if directory exists
+if os.path.isdir("assets"):
+    app.mount("/assets", StaticFiles(directory="assets"), name="assets")
+
+# Serve the full frontend SPA on root route
+@app.get("/", response_class=FileResponse)
+async def serve_frontend():
+    for candidate in ["hcl_recovai_v3.html", "index.html"]:
+        if os.path.exists(candidate):
+            return FileResponse(candidate, media_type="text/html")
+    return HTMLResponse("<h1>RecovAI Backend Running</h1><p>Frontend file not found.</p>")
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s | %(levelname)s | %(message)s"
@@ -97,6 +118,7 @@ log = logging.getLogger("recovai")
 MODELS_DIR = Path("models")
 DATA_FILE  = Path("shifts_dataset.csv")
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
+GROQ_API_KEY      = os.getenv("GROQ_API_KEY", "") or ANTHROPIC_API_KEY
 
 FEATURE_COLS = [
     'head_grade', 'feed_rate', 'ph', 'pulp_density', 'air_flow',
@@ -105,13 +127,34 @@ FEATURE_COLS = [
 ]
 
 # Global model handles (populated in startup)
-xgb_model  = None
-rf_model   = None
-lin_model  = None
-scaler     = None
-iso_forest = None
-df_shifts  = None
+xgb_model     = None
+rf_model      = None
+lin_model     = None
+scaler        = None
+iso_forest    = None
+df_shifts     = None
 engines_found: List[str] = []
+
+# ── Advanced models (from recovai_output/) ──────────────────────────
+lgbm_model       = None   # LightGBM regressor
+stack_model      = None   # Stacking Ensemble (XGB + RF + LGBM -> Ridge)
+q_model_low      = None   # XGBoost Quantile Q10
+q_model_mid      = None   # XGBoost Quantile Q50
+q_model_high     = None   # XGBoost Quantile Q90
+advanced_features: list = []   # feature list used by advanced models
+
+RECOVAI_OUT = Path("recovai_output")
+
+# Model registry — returned by /api/models
+MODEL_REGISTRY = {
+    "xgb":     {"name": "XGBoost",           "r2": 0.9720, "rmse": 0.1388, "mae": 0.1042, "type": "point"},
+    "rf":      {"name": "Random Forest",      "r2": 0.9103, "rmse": 0.2483, "mae": 0.1970, "type": "point"},
+    "linear":  {"name": "Linear Regression",  "r2": None,   "rmse": None,   "mae": None,   "type": "point"},
+    "lgbm":    {"name": "LightGBM",           "r2": 0.9698, "rmse": 0.1440, "mae": 0.1092, "type": "point"},
+    "stack":   {"name": "Stacking Ensemble",  "r2": 0.9743, "rmse": 0.1328, "mae": 0.1003, "type": "point"},
+    "quantile":{"name": "XGBoost Quantile",   "r2": 0.9694, "rmse": 0.1450, "mae": 0.1128, "type": "quantile",
+                "coverage": 0.533, "avg_width": 0.277},
+}
 
 
 # ═══════════════════════════════════════════════════════════════════
@@ -190,6 +233,7 @@ def generate_synthetic_dataset(n: int = 500) -> pd.DataFrame:
 async def startup():
     global xgb_model, rf_model, lin_model, scaler, iso_forest
     global df_shifts, engines_found
+    global lgbm_model, stack_model, q_model_low, q_model_mid, q_model_high, advanced_features
     init_db()
 
     model_map = [
@@ -205,6 +249,34 @@ async def startup():
             log.info(f"Loaded {filename}")
         except Exception as exc:
             log.warning(f"Could not load {filename}: {exc}. Using mock fallback.")
+
+    # ── Load advanced models from recovai_output/ ────────────────────
+    try:
+        bundle = joblib.load(RECOVAI_OUT / "lgbm_model.pkl")
+        lgbm_model = bundle["model"]
+        advanced_features = bundle.get("features", [])
+        log.info("Loaded lgbm_model.pkl")
+    except Exception as exc:
+        log.warning(f"lgbm_model.pkl not found: {exc}")
+
+    try:
+        bundle = joblib.load(RECOVAI_OUT / "stacking_ensemble.pkl")
+        stack_model = bundle["model"]
+        if not advanced_features:
+            advanced_features = bundle.get("features", [])
+        log.info("Loaded stacking_ensemble.pkl")
+    except Exception as exc:
+        log.warning(f"stacking_ensemble.pkl not found: {exc}")
+
+    try:
+        from xgboost import XGBRegressor
+        q_low  = XGBRegressor(); q_low.load_model(str(RECOVAI_OUT / "xgb_quantile_low.json"))
+        q_mid  = XGBRegressor(); q_mid.load_model(str(RECOVAI_OUT / "xgb_quantile_mid.json"))
+        q_high = XGBRegressor(); q_high.load_model(str(RECOVAI_OUT / "xgb_quantile_high.json"))
+        q_model_low, q_model_mid, q_model_high = q_low, q_mid, q_high
+        log.info("Loaded XGBoost quantile models (Q10/Q50/Q90)")
+    except Exception as exc:
+        log.warning(f"Quantile models not found: {exc}")
 
     try:
         _df = pd.read_csv(DATA_FILE, header=1)  # row 0 = group labels, row 1 = actual column names
@@ -291,9 +363,58 @@ def do_predict(data: dict, model_name: str) -> float:
             return float(rf_model.predict(vec)[0])
         elif model_name == "linear" and lin_model is not None:
             return float(lin_model.predict(vec)[0])
+        # ── Advanced models (use their own feature vector) ────────────
+        elif model_name == "lgbm" and lgbm_model is not None:
+            adv_vec = _build_advanced_vector(data)
+            return float(lgbm_model.predict(adv_vec)[0])
+        elif model_name == "stack" and stack_model is not None:
+            adv_vec = _build_advanced_vector(data)
+            return float(stack_model.predict(adv_vec)[0])
     except Exception as exc:
         log.warning(f"Model predict failed ({model_name}): {exc}")
     return mock_predict(data)
+
+
+def _build_advanced_vector(data: dict) -> np.ndarray:
+    """Build feature vector aligned to advanced model feature list."""
+    # Map frontend snake_case keys -> training CSV column names
+    key_map = {
+        "head_grade":    "Head Grade (%Cu)",
+        "feed_rate":     "Feed Rate (MT/h)",
+        "ph":            "Flotation pH",
+        "sipx":          "SIPX Dose (g/t)",
+        "frother":       "Frother Dose (g/t)",
+        "depressant":    "Depressant Dose (g/t)",
+        "pulp_density":  "Conc. Mass Pull (%)",
+        "air_flow":      "Grinding kWh",
+        "particle_size": "Ore Milled (MT)",
+        "rougher_grade": "Concentrate Grade (%Cu)",
+        "water_recovery":"Tails Grade (%Cu)",
+        "lime":          "Lime Bags",
+    }
+    if advanced_features:
+        row = {feat: data.get(
+            next((k for k, v in key_map.items() if v == feat), feat), 0.0
+        ) for feat in advanced_features}
+        return np.array([[row.get(f, 0.0) for f in advanced_features]])
+    # Fallback: use basic 12-feature vector
+    return build_vector(data)
+
+
+def do_predict_quantile(data: dict) -> dict:
+    """Return Q10/Q50/Q90 predictions. Falls back to static CI if models unloaded."""
+    try:
+        if q_model_low and q_model_mid and q_model_high:
+            adv_vec = _build_advanced_vector(data)
+            low  = float(q_model_low.predict(adv_vec)[0])
+            mid  = float(q_model_mid.predict(adv_vec)[0])
+            high = float(q_model_high.predict(adv_vec)[0])
+            return {"q10": round(low, 2), "q50": round(mid, 2), "q90": round(high, 2)}
+    except Exception as exc:
+        log.warning(f"Quantile predict failed: {exc}")
+    # Fallback: use XGB point estimate ± 1.5%
+    mid = do_predict(data, "xgb")
+    return {"q10": round(mid - 1.5, 2), "q50": round(mid, 2), "q90": round(mid + 1.5, 2)}
 
 
 def get_anomaly_score(data: dict) -> float:
@@ -444,7 +565,7 @@ class PredictRequest(BaseModel):
     water_recovery:     float = 72.0
     rougher_grade:      float = 18.0
     rougher_conc_grade: float = 18.0   # alias sent by frontend
-    model:              str   = "xgb"
+    model:              str   = "xgb"   # xgb | rf | linear | lgbm | stack | quantile
 
 
 class OptimizeRequest(BaseModel):
@@ -522,18 +643,22 @@ async def health():
 @app.get("/api/test")
 async def api_test():
     checklist = {
-        "xgb_model":     xgb_model  is not None,
-        "rf_model":      rf_model   is not None,
-        "linear_model":  lin_model  is not None,
-        "scaler":        scaler     is not None,
-        "iso_forest":    iso_forest is not None,
-        "dataset_loaded": df_shifts is not None,
-        "dataset_rows":  len(df_shifts) if df_shifts is not None else 0,
-        "engine1_reagent": "engine1_reagent" in engines_found,
-        "engine2_anomaly": "engine2_anomaly" in engines_found,
-        "engine3_shap":    "engine3_shap"    in engines_found,
-        "engine4_psi":     "engine4_psi"     in engines_found,
-        "engine5_nlp":     "engine5_nlp"     in engines_found,
+        "xgb_model":         xgb_model  is not None,
+        "rf_model":          rf_model   is not None,
+        "linear_model":      lin_model  is not None,
+        "scaler":            scaler     is not None,
+        "iso_forest":        iso_forest is not None,
+        # Advanced models
+        "lgbm_model":        lgbm_model   is not None,
+        "stacking_ensemble": stack_model  is not None,
+        "quantile_models":   q_model_mid  is not None,
+        "dataset_loaded":    df_shifts    is not None,
+        "dataset_rows":      len(df_shifts) if df_shifts is not None else 0,
+        "engine1_reagent":   "engine1_reagent" in engines_found,
+        "engine2_anomaly":   "engine2_anomaly" in engines_found,
+        "engine3_shap":      "engine3_shap"    in engines_found,
+        "engine4_psi":       "engine4_psi"     in engines_found,
+        "engine5_nlp":       "engine5_nlp"     in engines_found,
         "anthropic_api_key_set": bool(ANTHROPIC_API_KEY),
         "models_dir_exists":     MODELS_DIR.exists(),
         "data_file_exists":      DATA_FILE.exists(),
@@ -557,8 +682,25 @@ async def predict(req: PredictRequest, db: Session = Depends(get_db)):
     try:
         data = req.dict()
         data["rougher_grade"] = req.rougher_conc_grade or req.rougher_grade
-        pred = do_predict(data, req.model)
-        ci_half = 2.0 if req.model != "linear" else 4.0
+
+        # If quantile model requested, return full band
+        if req.model == "quantile":
+            q = do_predict_quantile(data)
+            pred     = q["q50"]
+            ci_lower = q["q10"]
+            ci_upper = q["q90"]
+        else:
+            pred = do_predict(data, req.model)
+            # CI: use real quantile band if available, else static ±
+            if q_model_low and q_model_mid and q_model_high:
+                q = do_predict_quantile(data)
+                ci_lower = q["q10"]
+                ci_upper = q["q90"]
+            else:
+                ci_half  = 2.0 if req.model != "linear" else 4.0
+                ci_lower = round(pred - ci_half, 2)
+                ci_upper = round(pred + ci_half, 2)
+
         anom_score  = get_anomaly_score(data)
         anom_result = classify_severity(anom_score)
 
@@ -572,11 +714,14 @@ async def predict(req: PredictRequest, db: Session = Depends(get_db)):
         except Exception:
             shap5 = mock_shap_top5(data)
 
+        model_info = MODEL_REGISTRY.get(req.model, {})
         response = {
             "predicted_recovery": round(pred, 2),
-            "ci_lower":           round(pred - ci_half, 2),
-            "ci_upper":           round(pred + ci_half, 2),
+            "ci_lower":           round(ci_lower, 2),
+            "ci_upper":           round(ci_upper, 2),
             "model_used":         req.model,
+            "model_name":         model_info.get("name", req.model),
+            "model_r2":           model_info.get("r2"),
             "anomaly_score":      anom_score,
             "anomaly_result":     anom_result,
             "anomaly":            {"label": "NORMAL" if anom_result == "Normal" else "ANOMALY", "score": anom_score, "is_anomaly": anom_result != "Normal"},
@@ -589,6 +734,63 @@ async def predict(req: PredictRequest, db: Session = Depends(get_db)):
         return response
     except Exception as exc:
         log.error(f"/predict error: {exc}")
+        return JSONResponse(status_code=500, content={"error": str(exc)})
+
+
+# ── GET /api/models ──────────────────────────────────────────────────
+@app.get("/api/models")
+async def get_models():
+    """Returns registry of all available models with their performance metrics."""
+    loaded = {
+        "xgb":      xgb_model    is not None,
+        "rf":       rf_model     is not None,
+        "linear":   lin_model    is not None,
+        "lgbm":     lgbm_model   is not None,
+        "stack":    stack_model  is not None,
+        "quantile": q_model_mid  is not None,
+    }
+    registry = []
+    for key, info in MODEL_REGISTRY.items():
+        registry.append({
+            "id":      key,
+            "name":    info["name"],
+            "type":    info["type"],
+            "r2":      info.get("r2"),
+            "rmse":    info.get("rmse"),
+            "mae":     info.get("mae"),
+            "loaded":  loaded.get(key, False),
+            **({"coverage": info["coverage"], "avg_width": info["avg_width"]}
+               if info["type"] == "quantile" else {}),
+        })
+    return {
+        "models":         registry,
+        "best_r2_model":  "stack",
+        "recommended":    "stack",
+        "total_loaded":   sum(loaded.values()),
+    }
+
+
+# ── POST /api/predict/quantile ───────────────────────────────────────
+@app.post("/api/predict/quantile")
+async def predict_quantile(req: PredictRequest):
+    """Returns Q10/Q50/Q90 prediction band for operator confidence intervals."""
+    try:
+        data = req.dict()
+        data["rougher_grade"] = req.rougher_conc_grade or req.rougher_grade
+        q = do_predict_quantile(data)
+        return {
+            "q10":                q["q10"],
+            "q50":                q["q50"],
+            "q90":                q["q90"],
+            "predicted_recovery": q["q50"],
+            "ci_lower":           q["q10"],
+            "ci_upper":           q["q90"],
+            "band_width":         round(q["q90"] - q["q10"], 2),
+            "model_used":         "quantile",
+            "note":               "Q10/Q50/Q90 = 10th/50th/90th percentile of predicted recovery",
+        }
+    except Exception as exc:
+        log.error(f"/api/predict/quantile error: {exc}")
         return JSONResponse(status_code=500, content={"error": str(exc)})
 
 
@@ -827,7 +1029,7 @@ async def report(req: ReportRequest):
                 import engine5_nlp
                 reply = engine5_nlp.chat(
                     req.message, req.history or [],
-                    api_key=os.getenv("GROQ_API_KEY", ANTHROPIC_API_KEY)
+                    api_key=GROQ_API_KEY
                 )
             except Exception:
                 if ANTHROPIC_API_KEY:

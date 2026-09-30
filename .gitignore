@@ -8,8 +8,9 @@ venv/
 
 recovai.db
 
-*.pkl
-recovai_output/*.pkl
+# Keep trained models for cloud deployment
+!models/*.pkl
+!recovai_output/*.pkl
 
 .ipynb_checkpoints/
 

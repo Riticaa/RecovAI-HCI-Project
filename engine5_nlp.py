@@ -75,7 +75,7 @@ class ShiftReportGenerator:
     def __init__(
         self,
         api_key: Optional[str] = None,
-        model: str = "llama-3.1-8b-instant",
+        model: str = "qwen/qwen3.8-27b",
         max_tokens: int = 400,
     ):
         key = api_key or os.environ.get("GROQ_API_KEY", "")
