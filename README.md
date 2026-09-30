@@ -347,13 +347,7 @@ Key input features include: Ore Milled (MT), Head Grade (%Cu), Feed Rate (MT/h),
 
 ---
 
-## 👥 Team
-
-
-
-- Bhavya Jaiprakash Khatri
-- Diksha Damahe
-- Hiya Porwal
+## 👥 Owner
 - Ritica Awasthi
 
 **Institution:** VIT Bhopal University  
